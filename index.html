@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Yamnath Poudel - Science Teacher, Author & Educational Innovator. President, Science Teachers' Association of Nepal, Lumbini Province."/>
+<title>Yamnath Poudel — Science Educator & Author</title>
+<link rel="icon" type="image/png" href="images/pp1.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0a0f1e;
+  --navy:#0d1b3e;
+  --navy2:#122050;
+  --gold:#c8a84b;
+  --gold2:#e2c46a;
+  --cream:#f7f2ea;
+  --cream2:#efe8d8;
+  --slate:#4a5568;
+  --mist:#8896a5;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#0a0f1e}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:2px;z-index:9999;width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .05s linear}
+
+/* ══ NAV ══ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:60px;
+  display:flex;align-items:center;
+  gap:1.5rem;
+  padding:0 clamp(1rem,3vw,3rem);
+  transition:background .3s,border-color .3s;
+}
+#nav.scrolled{
+  background:rgba(10,15,30,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,168,75,.18);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:.5rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:700;color:var(--gold2);
+  white-space:nowrap;flex-shrink:0;
+}
+.nav-logo img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(200,168,75,.4)}
+.nav-logo em{font-weight:300;font-style:italic;color:rgba(255,255,255,.6)}
+
+/* centre links take all remaining space */
+.nav-links{
+  display:flex;align-items:center;list-style:none;
+  gap:clamp(.5rem,1.3vw,1.4rem);
+  flex:1;justify-content:center;
+}
+.nav-links a{
+  color:rgba(255,255,255,.58);font-size:.75rem;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;
+  position:relative;transition:color .2s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;
+  width:0;height:1px;background:var(--gold);
+  transition:width .25s var(--ease);
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  flex-shrink:0;
+  display:inline-block;
+  background:transparent;
+  border:1px solid rgba(200,168,75,.45);
+  color:var(--gold);
+  padding:6px 16px;border-radius:3px;
+  font-size:.73rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  white-space:nowrap;transition:all .2s;
+}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+
+/* hamburger — hidden on desktop */
+.hbtn{
+  display:none;flex-direction:column;gap:5px;
+  cursor:pointer;padding:5px;background:none;border:none;flex-shrink:0;
+}
+.hbtn span{width:22px;height:1.5px;background:rgba(255,255,255,.8);display:block;transition:all .28s}
+.hbtn.open span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}
+.hbtn.open span:nth-child(2){opacity:0}
+.hbtn.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}
+
+/* fullscreen mobile menu */
+#mob{
+  position:fixed;inset:0;background:var(--ink);z-index:999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;
+  transform:translateX(100%);transition:transform .42s var(--ease);
+}
+#mob.open{transform:translateX(0)}
+#mob a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;
+  color:rgba(255,255,255,.7);transition:color .2s}
+#mob a:hover{color:var(--gold)}
+
+/* ══ HERO — TRUE SPLIT LAYOUT ══ */
+#home{
+  min-height:100vh;
+  background:var(--ink);
+  display:grid;
+  grid-template-columns:1fr minmax(240px,38%);
+  grid-template-rows:1fr;
+  padding-top:60px;   /* nav height */
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 55% at 35% 50%,rgba(200,168,75,.07) 0%,transparent 60%),
+    radial-gradient(ellipse 30% 40% at 5% 90%,rgba(13,27,62,.6) 0%,transparent 55%);
+}
+.hero-dots{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.dot{position:absolute;border-radius:50%;background:var(--gold);animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(0)}15%{opacity:.4}85%{opacity:.1}100%{opacity:0;transform:translateY(-80px) scale(1.5)}}
+
+/* left text col */
+.hleft{
+  display:flex;align-items:center;
+  padding:clamp(2rem,5vw,4rem) clamp(1.2rem,4vw,4rem);
+  position:relative;z-index:2;
+  min-width:0;
+}
+.hcopy{width:100%;max-width:520px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-bottom:1.4rem;
+  animation:su .7s .05s var(--ease) both;
+}
+.edot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.etxt{font-size:.69rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);font-weight:600}
+.hname{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.6rem,5.5vw,5rem);
+  font-weight:700;line-height:.95;color:#fff;
+  margin-bottom:1.3rem;
+  animation:su .7s .12s var(--ease) both;
+}
+.hname .alt{
+  display:block;margin-left:clamp(.6rem,2vw,2.5rem);
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hdesc{
+  font-size:clamp(.83rem,1.2vw,.93rem);color:rgba(255,255,255,.5);
+  line-height:1.85;max-width:420px;margin-bottom:.85rem;
+  animation:su .7s .2s var(--ease) both;
+}
+.hbadge{
+  display:inline-flex;align-items:flex-start;gap:.4rem;
+  background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.22);
+  padding:6px 12px;border-radius:2px;margin-bottom:2rem;
+  animation:su .7s .28s var(--ease) both;
+}
+.hbadge span{font-size:.7rem;color:var(--gold2);line-height:1.5}
+.hbtns{display:flex;gap:.75rem;flex-wrap:wrap;animation:su .7s .36s var(--ease) both}
+.bp{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:var(--gold);color:var(--ink);padding:11px 22px;border-radius:3px;
+  font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+  border:2px solid var(--gold);transition:all .22s var(--ease);
+}
+.bp:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 22px rgba(200,168,75,.28)}
+.bg{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:transparent;color:rgba(255,255,255,.68);padding:11px 22px;border-radius:3px;
+  font-weight:500;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+  border:2px solid rgba(255,255,255,.18);transition:all .22s var(--ease);
+}
+.bg:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* scroll hint */
+.scrl{
+  position:absolute;bottom:1.6rem;left:clamp(1.2rem,4vw,4rem);z-index:2;
+  display:flex;align-items:center;gap:.55rem;
+  color:rgba(255,255,255,.26);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;
+  animation:su .7s .7s var(--ease) both;
+}
+.smou{width:18px;height:28px;border:1.5px solid rgba(255,255,255,.18);border-radius:9px;display:flex;justify-content:center;padding-top:4px}
+.swhe{width:2px;height:5px;background:var(--gold);border-radius:1px;animation:wh 1.8s ease-in-out infinite}
+@keyframes wh{0%{transform:translateY(0);opacity:1}100%{transform:translateY(9px);opacity:0}}
+
+/* right photo col */
+.hright{
+  position:relative;overflow:hidden;
+  background:linear-gradient(150deg,rgba(13,32,80,.7),rgba(18,44,100,.3));
+  border-left:1px solid rgba(200,168,75,.1);
+  animation:su .85s .25s var(--ease) both;
+}
+.hright img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;opacity:.9;
+}
+.hright::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to right,rgba(10,15,30,.5) 0%,transparent 30%,transparent 70%,rgba(10,15,30,.15) 100%),
+    linear-gradient(to bottom,rgba(10,15,30,.1) 0%,transparent 30%,transparent 65%,rgba(10,15,30,.7) 100%);
+}
+/* floating badges inside photo */
+.pbadge{
+  position:absolute;z-index:3;
+  background:rgba(10,15,30,.9);
+  border:1px solid rgba(200,168,75,.28);
+  border-radius:8px;padding:.5rem .85rem;
+  backdrop-filter:blur(8px);
+}
+.pbadge.b1{top:clamp(1rem,5%,2rem);right:clamp(.7rem,5%,1.5rem);animation:bob 3s ease-in-out infinite}
+.pbadge.b2{bottom:clamp(4rem,12%,5rem);right:clamp(.7rem,5%,1.5rem);animation:bob 3s 1.4s ease-in-out infinite}
+.pbadge p{font-size:.68rem;font-weight:700;color:var(--gold2);white-space:nowrap}
+.pbadge span{font-size:.6rem;color:rgba(255,255,255,.38)}
+.pname{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:1rem 1.2rem;
+  background:linear-gradient(transparent,rgba(10,15,30,.88));
+}
+.pname strong{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--gold2)}
+.pname span{display:block;font-size:.64rem;color:rgba(255,255,255,.38);letter-spacing:.06em;margin-top:.12rem}
+
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes su{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══ STATS RIBBON ══ */
+.stats-ribbon{
+  background:var(--gold);
+  padding:clamp(1.1rem,2.2vw,1.8rem) clamp(1rem,5vw,5rem);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;
+  position:relative;overflow:hidden;
+}
+.stats-ribbon::before{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 16px,rgba(255,255,255,.04) 16px,rgba(255,255,255,.04) 17px)}
+.sb{text-align:center;position:relative;z-index:1;padding:.2rem 0}
+.sb+.sb::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:rgba(10,15,30,.16)}
+.sn{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:700;color:var(--ink);line-height:1;display:block}
+.sl{font-size:clamp(.56rem,.9vw,.68rem);color:rgba(10,15,30,.55);text-transform:uppercase;letter-spacing:.09em;margin-top:.22rem;line-height:1.4}
+
+/* ══ SHARED ══ */
+.sec{padding:clamp(3rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem)}
+.kicker{font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  color:var(--gold);display:flex;align-items:center;gap:.55rem;margin-bottom:.6rem}
+.kicker::before{content:'';width:20px;height:1px;background:var(--gold);flex-shrink:0}
+.kicker.lt{color:var(--gold2)}.kicker.lt::before{background:var(--gold2)}
+.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3.2vw,2.6rem);
+  font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:1.1rem}
+.sh em{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal}
+.sh.lt{color:#fff}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .58s var(--ease),transform .58s var(--ease)}
+.rv.fl{transform:translateX(-22px)}.rv.fr{transform:translateX(22px)}
+.rv.vis{opacity:1;transform:none}
+
+/* ══ ABOUT ══ */
+#about{background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.about-visual{position:relative}
+.about-ghost{position:absolute;top:-1.5rem;left:-.8rem;font-family:'Cormorant Garamond',serif;
+  font-size:clamp(5rem,11vw,9.5rem);font-weight:700;color:transparent;
+  -webkit-text-stroke:1px rgba(200,168,75,.11);line-height:.85;pointer-events:none;user-select:none;z-index:0}
+.about-card{position:relative;z-index:1;background:var(--navy);border-radius:8px;overflow:hidden;box-shadow:0 14px 40px rgba(13,27,62,.18)}
+.ac-head{background:linear-gradient(135deg,var(--navy2),#0d2048);padding:1.3rem 1.7rem;
+  border-bottom:1px solid rgba(200,168,75,.1);display:flex;align-items:center;gap:.85rem}
+.ac-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(200,168,75,.32);flex-shrink:0}
+.ac-head h3{font-family:'Cormorant Garamond',serif;font-size:1.12rem;color:var(--gold2)}
+.ac-head p{font-size:.7rem;color:rgba(255,255,255,.36);margin-top:.1rem}
+.ac-tl{padding:1rem 1.7rem 1.3rem}
+.tl{display:flex;gap:.75rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.tl:last-child{border-bottom:none}
+.tldot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--gold);margin-top:5px;box-shadow:0 0 0 2px rgba(200,168,75,.18)}
+.tl p{font-size:.8rem;color:rgba(255,255,255,.58);line-height:1.5}
+.tl span{font-size:.67rem;color:rgba(200,168,75,.45);display:block;margin-top:.15rem}
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
+.mc{background:#fff;border-radius:6px;padding:.85rem 1rem;border:1px solid rgba(200,168,75,.1);transition:transform .24s var(--ease)}
+.mc:hover{transform:translateY(-3px)}
+.mc strong{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;color:var(--navy);display:block}
+.mc small{font-size:.64rem;color:var(--mist);text-transform:uppercase;letter-spacing:.08em}
+.about-txt p{font-size:clamp(.83rem,1.2vw,.92rem);color:var(--slate);line-height:1.85;margin-bottom:.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:.48rem;margin-top:1.2rem}
+.tag{background:var(--cream2);border:1px solid rgba(200,168,75,.2);color:var(--navy);
+  font-size:.69rem;font-weight:600;padding:4px 11px;border-radius:2px;letter-spacing:.04em;transition:all .18s;cursor:default}
+.tag:hover{background:var(--gold);border-color:var(--gold)}
+
+/* ══ ACHIEVEMENTS ══ */
+#achievements{background:var(--ink);padding:clamp(3rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem);position:relative;overflow:hidden}
+#achievements::before{content:'';position:absolute;top:-160px;right:-160px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(200,168,75,.06) 0%,transparent 70%);pointer-events:none}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.9rem}
+.bc{border-radius:9px;padding:1.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  transition:all .28s var(--ease);position:relative;overflow:hidden}
+.bc::before{content:'';position:absolute;top:0;left:1.5rem;right:1.5rem;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(200,168,75,.45),transparent);opacity:0;transition:opacity .28s}
+.bc:hover{border-color:rgba(200,168,75,.22);transform:translateY(-4px);background:rgba(255,255,255,.05)}
+.bc:hover::before{opacity:1}
+.bc.wide{grid-column:span 2}
+.bi{width:38px;height:38px;border-radius:8px;background:rgba(200,168,75,.1);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:.9rem}
+.bc h3{font-family:'Cormorant Garamond',serif;font-size:1.08rem;color:#fff;margin-bottom:.48rem}
+.bc p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7}
+.bstat{margin-top:.85rem;font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--gold)}
+.bstat small{font-size:.73rem;color:rgba(255,255,255,.28);font-family:'Outfit',sans-serif;font-weight:400}
+
+/* ══ BOOKS — compact card grid ══ */
+#books{background:var(--cream2)}
+.books-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+  margin-top:1.9rem;
+}
+.bk{
+  background:#fff;border-radius:8px;overflow:hidden;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+  border:1px solid rgba(200,168,75,.1);
+  display:flex;flex-direction:column;
+  transition:transform .28s var(--ease),box-shadow .28s;
+}
+.bk:hover{transform:translateY(-5px);box-shadow:0 14px 38px rgba(0,0,0,.13)}
+
+/* Book cover — landscape crop, not too tall */
+.bk-cover{
+  width:100%;
+  height:160px;      /* fixed pixel height — compact */
+  overflow:hidden;
+  flex-shrink:0;
+  position:relative;
+}
+.bk-cover img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  transition:transform .42s var(--ease);
+}
+.bk:hover .bk-cover img{transform:scale(1.06)}
+
+/* body */
+.bk-body{padding:1rem 1.1rem 1.2rem;flex:1;display:flex;flex-direction:column;gap:.35rem}
+.bk-class{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.bk-body h3{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--navy);line-height:1.32;font-weight:700}
+.bk-body p{font-size:.76rem;color:var(--slate);line-height:1.58;flex:1}
+.bk-lnk{
+  display:inline-flex;align-items:center;gap:.28rem;
+  margin-top:.6rem;
+  font-size:.7rem;font-weight:700;color:var(--gold);
+  letter-spacing:.05em;text-transform:uppercase;
+  transition:gap .18s;align-self:flex-start;
+}
+.bk-lnk:hover{gap:.5rem}
+
+/* ══ TRAINING ══ */
+#training{background:var(--navy);padding:clamp(3rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem);position:relative;overflow:hidden}
+#training::after{content:'TRAINING';position:absolute;right:-.5rem;top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:700;
+  color:rgba(255,255,255,.022);pointer-events:none;letter-spacing:.2em;white-space:nowrap}
+.tg{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(1.4rem,4vw,3.5rem);align-items:start;margin-top:1.9rem}
+.ttabs{display:flex;flex-direction:column;gap:.48rem}
+.ttab{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.1rem;
+  border-radius:6px;border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .24s var(--ease)}
+.ttab:hover,.ttab.on{background:rgba(200,168,75,.08);border-color:rgba(200,168,75,.25)}
+.tn{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;
+  color:rgba(200,168,75,.2);transition:color .24s;min-width:1.4rem}
+.ttab.on .tn,.ttab:hover .tn{color:var(--gold)}
+.tt{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.36);transition:color .24s}
+.ttab.on .tt,.ttab:hover .tt{color:#fff}
+.tarr{margin-left:auto;color:transparent;font-size:.8rem;transition:color .24s}
+.ttab.on .tarr{color:var(--gold)}
+.tpanels{position:relative;min-height:190px}
+.tpanel{position:absolute;top:0;left:0;right:0;opacity:0;transform:translateY(12px);
+  transition:all .34s var(--ease);pointer-events:none}
+.tpanel.on{position:relative;opacity:1;transform:translateY(0);pointer-events:auto}
+.tpanel h3{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:#fff;margin-bottom:.7rem}
+.tpanel p{font-size:.85rem;color:rgba(255,255,255,.44);line-height:1.8;margin-bottom:1.1rem}
+.ptags{display:flex;flex-wrap:wrap;gap:.38rem}
+.ptag{font-size:.67rem;color:var(--gold);background:rgba(200,168,75,.1);
+  border:1px solid rgba(200,168,75,.18);padding:3px 9px;border-radius:2px;letter-spacing:.04em}
+
+/* ══ CONTACT ══ */
+#contact{background:var(--ink);padding:clamp(3rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem);position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;top:-200px;left:-200px;width:480px;height:480px;
+  background:radial-gradient(circle,rgba(200,168,75,.05) 0%,transparent 65%);pointer-events:none}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,4vw,4.5rem);align-items:start;position:relative;z-index:1}
+.ccards{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem}
+.ccard{display:flex;align-items:center;gap:.95rem;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;padding:.95rem 1.2rem;transition:all .22s}
+.ccard:hover{border-color:rgba(200,168,75,.26);background:rgba(200,168,75,.05);transform:translateX(4px)}
+.cico{width:36px;height:36px;min-width:36px;border-radius:7px;background:rgba(200,168,75,.1);
+  display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.ctxt h4{font-size:.62rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.16rem}
+.ctxt a,.ctxt p{font-size:.84rem;color:rgba(255,255,255,.6);transition:color .18s}
+.ctxt a:hover{color:var(--gold)}
+.socs{display:flex;gap:.6rem;margin-top:1.4rem;flex-wrap:wrap}
+.soc{width:36px;height:36px;border-radius:7px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.4);font-size:.78rem;font-weight:700;transition:all .2s}
+.soc:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.cright{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.9rem}
+.cright h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold2);margin-bottom:.75rem}
+.cright p{font-size:.81rem;color:rgba(255,255,255,.36);line-height:1.8;margin-bottom:1.2rem}
+.qlg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.ql{display:flex;align-items:center;gap:.42rem;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:.68rem .9rem;
+  color:rgba(255,255,255,.46);font-size:.76rem;transition:all .18s}
+.ql:hover{background:rgba(200,168,75,.08);border-color:rgba(200,168,75,.2);color:var(--gold2)}
+
+/* ══ FOOTER ══ */
+footer{background:#050810;padding:clamp(1.5rem,3vw,2.4rem) clamp(1.2rem,5vw,5rem);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.1rem;
+  border-top:1px solid rgba(200,168,75,.1)}
+.fbrand{display:flex;align-items:center;gap:.6rem;
+  font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:700;color:var(--gold2)}
+.fbrand img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid rgba(200,168,75,.3)}
+.fbrand small{display:block;font-family:'Outfit',sans-serif;font-size:.62rem;color:rgba(255,255,255,.24);
+  font-weight:400;letter-spacing:.08em;text-transform:uppercase;margin-top:.1rem}
+.fnav{display:flex;gap:1.3rem;flex-wrap:wrap}
+.fnav a{font-size:.7rem;color:rgba(255,255,255,.24);letter-spacing:.06em;text-transform:uppercase;transition:color .18s}
+.fnav a:hover{color:var(--gold)}
+.fcopy{font-size:.66rem;color:rgba(255,255,255,.17)}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:900px){
+  /* nav: hide links, show hamburger */
+  .nav-links{display:none}
+  .hbtn{display:flex}
+  /* hero: stack vertically */
+  #home{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    min-height:auto;
+  }
+  .hleft{padding:clamp(1.8rem,4vw,3rem) clamp(1.2rem,4vw,2.5rem) 1.5rem}
+  .hcopy{max-width:100%}
+  .hright{
+    width:100%;height:clamp(260px,48vw,360px);
+    border-left:none;border-top:1px solid rgba(200,168,75,.08);
+  }
+  .hright img{object-position:center 15%}
+  .pbadge.b1{top:1rem;right:1rem}
+  .pbadge.b2{bottom:3.5rem;right:1rem}
+  .scrl{display:none}
+  /* sections */
+  #about{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .bc.wide{grid-column:span 2}
+  .books-grid{grid-template-columns:1fr 1fr}
+  .tg{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}
+  .stats-ribbon{grid-template-columns:repeat(2,1fr)}
+  #training::after{display:none}
+}
+@media(max-width:500px){
+  .bento{grid-template-columns:1fr}
+  .bc.wide{grid-column:span 1}
+  .books-grid{grid-template-columns:1fr}
+  .stats-ribbon{grid-template-columns:1fr 1fr}
+  .qlg{grid-template-columns:1fr}
+  .mini-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;align-items:flex-start}
+  .fnav{gap:.8rem}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- Mobile overlay -->
+<div id="mob">
+  <a href="#home" onclick="closeMob()">Home</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#achievements" onclick="closeMob()">Achievements</a>
+  <a href="#books" onclick="closeMob()">Books</a>
+  <a href="#training" onclick="closeMob()">Training</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a class="nav-logo" href="#home">
+    <img src="images/pp1.png" alt="YNP" loading="lazy"/>
+    Yamnath <em>Poudel</em>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#training">Training</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Contact</a>
+  <button class="hbtn" id="hbtn" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-dots" id="dots"></div>
+
+  <!-- LEFT: text -->
+  <div class="hleft">
+    <div class="hcopy">
+      <div class="eyebrow">
+        <div class="edot"></div>
+        <span class="etxt">Science Teacher · Author · Innovator</span>
+      </div>
+      <h1 class="hname">
+        Yamnath
+        <span class="alt">Poudel</span>
+      </h1>
+      <p class="hdesc">Dedicated to revolutionizing science education in Nepal through 25+ years of innovative teaching, published books, and teacher training programs.</p>
+      <div class="hbadge">
+        <span>🏛 President, Science Teachers' Association of Nepal — Lumbini Province</span>
+      </div>
+      <div class="hbtns">
+        <a href="#books" class="bp">View My Books ↓</a>
+        <a href="#contact" class="bg">Get In Touch →</a>
+      </div>
+    </div>
+    <div class="scrl">
+      <div class="smou"><div class="swhe"></div></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: photo panel -->
+  <div class="hright">
+    <img src="images/dad1.jpg" alt="Yamnath Poudel" loading="eager"/>
+    <div class="pbadge b1">
+      <p>25+ Years</p>
+      <span>Teaching Experience</span>
+    </div>
+    <div class="pbadge b2">
+      <p>10+ Books</p>
+      <span>Published</span>
+    </div>
+    <div class="pname">
+      <strong>Yamnath Poudel</strong>
+      <span>Science Educator · Nepal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-ribbon">
+  <div class="sb">
+    <span class="sn" data-c="25" data-s="+">0</span>
+    <div class="sl">Years Teaching<br>Experience</div>
+  </div>
+  <div class="sb">
+    <span class="sn" data-c="10000" data-s="+">0</span>
+    <div class="sl">Students<br>Impacted</div>
+  </div>
+  <div class="sb">
+    <span class="sn" data-c="15" data-s="+">0</span>
+    <div class="sl">Awards<br>Received</div>
+  </div>
+  <div class="sb">
+    <span class="sn" data-c="10" data-s="+">0</span>
+    <div class="sl">Books<br>Published</div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="sec">
+  <div class="about-visual rv fl">
+    <div class="about-ghost">YP</div>
+    <div class="about-card">
+      <div class="ac-head">
+        <img class="ac-img" src="images/dad1.jpg" alt="Yamnath Poudel"/>
+        <div>
+          <h3>Yamnath Poudel</h3>
+          <p>Science Educator · Author · Nepal</p>
+        </div>
+      </div>
+      <div class="ac-tl">
+        <div class="tl"><div class="tldot"></div><div><p>President, Science Teachers' Association of Nepal</p><span>Lumbini Province · Present</span></div></div>
+        <div class="tl"><div class="tldot"></div><div><p>Science Teacher — Secondary Level</p><span>Government School · 25+ Years</span></div></div>
+        <div class="tl"><div class="tldot"></div><div><p>Author — Science Textbooks & Lab Manuals</p><span>Trinity Prakashan Pvt. Ltd.</span></div></div>
+        <div class="tl"><div class="tldot"></div><div><p>National Curriculum Contributor</p><span>Ministry of Education, Nepal</span></div></div>
+      </div>
+    </div>
+    <div class="mini-grid">
+      <div class="mc rv"><strong>50+</strong><small>Schools Reached</small></div>
+      <div class="mc rv"><strong>100+</strong><small>Workshops Led</small></div>
+      <div class="mc rv"><strong>2k+</strong><small>Teachers Trained</small></div>
+      <div class="mc rv"><strong>73</strong><small>Research Citations</small></div>
+    </div>
+  </div>
+
+  <div class="about-txt rv fr">
+    <div class="kicker">About Me</div>
+    <h2 class="sh">Shaping Nepal's <em>Scientific Future</em></h2>
+    <p>As a dedicated science educator and educational innovator, I am committed to revolutionizing science education in Nepal through modern technology and innovative teaching methodologies.</p>
+    <p>With over 25 years of experience, I have led initiatives that bridge the gap between traditional teaching and contemporary learning. As President of the Science Teachers' Association — Lumbini Province, I work to elevate the standard of science education nationwide.</p>
+    <p>My approach combines hands-on experimentation, digital learning tools, and real-world applications to make science engaging and accessible to every student across Nepal.</p>
+    <div class="tags">
+      <span class="tag">Science Education</span>
+      <span class="tag">Author</span>
+      <span class="tag">EdTech Pioneer</span>
+      <span class="tag">Teacher Trainer</span>
+      <span class="tag">Curriculum Design</span>
+      <span class="tag">STEM Advocate</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ACHIEVEMENTS ══ -->
+<section id="achievements">
+  <div class="rv">
+    <div class="kicker lt">Impact & Achievements</div>
+    <h2 class="sh lt">A Legacy of <em>Educational Excellence</em></h2>
+  </div>
+  <div class="bento">
+    <div class="bc wide rv">
+      <div class="bi">🏫</div>
+      <h3>Educational Innovation</h3>
+      <p>Pioneered digital learning tools across 50+ schools in Nepal, transforming classrooms into modern science learning hubs connected to the global scientific community.</p>
+      <div class="bstat">50+ <small>schools transformed</small></div>
+    </div>
+    <div class="bc rv">
+      <div class="bi">🏆</div>
+      <h3>National Recognition</h3>
+      <p>Recipient of multiple national awards for excellence in science education and contributions to Nepal's educational reform.</p>
+      <div class="bstat">15+ <small>awards</small></div>
+    </div>
+    <div class="bc rv">
+      <div class="bi">👩‍🏫</div>
+      <h3>Teacher Training</h3>
+      <p>Conducted 100+ workshops training over 2,000 teachers in modern methodologies across Lumbini Province.</p>
+      <div class="bstat">2k+ <small>teachers trained</small></div>
+    </div>
+    <div class="bc rv">
+      <div class="bi">💻</div>
+      <h3>Digital Transformation</h3>
+      <p>Built online learning platforms that reached 10,000+ students during the pandemic ensuring no child was left behind.</p>
+      <div class="bstat">10k+ <small>students reached</small></div>
+    </div>
+    <div class="bc wide rv">
+      <div class="bi">🌐</div>
+      <h3>Research & International Contributions</h3>
+      <p>Published research cited 73+ times, influencing STEM education policy across South Asia. Studies have informed curriculum design in multiple developing nations and recognised by international science education bodies.</p>
+      <div class="bstat">73 <small>research citations</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOOKS ══ -->
+<section id="books" class="sec">
+  <div class="rv">
+    <div class="kicker">Published Works</div>
+    <h2 class="sh">Books & <em>Lab Manuals</em></h2>
+  </div>
+  <div class="books-grid">
+    <div class="bk rv">
+      <div class="bk-cover">
+        <img src="images/book10.jpg" alt="Saral Vigyan Class 10" loading="lazy"/>
+      </div>
+      <div class="bk-body">
+        <div class="bk-class">Class 10 · SEE</div>
+        <h3>Saral Vigyan — Manual tatha Abhyas Pustak</h3>
+        <p>Comprehensive SEE guide covering all labs, practicals and model questions. 6th Edition — Trinity Prakashan.</p>
+        <a href="#" class="bk-lnk">Learn More →</a>
+      </div>
+    </div>
+    <div class="bk rv">
+      <div class="bk-cover">
+        <img src="images/book9.jpg" alt="Saral Vigyan Class 9" loading="lazy"/>
+      </div>
+      <div class="bk-body">
+        <div class="bk-class">Class 9 · Science</div>
+        <h3>Saral Vigyan — Manual tatha Abhyas Pustak</h3>
+        <p>Hands-on practice materials and experiments aligned with the national curriculum across all 7 provinces.</p>
+        <a href="#" class="bk-lnk">Learn More →</a>
+      </div>
+    </div>
+    <div class="bk rv">
+      <div class="bk-cover">
+        <img src="images/book101.jpg" alt="Saral Vigyan SEE" loading="lazy"/>
+      </div>
+      <div class="bk-body">
+        <div class="bk-class">Class 10 · Science & Technology</div>
+        <h3>Saral Vigyan tatha Prabidhi — SEE Manual</h3>
+        <p>Science &amp; Technology SEE manual with detailed experimental guides and model questions. 10th Edition.</p>
+        <a href="#" class="bk-lnk">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRAINING ══ -->
+<section id="training">
+  <div class="rv">
+    <div class="kicker lt">Professional Development</div>
+    <h2 class="sh lt">Training <em>Programs</em></h2>
+  </div>
+  <div class="tg">
+    <div class="ttabs">
+      <div class="ttab on" onclick="setTab(0)"><div class="tn">01</div><div class="tt">Digital Teaching Tools</div><div class="tarr">→</div></div>
+      <div class="ttab" onclick="setTab(1)"><div class="tn">02</div><div class="tt">Practical Lab Training</div><div class="tarr">→</div></div>
+      <div class="ttab" onclick="setTab(2)"><div class="tn">03</div><div class="tt">Interactive Learning</div><div class="tarr">→</div></div>
+      <div class="ttab" onclick="setTab(3)"><div class="tn">04</div><div class="tt">STEM Curriculum Design</div><div class="tarr">→</div></div>
+    </div>
+    <div class="tpanels rv fr">
+      <div class="tpanel on">
+        <h3>Digital Teaching Tools</h3>
+        <p>Master modern educational software, digital whiteboards, LMS platforms, and multimedia tools to create engaging, technology-enhanced science lessons for any classroom in Nepal.</p>
+        <div class="ptags"><span class="ptag">LMS Platforms</span><span class="ptag">Digital Whiteboards</span><span class="ptag">Video Creation</span><span class="ptag">Online Assessment</span></div>
+      </div>
+      <div class="tpanel">
+        <h3>Practical Lab Training</h3>
+        <p>Hands-on experience with modern laboratory equipment, safety protocols, and experimental design for secondary school science teachers to confidently lead practical lessons.</p>
+        <div class="ptags"><span class="ptag">Lab Safety</span><span class="ptag">Equipment Use</span><span class="ptag">Experiment Design</span><span class="ptag">Student Assessment</span></div>
+      </div>
+      <div class="tpanel">
+        <h3>Interactive Learning Strategies</h3>
+        <p>Evidence-based strategies for engaging students in active, inquiry-based learning. Project-based approaches, collaborative models, and formative assessment for Nepal's classrooms.</p>
+        <div class="ptags"><span class="ptag">Inquiry-Based</span><span class="ptag">Collaborative Models</span><span class="ptag">Project-Based</span><span class="ptag">Formative Assessment</span></div>
+      </div>
+      <div class="tpanel">
+        <h3>STEM Curriculum Design</h3>
+        <p>Design and implement STEM-integrated lesson plans aligned with Nepal's national curriculum. Bridging subjects to prepare students for a technology-driven world.</p>
+        <div class="ptags"><span class="ptag">Lesson Planning</span><span class="ptag">Cross-Subject Integration</span><span class="ptag">National Curriculum</span><span class="ptag">Outcome Mapping</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="cgrid">
+    <div>
+      <div class="kicker lt">Get In Touch</div>
+      <h2 class="sh lt">Contact <em>Me</em></h2>
+      <div class="ccards rv">
+        <div class="ccard"><div class="cico">✉️</div><div class="ctxt"><h4>Email</h4><a href="mailto:yamnathpoudelofficial@gmail.com">yamnathpoudelofficial@gmail.com</a></div></div>
+        <div class="ccard"><div class="cico">📞</div><div class="ctxt"><h4>Phone</h4><a href="tel:+9779848024521">+977 9848024521</a></div></div>
+        <div class="ccard"><div class="cico">📍</div><div class="ctxt"><h4>Location</h4><p>Lumbini Province, Nepal</p></div></div>
+      </div>
+      <div class="socs rv">
+        <a href="#" class="soc" title="Facebook">f</a>
+        <a href="#" class="soc" title="Twitter">𝕏</a>
+        <a href="#" class="soc" title="LinkedIn">in</a>
+        <a href="#" class="soc" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="cright rv fr">
+      <h3>Quick Navigation</h3>
+      <p>Explore sections of this website or reach out directly through the contact details.</p>
+      <div class="qlg">
+        <a href="#about" class="ql">👤 About Me</a>
+        <a href="#achievements" class="ql">🏆 Achievements</a>
+        <a href="#books" class="ql">📚 My Books</a>
+        <a href="#training" class="ql">🎓 Training</a>
+        <a href="mailto:yamnathpoudelofficial@gmail.com" class="ql">✉️ Email Me</a>
+        <a href="tel:+9779848024521" class="ql">📞 Call Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="fbrand">
+    <img src="images/pp1.png" alt="YNP"/>
+    <div>Yamnath Poudel<small>Science Educator · Author · Nepal</small></div>
+  </div>
+  <nav class="fnav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#books">Books</a>
+    <a href="#training">Training</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="fcopy">© 2025 Yamnath Poudel. All rights reserved.</div>
+</footer>
+
+<script>
+/* progress */
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;
+  if(h>0)prog.style.width=(s/h*100)+'%';
+},{passive:true});
+
+/* nav scroll */
+const navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>navEl.classList.toggle('scrolled',window.scrollY>50),{passive:true});
+
+/* mobile menu */
+let mo=false;
+function toggleMob(){
+  mo=!mo;
+  document.getElementById('mob').classList.toggle('open',mo);
+  document.getElementById('hbtn').classList.toggle('open',mo);
+  document.body.style.overflow=mo?'hidden':'';
+}
+function closeMob(){if(mo)toggleMob();}
+
+/* floating dots */
+const dc=document.getElementById('dots');
+for(let i=0;i<12;i++){
+  const d=document.createElement('div');d.className='dot';
+  const s=1+Math.random()*2;
+  d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:${Math.random()*30}%;animation-duration:${5+Math.random()*7}s;animation-delay:${Math.random()*6}s;`;
+  dc.appendChild(d);
+}
+
+/* scroll reveal */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('vis'),i*50);
+      ro.unobserve(e.target);
+    }
+  });
+},{threshold:0.07,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* counter */
+function runCount(el){
+  const t=+el.dataset.c,s=el.dataset.s||'',dur=1400,st=performance.now();
+  const upd=now=>{
+    const p=Math.min((now-st)/dur,1),v=Math.round((1-Math.pow(1-p,3))*t);
+    el.textContent=t>=1000?(v>=1000?Math.floor(v/1000)+'k'+s:v+s):v+s;
+    if(p<1)requestAnimationFrame(upd);
+    else el.textContent=t>=1000?t/1000+'k'+s:t+s;
+  };
+  requestAnimationFrame(upd);
+}
+const cr=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('[data-c]').forEach(runCount);cr.unobserve(x.target);}});
+},{threshold:.4});
+const sr=document.querySelector('.stats-ribbon');
+if(sr)cr.observe(sr);
+
+/* training tabs */
+const tabs=document.querySelectorAll('.ttab'),panels=document.querySelectorAll('.tpanel');
+function setTab(i){
+  tabs.forEach(t=>t.classList.remove('on'));
+  panels.forEach(p=>p.classList.remove('on'));
+  tabs[i].classList.add('on');
+  panels[i].classList.add('on');
+}
+</script>
+</body>
+</html>
