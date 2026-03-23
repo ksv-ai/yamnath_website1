@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Useful AI Links | Yam Nath Poudel</title>
-  <meta name="description" content="A curated directory of the most powerful and useful AI tools for teachers, students, and professionals.">
+  <title>Useful Links | Yam Nath Poudel</title>
+  <meta name="description"
+    content="A curated directory of the most powerful and useful AI tools for teachers, students, and professionals.">
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --ink: #050810;
@@ -22,8 +26,17 @@
       --font-serif: 'Cormorant Garamond', serif;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 110%; scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 110%;
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--ink);
       color: var(--white);
@@ -35,7 +48,10 @@
     /* ══ BACKGROUND ══ */
     .bg-glow {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: radial-gradient(circle at 50% -20%, #1a233a 0%, transparent 60%);
       z-index: -1;
       opacity: 0.6;
@@ -216,7 +232,9 @@
     }
 
     @media (max-width: 900px) {
-      .nav-links, .nav-cta {
+
+      .nav-links,
+      .nav-cta {
         display: none;
       }
 
@@ -227,7 +245,11 @@
     }
 
     /* ══ HERO ══ */
-    header { padding: 4rem 5% 2rem; text-align: center; }
+    header {
+      padding: 4rem 5% 2rem;
+      text-align: center;
+    }
+
     h1 {
       font-family: var(--font-serif);
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -237,7 +259,91 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .lead { color: rgba(255, 255, 255, 0.5); max-width: 600px; margin: 0 auto 2rem; }
+
+    .lead {
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ══ SPECIAL LINKS ══ */
+    .special-links {
+      padding: 0 5% 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .sl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .sl-card {
+      background: rgba(15, 20, 35, 0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .sl-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+    }
+
+    .govt-card::before { background: linear-gradient(90deg, #dc143c, #1e90ff); }
+    .sci-card::before { background: linear-gradient(90deg, #32cd32, var(--gold)); }
+
+    .sl-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .sl-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .sl-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .sl-list li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .sl-list li:last-child a {
+      border-bottom: none;
+    }
+
+    .sl-list li a:hover {
+      color: var(--gold);
+      transform: translateX(5px);
+    }
+
+    .sl-list li a::after {
+      content: '↗';
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
 
     /* ══ SEARCH & FILTERS ══ */
     .filter-section {
@@ -245,6 +351,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .search-box {
       width: 100%;
       background: var(--glass);
@@ -257,17 +364,20 @@
       font-family: var(--font-main);
       transition: all 0.3s;
     }
+
     .search-box:focus {
       outline: none;
       border-color: var(--gold);
       background: rgba(255, 255, 255, 0.05);
     }
+
     .filters {
       display: flex;
       gap: 0.8rem;
       flex-wrap: wrap;
       justify-content: center;
     }
+
     .filter-btn {
       background: transparent;
       border: 1px solid var(--glass-border);
@@ -279,7 +389,12 @@
       font-weight: 500;
       transition: all 0.3s;
     }
-    .filter-btn:hover { border-color: var(--gold); color: white; }
+
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: white;
+    }
+
     .filter-btn.active {
       background: var(--gold);
       border-color: var(--gold);
@@ -296,6 +411,7 @@
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .link-card {
       background: var(--card-bg);
       border: 1px solid var(--glass-border);
@@ -309,37 +425,49 @@
       display: flex;
       flex-direction: column;
     }
+
     .link-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(135deg, rgba(200, 168, 75, 0.05) 0%, transparent 100%);
-      opacity: 0; transition: opacity 0.4s;
+      opacity: 0;
+      transition: opacity 0.4s;
     }
+
     .link-card:hover {
       transform: translateY(-8px);
       border-color: rgba(200, 168, 75, 0.3);
       background: rgba(255, 255, 255, 0.04);
     }
-    .link-card:hover::before { opacity: 1; }
+
+    .link-card:hover::before {
+      opacity: 1;
+    }
 
     .link-icon {
       font-size: 2rem;
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 0 8px rgba(200, 168, 75, 0.3));
     }
+
     .link-info h3 {
       font-family: var(--font-serif);
       font-size: 1.4rem;
       margin-bottom: 0.6rem;
       color: var(--gold2);
     }
+
     .link-info p {
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.4);
       margin-bottom: 1.5rem;
       line-height: 1.5;
     }
+
     .link-cat {
       margin-top: auto;
       font-size: 0.65rem;
@@ -361,7 +489,9 @@
       display: none;
     }
 
-      h1 { font-size: 2.2rem; }
+    h1 {
+      font-size: 2.2rem;
+    }
     }
 
     /* ══ FOOTER ══ */
@@ -431,8 +561,13 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      h1 { font-size: 2.2rem; }
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
     }
 
     /* ══ FOOTER ══ */
@@ -590,6 +725,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="bg-glow"></div>
 
@@ -623,12 +759,43 @@
   <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
 
   <header>
-    <h1>Curated <em>AI Links</em></h1>
-    <p class="lead">A handpicked collection of the most powerful AI tools to supercharge your teaching, research, and creative workflows.</p>
+    <h1><em>Useful Links</em> & Tools</h1>
+    <p class="lead">A handpicked collection of the most powerful external resources and curated AI tools to supercharge your teaching and research.</p>
   </header>
 
+  <section class="special-links">
+    <div class="sl-grid">
+      <!-- Govt Links -->
+      <div class="sl-card govt-card">
+        <div class="sl-icon">🇳🇵</div>
+        <h2>Nepal Govt. Portals</h2>
+        <ul class="sl-list">
+          <li><a href="https://moecdc.gov.np/" target="_blank">Curriculum Development Center (CDC)</a></li>
+          <li><a href="http://www.neb.gov.np/" target="_blank">National Examination Board (NEB)</a></li>
+          <li><a href="https://cehrd.gov.np/" target="_blank">Education & HR Development Center</a></li>
+          <li><a href="http://moest.gov.np/" target="_blank">Ministry of Education, Science & Tech</a></li>
+          <li><a href="https://doe.gov.np/" target="_blank">Department of Education</a></li>
+        </ul>
+      </div>
+
+      <!-- Science Links -->
+      <div class="sl-card sci-card">
+        <div class="sl-icon">🔬</div>
+        <h2>Interactive Science Labs</h2>
+        <ul class="sl-list">
+          <li><a href="https://phet.colorado.edu/" target="_blank">PhET Math & Science Simulations</a></li>
+          <li><a href="https://www.olabs.edu.in/" target="_blank">Online Labs (OLabs)</a></li>
+          <li><a href="https://www.circuitlab.com/" target="_blank">Circuit Lab Simulator</a></li>
+          <li><a href="https://makemegenius.com/" target="_blank">Make Me Genius (Animations)</a></li>
+          <li><a href="https://www.arvindguptatoys.com/toys.html" target="_blank">Arvind Gupta Toys (From Trash)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="filter-section">
-    <input type="text" id="searchInput" class="search-box" placeholder="Search tools (e.g. video, images, teachers)..." onkeyup="renderTools()">
+    <input type="text" id="searchInput" class="search-box" placeholder="Search tools (e.g. video, images, teachers)..."
+      onkeyup="renderTools()">
     <div class="filters" id="filters">
       <button class="filter-btn active" onclick="setFilter('all')">All Tools</button>
       <button class="filter-btn" onclick="setFilter('teachers')">For Teachers</button>
@@ -682,8 +849,8 @@
 
     /* Clean URLs (Hides .html from address bar on servers) */
     if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
-        const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
-        window.history.replaceState(null, '', cleanUrl + window.location.search);
+      const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
 
     const tools = [
@@ -784,4 +951,5 @@
     renderTools();
   </script>
 </body>
+
 </html>

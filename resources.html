@@ -566,7 +566,7 @@
       <h1 class="page-title">Digital Library</h1>
 
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for questions, solutions, or slides..."
+        <input type="text" id="searchInput" placeholder="Search for practice question sets, solutions, or slides..."
           onkeyup="filterItems()">
       </div>
 
@@ -574,9 +574,9 @@
         <span class="filter-label">Resource Type</span>
         <div class="filters" id="typeFilters">
           <button class="filter-btn active" onclick="setTypeFilter('all')">All Types</button>
-          <button class="filter-btn" onclick="setTypeFilter('questions')">Questions</button>
+          <button class="filter-btn" onclick="setTypeFilter('practise_questions_sets')">Practice / Question
+            Sets</button>
           <button class="filter-btn" onclick="setTypeFilter('solutions')">Solutions</button>
-          <button class="filter-btn" onclick="setTypeFilter('practice')">Practice</button>
           <button class="filter-btn" onclick="setTypeFilter('slides')">Slides</button>
           <button class="filter-btn" onclick="setTypeFilter('videos')">Videos</button>
         </div>
@@ -651,22 +651,22 @@
      * {
      *   title: "Name of File",
      *   description: "Brief description of what it is",
-     *   category: "questions", // Choose: questions, solutions, practice, slides, videos
+     *   category: "practise_questions_sets", // Choose: questions, solutions, practice, slides, videos
      *   class: "10", // Choose: 10, 9, General
      *   path: "documents/books/filename.pdf", 
-     *   icon: "📕", // Choose: 📕(Book), 📂(Manual), 📝(Practice), 📽️(Slide), 🎬(Video)
+     *   icon: "📝", // Choose: 📕(Book), 📂(Manual), 📝(Practice), 📽️(Slide), 🎬(Video)
      *   size: "1.2 MB"
      * },
      */
     const resources = [
       // Questions
-      { title: "Bagmati Science 2080", description: "SEE Class 10 Bagmati Province Science questions.", category: "questions", class: "10", path: "documents/questions/Bagmati Science 2080.pdf", icon: "📕", size: "1.2 MB" },
-      { title: "Gandaki Science 2080", description: "SEE Class 10 Gandaki Province Science questions.", category: "questions", class: "10", path: "documents/questions/Gandaki Science 2080.pdf", icon: "📕", size: "1.2 MB" },
-      { title: "Karnali Science 2080", description: "SEE Class 10 Karnali Province Science questions.", category: "questions", class: "10", path: "documents/questions/Karnali Science 2080.pdf", icon: "📕", size: "1.2 MB" },
-      { title: "Koshi Science 2080", description: "SEE Class 10 Koshi Province Science questions.", category: "questions", class: "10", path: "documents/questions/Koshi Science 2080.pdf", icon: "📕", size: "1.2 MB" },
-      { title: "Lumbini Science 2080", description: "SEE Class 10 Lumbini Province Science questions.", category: "questions", class: "10", path: "documents/questions/Lumbini Science 2080.pdf", icon: "📕", size: "1.2 MB" },
-      { title: "Madhesh Science 2080", description: "SEE Class 10 Madhesh Province Science questions.", category: "questions", class: "10", path: "documents/questions/Madhesh Science 2080.pdf", icon: "📕", size: "1.2 MB" },
-      { title: "Sudur Pashchim Science 2080", description: "SEE Class 10 Sudur Pashchim Province Science questions.", category: "questions", class: "10", path: "documents/questions/Sudur Pashchim Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Bagmati Science 2080", description: "SEE Class 10 Bagmati Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Bagmati Science 2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Gandaki Science 2080", description: "SEE Class 10 Gandaki Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Gandaki Science 2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Karnali Science 2080", description: "SEE Class 10 Karnali Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Karnali Science 2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Koshi Science 2080", description: "SEE Class 10 Koshi Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Koshi Science 2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Lumbini Science 2080", description: "SEE Class 10 Lumbini Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Lumbini Science 2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Madhesh Science 2080", description: "SEE Class 10 Madhesh Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Madhesh Science 2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Sudur Pashchim Science 2080", description: "SEE Class 10 Sudur Pashchim Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/questions/Sudur Pashchim Science 2080.pdf", icon: "📝", size: "1.2 MB" },
 
       // Solutions
       { title: "Koshi Province Nepali Medium", description: "SEE Class 10 Koshi Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/1. Koshi Province pdf Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
