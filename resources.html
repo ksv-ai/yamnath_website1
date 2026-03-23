@@ -4,10 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Digital Resource Library - Yamnath Poudel. Educational materials, manuals, and books for Science and Technology." />
+  <meta name="description"
+    content="Digital Resource Library - Yamnath Poudel. Educational materials, manuals, and books for Science and Technology." />
   <title>Resources — Yamnath Poudel</title>
   <link rel="icon" type="image/png" href="images/pp1.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --ink: #0a0f1e;
@@ -22,7 +25,13 @@
       --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Outfit', sans-serif;
@@ -78,7 +87,9 @@
       gap: 0.5rem;
     }
 
-    .back-btn:hover { color: var(--gold); }
+    .back-btn:hover {
+      color: var(--gold);
+    }
 
     /* ══ HERO/CONTROLS ══ */
     .controls-sec {
@@ -181,7 +192,10 @@
     .file-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
       background: var(--gold);
       transform: scaleX(0);
       transform-origin: left;
@@ -265,8 +279,14 @@
 
     /* ══ RESPONSIVE ══ */
     @media (max-width: 600px) {
-      .filters { gap: 0.5rem; }
-      .filter-btn { padding: 0.5rem 1rem; font-size: 0.75rem; }
+      .filters {
+        gap: 0.5rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -284,9 +304,10 @@
   <main>
     <section class="controls-sec">
       <h1 class="page-title">Digital Library</h1>
-      
+
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for books, manuals, or slides..." onkeyup="filterItems()">
+        <input type="text" id="searchInput" placeholder="Search for books, manuals, or slides..."
+          onkeyup="filterItems()">
       </div>
 
       <div class="filters" id="filters">
@@ -313,13 +334,17 @@
 
   <script>
     /**
-     * ADMIN INSTRUCTIONS:
-     * To add a new file:
-     * 1. Copy the file into the correct subfolder in /documents/
-     * 2. Add an entry to the 'resources' array below.
+     * 🚀 QUICK ADD GUIDE:
+     * To add a new file, copy the block below and paste it into the "resources" list.
      * 
-     * Categories: 'books', 'manuals', 'practice', 'slides', 'videos'
-     * Icons: 📕 (Books), 📂 (Manuals), 📝 (Practice), 📽️ (Slides), 🎬 (Videos)
+     * {
+     *   title: "Name of File",
+     *   description: "Brief description of what it is",
+     *   category: "books", // Choose: books, manuals, practice, slides, videos
+     *   path: "documents/books/filename.pdf", 
+     *   icon: "📕", // Choose: 📕(Book), 📂(Manual), 📝(Practice), 📽️(Slide), 🎬(Video)
+     *   size: "1.2 MB"
+     * },
      */
     const resources = [
       {
@@ -330,13 +355,22 @@
         icon: "📕",
         size: "15.5 MB"
       },
+
       {
-        title: "Grade 10 Science & Tech (Part I)",
-        description: "Comprehensive slides covering initial chapters of Science.",
+        title: "10-Pressure Presentation - PPTX",
+        description: "Interactive PowerPoint presentation on the Pressure chapter.",
         category: "slides",
-        path: "documents/slides/grade-10-science-and-technology-part-i.pdf",
+        path: "documents/slides/10-Pressure.pptx",
         icon: "📽️",
-        size: "28.3 MB"
+        size: "1.4 MB"
+      },
+      {
+        title: "Pressure & Its Effects - Video",
+        description: "Video demonstration and explanation of pressure principles.",
+        category: "videos",
+        path: "documents/videos/Pressure.mp4",
+        icon: "🎬",
+        size: "31.7 MB"
       },
       {
         title: "Grade 10 Science & Tech (Part II)",
@@ -370,7 +404,7 @@
       const grid = document.getElementById('resourceGrid');
       const emptyState = document.getElementById('emptyState');
       const search = document.getElementById('searchInput').value.toLowerCase();
-      
+
       // Clear current grid except empty state
       const cards = grid.querySelectorAll('.file-card');
       cards.forEach(c => c.remove());
@@ -431,4 +465,5 @@
     };
   </script>
 </body>
+
 </html>
