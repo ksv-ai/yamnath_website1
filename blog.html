@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Educational Blog | Yam Nath Poudel</title>
-  <meta name="description" content="Insights, guides, and tutorials on integrating AI and modern technology into the classroom.">
+  <meta name="description"
+    content="Insights, guides, and tutorials on integrating AI and modern technology into the classroom.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --ink: #050810;
@@ -21,7 +25,17 @@
       --font-serif: 'Cormorant Garamond', serif;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 110%;
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--ink);
       color: var(--white);
@@ -33,66 +47,82 @@
     /* ══ BACKGROUND ══ */
     .bg-glow {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: radial-gradient(circle at 50% -20%, #1a233a 0%, transparent 60%);
       z-index: -1;
       opacity: 0.6;
     }
 
-    /* ══ NAVIGATION (Unified) ══ */
-    nav {
+    /* ══ NAV (Unified) ══ */
+    #nav {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 60px;
-      padding: 0 clamp(1.2rem, 5vw, 5rem);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      right: 0;
       z-index: 1000;
-      transition: all .35s var(--ease);
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-      background: rgba(10, 15, 30, 0.8);
-      backdrop-filter: blur(12px);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 clamp(1rem, 3vw, 3rem);
+      transition: background .3s, border-color .3s;
+    }
+
+    #nav.scrolled {
+      background: rgba(10, 15, 30, .97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(200, 168, 75, .18);
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: .75rem;
+      gap: .5rem;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--gold2);
+      white-space: nowrap;
+      flex-shrink: 0;
       text-decoration: none;
-      z-index: 1001;
     }
 
     .nav-logo img {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: 1px solid var(--gold);
+      object-fit: cover;
+      border: 1.5px solid rgba(200, 168, 75, .4);
+    }
+
+    .nav-logo em {
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, .6);
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       list-style: none;
-      gap: clamp(1.2rem, 2.5vw, 2.8rem);
-      margin-left: auto;
-      margin-right: 2.5rem;
+      gap: clamp(.5rem, 1.3vw, 1.4rem);
+      flex: 1;
+      justify-content: center;
     }
 
-    .nav-links li a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, .5);
-      font-size: .78rem;
+    .nav-links a {
+      color: rgba(255, 255, 255, .58);
+      font-size: .75rem;
       font-weight: 500;
-      letter-spacing: .05em;
+      letter-spacing: .07em;
       text-transform: uppercase;
-      transition: all .25s var(--ease);
+      white-space: nowrap;
       position: relative;
+      transition: color .2s;
+      text-decoration: none;
     }
 
     .nav-links a::after {
@@ -107,14 +137,15 @@
     }
 
     .nav-links a:hover {
-      color: var(--gold)
+      color: var(--gold);
     }
 
     .nav-links a:hover::after {
-      width: 100%
+      width: 100%;
     }
 
     .nav-cta {
+      flex-shrink: 0;
       display: inline-block;
       background: transparent;
       border: 1px solid rgba(200, 168, 75, .45);
@@ -132,7 +163,7 @@
 
     .nav-cta:hover {
       background: var(--gold);
-      color: var(--ink)
+      color: var(--ink);
     }
 
     /* hamburger */
@@ -144,7 +175,7 @@
       padding: 5px;
       background: none;
       border: none;
-      z-index: 1001;
+      flex-shrink: 0;
     }
 
     .hbtn span {
@@ -152,19 +183,19 @@
       height: 1.5px;
       background: rgba(255, 255, 255, .8);
       display: block;
-      transition: all .28s
+      transition: all .28s;
     }
 
     .hbtn.open span:nth-child(1) {
-      transform: rotate(45deg) translate(4px, 5px)
+      transform: rotate(45deg) translate(4px, 5px);
     }
 
     .hbtn.open span:nth-child(2) {
-      opacity: 0
+      opacity: 0;
     }
 
     .hbtn.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(4px, -5px)
+      transform: rotate(-45deg) translate(4px, -5px);
     }
 
     /* mobile menu */
@@ -183,7 +214,7 @@
     }
 
     #mob.open {
-      transform: translateX(0)
+      transform: translateX(0);
     }
 
     #mob a {
@@ -196,16 +227,27 @@
     }
 
     #mob a:hover {
-      color: var(--gold)
+      color: var(--gold);
     }
 
     @media (max-width: 900px) {
-      .nav-links, .nav-cta { display: none; }
-      .hbtn { display: flex; }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .hbtn {
+        display: flex;
+      }
     }
 
     /* ══ HERO ══ */
-    header { padding: 4rem 5% 4rem; text-align: center; }
+    header {
+      padding: 4rem 5% 4rem;
+      text-align: center;
+    }
+
     h1 {
       font-family: var(--font-serif);
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -214,7 +256,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .lead { color: rgba(255, 255, 255, 0.5); max-width: 600px; margin: 0 auto; }
+
+    .lead {
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
     /* ══ BLOG FEED ══ */
     .blog-feed {
@@ -235,6 +282,7 @@
       border-radius: 20px;
       border: 1px solid transparent;
     }
+
     .blog-card:hover {
       background: rgba(255, 255, 255, 0.02);
       border-color: var(--glass-border);
@@ -249,6 +297,7 @@
       margin-bottom: 0.8rem;
       display: block;
     }
+
     .blog-info h2 {
       font-family: var(--font-serif);
       font-size: 2.2rem;
@@ -257,13 +306,18 @@
       color: var(--white);
       transition: color 0.3s;
     }
-    .blog-card:hover h2 { color: var(--gold2); }
+
+    .blog-card:hover h2 {
+      color: var(--gold2);
+    }
+
     .blog-info p {
       color: rgba(255, 255, 255, 0.45);
       font-size: 1rem;
       margin-bottom: 1.5rem;
       max-width: 650px;
     }
+
     .read-more {
       font-size: 0.85rem;
       font-weight: 600;
@@ -281,21 +335,38 @@
       border-radius: 12px;
       margin-bottom: 4rem;
     }
-    .admin-guide h4 { color: var(--gold); margin-bottom: 1rem; font-size: 0.9rem; }
+
+    .admin-guide h4 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
     .admin-guide code {
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.3);
       padding: 0.2rem 0.4rem;
       border-radius: 4px;
       font-size: 0.8rem;
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .blog-card { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
-      .blog-info h2 { font-size: 1.8rem; }
+      .nav-links {
+        display: none;
+      }
+
+      .blog-card {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      .blog-info h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="bg-glow"></div>
 
@@ -303,7 +374,7 @@
   <div id="mob">
     <a href="index.html#home" onclick="closeMob()">Home</a>
     <a href="resources.html" onclick="closeMob()">Resources</a>
-    <a href="links.html" onclick="closeMob()">Useful Links</a>
+    <a href="links.html" onclick="closeMob()">Links</a>
     <a href="blog.html" onclick="closeMob()">Blog</a>
     <a href="index.html#contact" onclick="closeMob()">Contact</a>
   </div>
@@ -334,7 +405,7 @@
   </header>
 
   <main class="blog-feed">
-    <!-- QUICK ADD BLOG GUIDE (Visible to you during editing) -->
+    <!-- QUICK ADD BLOG GUIDE (Visible to you during editing) 
     <div class="admin-guide">
       <h4>🚀 HOW TO ADD A NEW BLOG</h4>
       <p style="font-size:0.8rem; color: rgba(255,255,255,0.4);">
@@ -344,13 +415,15 @@
         3. Update the title, date, excerpt, and link.
       </p>
     </div>
+    -->
 
     <!-- BLOG POST: NOTEBOOK LM -->
     <a href="blog/notebooklm-for-teachers.html" class="blog-card">
       <div class="blog-info">
         <span class="blog-date">March 23, 2026</span>
         <h2>Exploring NotebookLM: A Game-Changer for Modern Educators</h2>
-        <p>Learn how to transform your research, lesson planning, and study material generation with Google's powerful source-grounded AI assistant.</p>
+        <p>Learn how to transform your research, lesson planning, and study material generation with Google's powerful
+          source-grounded AI assistant.</p>
         <div class="read-more">Read Full Guide →</div>
       </div>
     </a>
@@ -360,7 +433,8 @@
       <div class="blog-info">
         <span class="blog-date">March 20, 2026</span>
         <h2>The Art of Prompting: A Masterclass for Teachers</h2>
-        <p>Stop getting generic results. Master the "Role-Context-Task" framework and advanced prompt engineering to get high-quality outputs from any AI chatbot.</p>
+        <p>Stop getting generic results. Master the "Role-Context-Task" framework and advanced prompt engineering to get
+          high-quality outputs from any AI chatbot.</p>
         <div class="read-more">Read Full Guide →</div>
       </div>
     </a>
@@ -385,19 +459,23 @@
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('nav');
       if (window.scrollY > 20) {
-        nav.style.background = 'rgba(10, 15, 30, 0.95)';
-        nav.style.padding = '0.5rem clamp(1.2rem, 5vw, 5rem)';
+        nav.classList.add('scrolled');
       } else {
-        nav.style.background = 'rgba(10, 15, 30, 0.8)';
-        nav.style.padding = '0 clamp(1.2rem, 5vw, 5rem)';
+        nav.classList.remove('scrolled');
       }
     });
 
-    /* Clean URLs (Hides .html from address bar on servers) */
-    if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
+    // Initial Render
+    window.onload = () => {
+      /* Clean URLs (Hides .html from address bar on servers) */
+      if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
         const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
         window.history.replaceState(null, '', cleanUrl + window.location.search);
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
     }
   </script>
 </body>
+
 </html>

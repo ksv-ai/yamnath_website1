@@ -33,6 +33,8 @@
       padding: 0;
     }
 
+    html { font-size: 110%; scroll-behavior: smooth; }
+
     body {
       font-family: 'Outfit', sans-serif;
       background: var(--ink);
@@ -42,60 +44,73 @@
       font-size: 110%;
     }
 
-    /* ══ NAVIGATION (Unified) ══ */
-    nav {
+    /* ══ NAV (Unified) ══ */
+    #nav {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 60px;
-      padding: 0 clamp(1.2rem, 5vw, 5rem);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      right: 0;
       z-index: 1000;
-      transition: all .35s var(--ease);
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-      background: rgba(10, 15, 30, 0.8);
-      backdrop-filter: blur(12px);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 clamp(1rem, 3vw, 3rem);
+      transition: background .3s, border-color .3s;
+    }
+
+    #nav.scrolled {
+      background: rgba(10, 15, 30, .97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(200, 168, 75, .18);
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: .75rem;
+      gap: .5rem;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--gold2);
+      white-space: nowrap;
+      flex-shrink: 0;
       text-decoration: none;
-      z-index: 1001;
     }
 
     .nav-logo img {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: 1px solid var(--gold);
+      object-fit: cover;
+      border: 1.5px solid rgba(200, 168, 75, .4);
+    }
+
+    .nav-logo em {
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, .6);
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       list-style: none;
-      gap: clamp(1.2rem, 2.5vw, 2.8rem);
-      margin-left: auto;
-      margin-right: 2.5rem;
+      gap: clamp(.5rem, 1.3vw, 1.4rem);
+      flex: 1;
+      justify-content: center;
     }
 
-    .nav-links li a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, .5);
-      font-size: .78rem;
+    .nav-links a {
+      color: rgba(255, 255, 255, .58);
+      font-size: .75rem;
       font-weight: 500;
-      letter-spacing: .05em;
+      letter-spacing: .07em;
       text-transform: uppercase;
-      transition: all .25s var(--ease);
+      white-space: nowrap;
       position: relative;
+      transition: color .2s;
+      text-decoration: none;
     }
 
     .nav-links a::after {
@@ -110,14 +125,15 @@
     }
 
     .nav-links a:hover {
-      color: var(--gold)
+      color: var(--gold);
     }
 
     .nav-links a:hover::after {
-      width: 100%
+      width: 100%;
     }
 
     .nav-cta {
+      flex-shrink: 0;
       display: inline-block;
       background: transparent;
       border: 1px solid rgba(200, 168, 75, .45);
@@ -135,7 +151,7 @@
 
     .nav-cta:hover {
       background: var(--gold);
-      color: var(--ink)
+      color: var(--ink);
     }
 
     /* hamburger */
@@ -147,7 +163,7 @@
       padding: 5px;
       background: none;
       border: none;
-      z-index: 1001;
+      flex-shrink: 0;
     }
 
     .hbtn span {
@@ -155,19 +171,19 @@
       height: 1.5px;
       background: rgba(255, 255, 255, .8);
       display: block;
-      transition: all .28s
+      transition: all .28s;
     }
 
     .hbtn.open span:nth-child(1) {
-      transform: rotate(45deg) translate(4px, 5px)
+      transform: rotate(45deg) translate(4px, 5px);
     }
 
     .hbtn.open span:nth-child(2) {
-      opacity: 0
+      opacity: 0;
     }
 
     .hbtn.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(4px, -5px)
+      transform: rotate(-45deg) translate(4px, -5px);
     }
 
     /* mobile menu */
@@ -186,7 +202,7 @@
     }
 
     #mob.open {
-      transform: translateX(0)
+      transform: translateX(0);
     }
 
     #mob a {
@@ -199,12 +215,17 @@
     }
 
     #mob a:hover {
-      color: var(--gold)
+      color: var(--gold);
     }
 
     @media (max-width: 900px) {
-      .nav-links, .nav-cta { display: none; }
-      .hbtn { display: flex; }
+      .nav-links, .nav-cta {
+        display: none;
+      }
+
+      .hbtn {
+        display: flex;
+      }
     }
 
     /* ══ HERO/CONTROLS ══ */
@@ -442,7 +463,7 @@
   <div id="mob">
     <a href="index.html#home" onclick="closeMob()">Home</a>
     <a href="resources.html" onclick="closeMob()">Resources</a>
-    <a href="links.html" onclick="closeMob()">Useful Links</a>
+    <a href="links.html" onclick="closeMob()">Links</a>
     <a href="blog.html" onclick="closeMob()">Blog</a>
     <a href="index.html#contact" onclick="closeMob()">Contact</a>
   </div>
@@ -525,11 +546,9 @@
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('nav');
       if (window.scrollY > 20) {
-        nav.style.background = 'rgba(10, 15, 30, 0.95)';
-        nav.style.padding = '0.5rem clamp(1.2rem, 5vw, 5rem)';
+        nav.classList.add('scrolled');
       } else {
-        nav.style.background = 'rgba(10, 15, 30, 0.8)';
-        nav.style.padding = '0 clamp(1.2rem, 5vw, 5rem)';
+        nav.classList.remove('scrolled');
       }
     });
 
@@ -685,6 +704,12 @@
 
     // Initial Render
     window.onload = () => {
+      /* Clean URLs (Hides .html from address bar on servers) */
+      if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
+        const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+        window.history.replaceState(null, '', cleanUrl + window.location.search);
+      }
+
       const urlParams = new URLSearchParams(window.location.search);
       const type = urlParams.get('type') || urlParams.get('cat');
       const cls = urlParams.get('class');
