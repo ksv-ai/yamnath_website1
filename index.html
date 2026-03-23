@@ -1331,7 +1331,8 @@
     .ctxt p {
       font-size: .84rem;
       color: rgba(255, 255, 255, .6);
-      transition: color .18s
+      transition: color .18s;
+      word-break: break-word;
     }
 
     .ctxt a:hover {
@@ -1698,8 +1699,13 @@
         display: none
       }
 
+      .nav-cta {
+        display: none
+      }
+
       .hbtn {
-        display: flex
+        display: flex;
+        margin-left: auto;
       }
 
       /* hero: stack vertically */
