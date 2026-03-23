@@ -39,32 +39,170 @@
       opacity: 0.6;
     }
 
-    /* ══ NAVIGATION ══ */
+    /* ══ NAVIGATION (Unified) ══ */
     nav {
-      padding: 2rem 5%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      padding: 0 clamp(1.2rem, 5vw, 5rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      z-index: 100;
+      z-index: 1000;
+      transition: all .35s var(--ease);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      background: rgba(10, 15, 30, 0.8);
+      backdrop-filter: blur(12px);
     }
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--gold);
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold2);
       text-decoration: none;
-      letter-spacing: 0.02em;
+      z-index: 1001;
     }
-    .nav-links a {
-      color: rgba(255, 255, 255, 0.6);
+
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: clamp(1.2rem, 2.5vw, 2.8rem);
+      margin-left: auto;
+      margin-right: 2.5rem;
+    }
+
+    .nav-links li a {
       text-decoration: none;
-      margin-left: 2rem;
-      font-size: 0.9rem;
+      color: rgba(255, 255, 255, .5);
+      font-size: .78rem;
       font-weight: 500;
-      transition: all 0.3s;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      transition: all .25s var(--ease);
+      position: relative;
     }
-    .nav-links a:hover { color: var(--gold); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .25s var(--ease);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold)
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-cta {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid rgba(200, 168, 75, .45);
+      color: var(--gold);
+      padding: 6px 16px;
+      border-radius: 3px;
+      font-size: .73rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: all .2s;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--ink)
+    }
+
+    /* hamburger */
+    .hbtn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+
+    .hbtn span {
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, .8);
+      display: block;
+      transition: all .28s
+    }
+
+    .hbtn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px)
+    }
+
+    .hbtn.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .hbtn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px)
+    }
+
+    /* mobile menu */
+    #mob {
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8rem;
+      transform: translateX(100%);
+      transition: transform .42s var(--ease);
+    }
+
+    #mob.open {
+      transform: translateX(0)
+    }
+
+    #mob a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .7);
+      transition: color .2s;
+      text-decoration: none;
+    }
+
+    #mob a:hover {
+      color: var(--gold)
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hbtn { display: flex; }
+    }
 
     /* ══ HERO ══ */
     header { padding: 4rem 5% 2rem; text-align: center; }
@@ -218,15 +356,34 @@
 <body>
   <div class="bg-glow"></div>
 
-  <nav>
-    <a href="index.html" class="logo">YNP</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="resources.html">Resources</a>
-      <a href="blog.html">Blog</a>
-      <a href="links.html" style="color:var(--gold)">Useful Links</a>
-    </div>
+  <!-- Mobile overlay -->
+  <div id="mob">
+    <a href="index.html#home" onclick="closeMob()">Home</a>
+    <a href="resources.html" onclick="closeMob()">Resources</a>
+    <a href="links.html" onclick="closeMob()">Useful Links</a>
+    <a href="blog.html" onclick="closeMob()">Blog</a>
+    <a href="index.html#contact" onclick="closeMob()">Contact</a>
+  </div>
+
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <a class="nav-logo" href="index.html#home">
+      <img src="images/pp1.png" alt="YNP" loading="lazy" />
+      Yamnath Poudel<em></em>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="links.html" style="color:var(--gold)">Links</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Contact</a>
+    <button class="hbtn" id="hbtn" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
 
   <header>
     <h1>Curated <em>AI Links</em></h1>
@@ -254,6 +411,28 @@
   </footer>
 
   <script>
+    /* mobile menu */
+    let mo = false;
+    function toggleMob() {
+      mo = !mo;
+      document.getElementById('mob').classList.toggle('open', mo);
+      document.getElementById('hbtn').classList.toggle('open', mo);
+      document.body.style.overflow = mo ? 'hidden' : '';
+    }
+    function closeMob() { if (mo) toggleMob(); }
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 20) {
+        nav.style.background = 'rgba(10, 15, 30, 0.95)';
+        nav.style.padding = '0.5rem clamp(1.2rem, 5vw, 5rem)';
+      } else {
+        nav.style.background = 'rgba(10, 15, 30, 0.8)';
+        nav.style.padding = '0 clamp(1.2rem, 5vw, 5rem)';
+      }
+    });
+
     /* Clean URLs (Hides .html from address bar on servers) */
     if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
         const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
