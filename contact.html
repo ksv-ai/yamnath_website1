@@ -2,33 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Educational Blog | Yam Nath Poudel</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Insights, guides, and tutorials on integrating AI and modern technology into the classroom.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    content="Contact Yamnath Poudel - Science Educator, Author, and AI Advocate in Nepal. Get in touch for training, resources, or collaborations." />
+  <title>Contact — Yamnath Poudel</title>
+  <link rel="icon" type="image/png" href="images/pp1.png" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-      --ink: #050810;
+      --ink: #0a0f1e;
+      --navy: #0d1b3e;
+      --navy2: #122050;
       --gold: #c8a84b;
-      --gold2: #e2c26d;
-      --white: #ffffff;
+      --gold2: #e2c46a;
+      --cream: #f7f2ea;
+      --cream2: #efe8d8;
+      --slate: #4a5568;
+      --mist: #8896a5;
       --glass: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.08);
-      --card-bg: rgba(255, 255, 255, 0.02);
-      --font-main: 'Outfit', sans-serif;
-      --font-serif: 'Cormorant Garamond', serif;
+      --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -37,23 +41,12 @@
     }
 
     body {
-      background-color: var(--ink);
-      color: var(--white);
-      font-family: var(--font-main);
-      line-height: 1.6;
+      font-family: 'Outfit', sans-serif;
+      background: var(--ink);
+      color: #fff;
       overflow-x: hidden;
-    }
-
-    /* ══ BACKGROUND ══ */
-    .bg-glow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% -20%, #1a233a 0%, transparent 60%);
-      z-index: -1;
-      opacity: 0.6;
+      min-height: 100vh;
+      font-size: 110%;
     }
 
     /* ══ NAV (Unified) ══ */
@@ -113,35 +106,18 @@
       justify-content: center;
     }
 
-    .nav-links a {
-      color: rgba(255, 255, 255, .58);
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      position: relative;
-      transition: color .2s;
+    .nav-links li a {
+      color: rgba(255, 255, 255, .7);
       text-decoration: none;
+      font-size: .88rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      transition: color .24s;
+      position: relative;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: width .25s var(--ease);
-    }
-
-    .nav-links a:hover {
+    .nav-links li a:hover {
       color: var(--gold);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
     }
 
     .nav-cta {
@@ -244,7 +220,7 @@
 
     /* ══ HERO ══ */
     header {
-      padding: 4rem 5% 4rem;
+      padding: 6rem 5% 4rem;
       text-align: center;
     }
 
@@ -255,6 +231,7 @@
       background: linear-gradient(to right, #fff, var(--gold2), #fff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .lead {
@@ -263,105 +240,187 @@
       margin: 0 auto;
     }
 
-    /* ══ BLOG FEED ══ */
-    .blog-feed {
-      max-width: 1000px;
-      margin: 0 auto 5rem;
-      padding: 0 5%;
+    /* ══ CONTACT ══ */
+    #contact {
+      background: var(--ink);
+      padding: clamp(3rem, 6vw, 5.5rem) clamp(1.2rem, 5vw, 5rem);
+      position: relative;
+      overflow: hidden
     }
 
-    .blog-card {
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: -200px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(200, 168, 75, .05) 0%, transparent 65%);
+      pointer-events: none
+    }
+
+    .cgrid {
+      max-width: 650px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .kicker {
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--gold);
+      margin-bottom: .8rem
+    }
+
+    .sh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      line-height: .9;
+      margin-bottom: 1.8rem
+    }
+
+    .sh em {
+      font-style: italic;
+      color: var(--gold2);
+      font-weight: 400
+    }
+
+    .ccards {
       display: flex;
-      gap: 3rem;
-      margin-bottom: 4rem;
-      text-decoration: none;
-      color: white;
+      flex-direction: column;
+      gap: .75rem;
+      margin-top: 1.5rem
+    }
+
+    .ccard {
+      display: flex;
       align-items: center;
-      transition: all 0.4s;
-      padding: 1.5rem;
-      border-radius: 20px;
-      border: 1px solid transparent;
+      gap: .95rem;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 8px;
+      padding: .95rem 1.2rem;
+      transition: all .22s;
+      text-decoration: none;
     }
 
-    .blog-card:hover {
-      background: rgba(255, 255, 255, 0.02);
-      border-color: var(--glass-border);
-      transform: translateX(10px);
+    .ccard:hover {
+      border-color: rgba(200, 168, 75, .26);
+      background: rgba(200, 168, 75, .05);
+      transform: translateX(4px)
     }
 
-    .blog-date {
-      font-size: 0.75rem;
+    .cico {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 7px;
+      background: rgba(200, 168, 75, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem
+    }
+
+    .ctxt h4 {
+      font-size: .62rem;
       color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.8rem;
-      display: block;
+      letter-spacing: .1em;
+      margin-bottom: .16rem
     }
 
-    .blog-info h2 {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      color: var(--white);
-      transition: color 0.3s;
+    .ctxt a,
+    .ctxt p {
+      font-size: .84rem;
+      color: rgba(255, 255, 255, .6);
+      transition: color .18s;
+      text-decoration: none;
     }
 
-    .blog-card:hover h2 {
-      color: var(--gold2);
+    .socs {
+      display: flex;
+      gap: .6rem;
+      margin-top: 1.4rem;
+      flex-wrap: wrap
     }
 
-    .blog-info p {
-      color: rgba(255, 255, 255, 0.45);
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      max-width: 650px;
-    }
-
-    .read-more {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gold);
+    .soc {
+      width: 36px;
+      height: 36px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .09);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      color: rgba(255, 255, 255, .4);
+      font-size: .78rem;
+      font-weight: 700;
+      transition: all .2s;
+      text-decoration: none;
     }
 
-    /* ══ GUIDE BOX (For Admin) ══ */
-    .admin-guide {
-      background: rgba(200, 168, 75, 0.03);
-      border: 1px dashed rgba(200, 168, 75, 0.2);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 4rem;
+    .soc:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink)
     }
 
-    .admin-guide h4 {
-      color: var(--gold);
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
+    .cright {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 10px;
+      padding: 1.9rem
     }
 
-    .admin-guide code {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
+    .cright h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold2);
+      margin-bottom: .75rem
+    }
+
+    .cright p {
+      font-size: .81rem;
+      color: rgba(255, 255, 255, .36);
+      line-height: 1.8;
+      margin-bottom: 1.2rem
+    }
+
+    .qlg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem
+    }
+
+    .ql {
+      display: flex;
+      align-items: center;
+      gap: .42rem;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 6px;
+      padding: .68rem .9rem;
+      color: rgba(255, 255, 255, .46);
+      font-size: .76rem;
+      transition: all .18s;
+      text-decoration: none;
+    }
+
+    .ql:hover {
+      background: rgba(200, 168, 75, .08);
+      border-color: rgba(200, 168, 75, .2);
+      color: var(--gold2)
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .blog-card {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: flex-start;
-      }
-
-      .blog-info h2 {
-        font-size: 1.8rem;
+      .cgrid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -441,11 +500,22 @@
         gap: .8rem
       }
     }
+
+    /* ══ ANIMATIONS ══ */
+    .rv {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s;
+    }
+
+    .rv.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
 <body>
-  <div class="bg-glow"></div>
 
   <!-- Mobile overlay -->
   <div id="mob">
@@ -453,7 +523,7 @@
     <a href="resources.html" onclick="closeMob()">Resources</a>
     <a href="links.html" onclick="closeMob()">Links</a>
     <a href="blog.html" onclick="closeMob()">Blog</a>
-    <a href="contact.html" onclick="closeMob()">Contact</a>
+    <a href="contact.html" onclick="closeMob()" style="color:var(--gold)">Contact</a>
   </div>
 
   <!-- ══ NAV ══ -->
@@ -466,7 +536,7 @@
       <li><a href="index.html#home">Home</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="links.html">Links</a></li>
-      <li><a href="blog.html" style="color:var(--gold)">Blog</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Contact</a>
     <button class="hbtn" id="hbtn" onclick="toggleMob()" aria-label="Menu">
@@ -474,48 +544,53 @@
     </button>
   </nav>
 
-  <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
+  <div style="height: 60px;"></div>
 
   <header>
-    <h1>Insights & <em>Guides</em></h1>
-    <p class="lead">In-depth articles exploring the intersection of science, education, and artificial intelligence.</p>
+    <div class="rv">
+      <h1>Get in <em>Touch</em></h1>
+      <p class="lead">Have a question about AI training, science resources, or a potential collaboration? I'd love to
+        hear from you.</p>
+    </div>
   </header>
 
-  <main class="blog-feed">
-    <!-- QUICK ADD BLOG GUIDE (Visible to you during editing) 
-    <div class="admin-guide">
-      <h4>🚀 HOW TO ADD A NEW BLOG</h4>
-      <p style="font-size:0.8rem; color: rgba(255,255,255,0.4);">
-        To add a new article: <br>
-        1. Create a new HTML file in the <code>blog/</code> folder (e.g. <code>blog/my-new-post.html</code>). <br>
-        2. Copy the card code below and paste it at the top of the <code>blog-feed</code> div. <br>
-        3. Update the title, date, excerpt, and link.
-      </p>
+  <section id="contact">
+    <div class="cgrid">
+      <div>
+        <div class="kicker rv">Professional Inquiries</div>
+        <h2 class="sh rv">Reach <em>Me Directly</em></h2>
+        <div class="ccards">
+          <a href="mailto:contact@yamnathpoudel.com.np" class="ccard rv">
+            <div class="cico">✉️</div>
+            <div class="ctxt">
+              <h4>Email</h4>
+              <p>contact@yamnathpoudel.com.np</p>
+            </div>
+          </a>
+          <a href="tel:+9779848024521" class="ccard rv">
+            <div class="cico">📞</div>
+            <div class="ctxt">
+              <h4>Phone</h4>
+              <p>+977 9848024521</p>
+            </div>
+          </a>
+          <div class="ccard rv">
+            <div class="cico">📍</div>
+            <div class="ctxt">
+              <h4>Location</h4>
+              <p>Lumbini Province, Nepal</p>
+            </div>
+          </div>
+        </div>
+        <div class="socs rv">
+          <a href="https://www.facebook.com/yamnath.poudel.77" class="soc" title="Facebook" target="_blank">f</a>
+          <a href="https://np.linkedin.com/in/yam-nath-poudel-4a4726378" class="soc" title="LinkedIn"
+            target="_blank">in</a>
+          <a href="https://www.youtube.com/@yamnathpoudel6762/" class="soc" title="YouTube" target="_blank">▶</a>
+        </div>
+      </div>
     </div>
-    -->
-
-    <!-- BLOG POST: NOTEBOOK LM -->
-    <a href="blog/notebooklm-for-teachers.html" class="blog-card">
-      <div class="blog-info">
-        <span class="blog-date">March 23, 2026</span>
-        <h2>Exploring NotebookLM: A Game-Changer for Modern Educators</h2>
-        <p>Learn how to transform your research, lesson planning, and study material generation with Google's powerful
-          source-grounded AI assistant.</p>
-        <div class="read-more">Read Full Guide →</div>
-      </div>
-    </a>
-
-    <!-- BLOG POST: PROMPTING -->
-    <a href="blog/ai-prompting-mastery.html" class="blog-card">
-      <div class="blog-info">
-        <span class="blog-date">March 20, 2026</span>
-        <h2>The Art of Prompting: A Masterclass for Teachers</h2>
-        <p>Stop getting generic results. Master the "Role-Context-Task" framework and advanced prompt engineering to get
-          high-quality outputs from any AI chatbot.</p>
-        <div class="read-more">Read Full Guide →</div>
-      </div>
-    </a>
-  </main>
+  </section>
 
   <!-- ══ FOOTER ══ -->
   <footer>
@@ -527,8 +602,8 @@
       <a href="index.html#home">Home</a>
       <a href="resources.html">Resources</a>
       <a href="links.html">Links</a>
-      <a href="blog.html" style="color:var(--gold)">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" style="color:var(--gold)">Contact</a>
     </nav>
     <div class="fcopy">© 2026 Keshav Poudel. All rights reserved.</div>
   </footer>
@@ -544,26 +619,20 @@
     }
     function closeMob() { if (mo) toggleMob(); }
 
-    // Navigation scroll effect
+    /* Nav scroll effect */
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('nav');
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
     });
 
-    // Initial Render
-    window.onload = () => {
-      /* Clean URLs (Hides .html from address bar on servers) */
-      if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
-        const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
-        window.history.replaceState(null, '', cleanUrl + window.location.search);
-      }
-
-      const urlParams = new URLSearchParams(window.location.search);
-    }
+    /* Reveal animations */
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('vis');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
   </script>
 </body>
 
