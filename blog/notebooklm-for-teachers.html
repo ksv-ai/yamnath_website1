@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotebookLM for Teachers | Yam Nath Poudel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #050810;
+      --gold: #c8a84b;
+      --gold2: #e2c26d;
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --font-main: 'Outfit', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--ink);
+      color: var(--white);
+      font-family: var(--font-main);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ══ NAVIGATION ══ */
+    nav { padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-serif); font-size: 1.6rem; color: var(--gold); text-decoration: none; }
+    .nav-links a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ══ ARTICLE LAYOUT ══ */
+    article { max-width: 800px; margin: 4rem auto; padding: 0 5%; }
+    
+    .hero-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 24px;
+      margin-bottom: 3rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .meta { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 2rem; }
+    
+    .intro { font-size: 1.25rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 3rem; font-style: italic; border-left: 3px solid var(--gold); padding-left: 1.5rem; }
+
+    section { margin-bottom: 4rem; }
+    h2 { font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold2); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.8); }
+
+    .feature-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 2rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+    .feature-box h4 { color: var(--gold); margin-bottom: 1rem; }
+
+    ul { margin-bottom: 2rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.8rem; color: rgba(255, 255, 255, 0.8); }
+
+    footer { padding: 4rem 5%; text-align: center; border-top: 1px solid var(--glass-border); color: rgba(255, 255, 255, 0.3); font-size: 0.8rem; }
+
+    /* ══ ANIMATIONS ══ */
+    .rv { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">YNP</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+    </div>
+  </nav>
+
+  <article>
+    <img src="../notebooklm_blog_header_1774234891036.png" alt="NotebookLM Blog Header" class="hero-img rv">
+    
+    <div class="meta rv">Education & AI • March 23, 2026</div>
+    <h1 class="rv">Exploring NotebookLM: A Game-Changer for <em>Modern Educators</em></h1>
+    
+    <p class="intro rv">Imagine an AI that doesn't just "hallucinate" facts from the internet, but instead understands exactly what's in your textbooks, lecture notes, and research papers. That's the power of NotebookLM.</p>
+
+    <section class="rv">
+      <h2>The Problem with Modern AI</h2>
+      <p>Traditional AI chatbots like ChatGPT or Gemini are powerful, but they often struggle with specific contexts. If you ask about a specific chapter in a local textbook, they might get the concepts right but miss the specific examples or pedagogical structure your students are following.</p>
+      <p>This is where <strong>NotebookLM</strong> shines. It is "source-grounded," meaning its knowledge is limited and focused entirely on the documents you upload.</p>
+    </section>
+
+    <section class="rv">
+      <h2>Key Features for Teachers</h2>
+      
+      <div class="feature-box">
+        <h4>1. Audio Overviews (AI Podcast Generator)</h4>
+        <p>This is the viral feature of 2024. NotebookLM can take your dry lesson notes and turn them into a lively, 2-person conversational podcast. It’s perfect for students to listen to on the bus or as a preview before a lab session.</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>2. Automatic Study Guides</h4>
+        <p>Instantly generate comprehensive study guides, glossary of terms, and FAQs from your curriculum documents. What used to take hours of manual work now happens in 30 seconds.</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>3. Citation-First Research</h4>
+        <p>When NotebookLM answers a question, it shows you exactly which page and paragraph it found the information. This makes it a reliable tool for researchers and senior secondary students.</p>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2>How to Use It in the Classroom</h2>
+      <ul>
+        <li><strong>Differentiate Content:</strong> Upload a complex scientific paper and ask NotebookLM to "Explain this for a 13-year-old student" while keeping the core facts accurate.</li>
+        <li><strong>Identify Curriculum Gaps:</strong> Upload your lecture notes and a sample exam. Ask the AI: "Which topics in the exam are NOT covered in my notes?"</li>
+        <li><strong>Interactive Q&A:</strong> During a lab session, provide students with a "Notebook" containing the lab manual and safety guidelines. They can ask questions like "What should I do if I spill the HCl?" and get instant, grounded answers.</li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2>Getting Started (Step-by-Step)</h2>
+      <p>1. Visit <a href="https://notebooklm.google/" target="_blank" style="color:var(--gold)">notebooklm.google</a>.</p>
+      <p>2. Create a new "Notebook" for your specific subject (e.g., 'Class 10 Physics').</p>
+      <p>3. Upload your PDFs, Google Docs, or copy-paste text from websites.</p>
+      <p>4. Start asking questions in the chat bar or generate an "Audio Overview" from the Notebook Guide section.</p>
+    </section>
+  </article>
+
+  <footer>
+    <p>&copy; 2026 Yam Nath Poudel. Empowering teachers through technology.</p>
+  </footer>
+
+  <script>
+    // Reveal animation
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('vis');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

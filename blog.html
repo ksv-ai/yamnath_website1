@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Blog | Yam Nath Poudel</title>
+  <meta name="description" content="Insights, guides, and tutorials on integrating AI and modern technology into the classroom.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #050810;
+      --gold: #c8a84b;
+      --gold2: #e2c26d;
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --font-main: 'Outfit', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--ink);
+      color: var(--white);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ══ BACKGROUND ══ */
+    .bg-glow {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 50% -20%, #1a233a 0%, transparent 60%);
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    /* ══ NAVIGATION ══ */
+    nav {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ══ HERO ══ */
+    header { padding: 4rem 5% 4rem; text-align: center; }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, var(--gold2), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lead { color: rgba(255, 255, 255, 0.5); max-width: 600px; margin: 0 auto; }
+
+    /* ══ BLOG FEED ══ */
+    .blog-feed {
+      max-width: 1000px;
+      margin: 0 auto 5rem;
+      padding: 0 5%;
+    }
+
+    .blog-card {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      text-decoration: none;
+      color: white;
+      align-items: center;
+      transition: all 0.4s;
+      padding: 1.5rem;
+      border-radius: 20px;
+      border: 1px solid transparent;
+    }
+    .blog-card:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: var(--glass-border);
+      transform: translateX(10px);
+    }
+
+    .blog-date {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .blog-info h2 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+    .blog-card:hover h2 { color: var(--gold2); }
+    .blog-info p {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      max-width: 650px;
+    }
+    .read-more {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ══ GUIDE BOX (For Admin) ══ */
+    .admin-guide {
+      background: rgba(200, 168, 75, 0.03);
+      border: 1px dashed rgba(200, 168, 75, 0.2);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 4rem;
+    }
+    .admin-guide h4 { color: var(--gold); margin-bottom: 1rem; font-size: 0.9rem; }
+    .admin-guide code {
+      background: rgba(0,0,0,0.3);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .blog-card { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+      .blog-info h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <nav>
+    <a href="index.html" class="logo">YNP</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="blog.html" style="color:var(--gold)">Blog</a>
+      <a href="links.html">Useful Links</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Insights & <em>Guides</em></h1>
+    <p class="lead">In-depth articles exploring the intersection of science, education, and artificial intelligence.</p>
+  </header>
+
+  <main class="blog-feed">
+    <!-- QUICK ADD BLOG GUIDE (Visible to you during editing) -->
+    <div class="admin-guide">
+      <h4>🚀 HOW TO ADD A NEW BLOG</h4>
+      <p style="font-size:0.8rem; color: rgba(255,255,255,0.4);">
+        To add a new article: <br>
+        1. Create a new HTML file in the <code>blog/</code> folder (e.g. <code>blog/my-new-post.html</code>). <br>
+        2. Copy the card code below and paste it at the top of the <code>blog-feed</code> div. <br>
+        3. Update the title, date, excerpt, and link.
+      </p>
+    </div>
+
+    <!-- BLOG POST: NOTEBOOK LM -->
+    <a href="blog/notebooklm-for-teachers.html" class="blog-card">
+      <div class="blog-info">
+        <span class="blog-date">March 23, 2026</span>
+        <h2>Exploring NotebookLM: A Game-Changer for Modern Educators</h2>
+        <p>Learn how to transform your research, lesson planning, and study material generation with Google's powerful source-grounded AI assistant.</p>
+        <div class="read-more">Read Full Guide →</div>
+      </div>
+    </a>
+
+    <!-- BLOG POST: PROMPTING -->
+    <a href="blog/ai-prompting-mastery.html" class="blog-card">
+      <div class="blog-info">
+        <span class="blog-date">March 20, 2026</span>
+        <h2>The Art of Prompting: A Masterclass for Teachers</h2>
+        <p>Stop getting generic results. Master the "Role-Context-Task" framework and advanced prompt engineering to get high-quality outputs from any AI chatbot.</p>
+        <div class="read-more">Read Full Guide →</div>
+      </div>
+    </a>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Yam Nath Poudel. Sharing knowledge to empower the next generation.</p>
+  </footer>
+
+  <script>
+    /* Clean URLs (Hides .html from address bar on servers) */
+    if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
+        const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+        window.history.replaceState(null, '', cleanUrl + window.location.search);
+    }
+  </script>
+</body>
+</html>

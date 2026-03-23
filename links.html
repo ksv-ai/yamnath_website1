@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Useful AI Links | Yam Nath Poudel</title>
+  <meta name="description" content="A curated directory of the most powerful and useful AI tools for teachers, students, and professionals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #050810;
+      --gold: #c8a84b;
+      --gold2: #e2c26d;
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --font-main: 'Outfit', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--ink);
+      color: var(--white);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ══ BACKGROUND ══ */
+    .bg-glow {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 50% -20%, #1a233a 0%, transparent 60%);
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    /* ══ NAVIGATION ══ */
+    nav {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ══ HERO ══ */
+    header { padding: 4rem 5% 2rem; text-align: center; }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, var(--gold2), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lead { color: rgba(255, 255, 255, 0.5); max-width: 600px; margin: 0 auto 2rem; }
+
+    /* ══ SEARCH & FILTERS ══ */
+    .filter-section {
+      padding: 0 5% 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .search-box {
+      width: 100%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-main);
+      transition: all 0.3s;
+    }
+    .search-box:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .filters {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: white; }
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ══ GRID ══ */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 0 5% 5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .link-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+    }
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(200, 168, 75, 0.05) 0%, transparent 100%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .link-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(200, 168, 75, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .link-card:hover::before { opacity: 1; }
+
+    .link-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 8px rgba(200, 168, 75, 0.3));
+    }
+    .link-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: var(--gold2);
+    }
+    .link-info p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .link-cat {
+      margin-top: auto;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem;
+      color: rgba(255, 255, 255, 0.3);
+      display: none;
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      padding: 4rem 5%;
+      text-align: center;
+      border-top: 1px solid var(--glass-border);
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <nav>
+    <a href="index.html" class="logo">YNP</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="blog.html">Blog</a>
+      <a href="links.html" style="color:var(--gold)">Useful Links</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Curated <em>AI Links</em></h1>
+    <p class="lead">A handpicked collection of the most powerful AI tools to supercharge your teaching, research, and creative workflows.</p>
+  </header>
+
+  <section class="filter-section">
+    <input type="text" id="searchInput" class="search-box" placeholder="Search tools (e.g. video, images, teachers)..." onkeyup="renderTools()">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" onclick="setFilter('all')">All Tools</button>
+      <button class="filter-btn" onclick="setFilter('teachers')">For Teachers</button>
+      <button class="filter-btn" onclick="setFilter('images')">Image Creation</button>
+      <button class="filter-btn" onclick="setFilter('video')">Video & Media</button>
+      <button class="filter-btn" onclick="setFilter('research')">Research & Search</button>
+      <button class="filter-btn" onclick="setFilter('utilities')">Utilities</button>
+    </div>
+  </section>
+
+  <main class="links-grid" id="toolsGrid">
+    <div class="empty-state" id="emptyState">No tools found matching your search.</div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Yam Nath Poudel. All AI tool marks and brands belong to their respective owners.</p>
+  </footer>
+
+  <script>
+    /* Clean URLs (Hides .html from address bar on servers) */
+    if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
+        const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+        window.history.replaceState(null, '', cleanUrl + window.location.search);
+    }
+
+    const tools = [
+      // IMAGES
+      { name: "Decohere AI", url: "https://app.decohere.ai/", category: "images", icon: "🎨", desc: "Fast text to image creator for stunning visuals." },
+      { name: "Google Image FX", url: "https://labs.google/fx", category: "images", icon: "✨", desc: "Google's advanced image generation experiment." },
+      { name: "Bing Image Creator", url: "https://www.bing.com/images/create?", category: "images", icon: "🖼️", desc: "DALL-E 3 powered image creation from Microsoft." },
+      { name: "Leonardo AI", url: "https://app.leonardo.ai/ai-generations", category: "images", icon: "🦁", desc: "Professional quality image assets with fine-tuned models." },
+      { name: "Adobe Firefly", url: "https://firefly.adobe.com/generate/images", category: "images", icon: "🖌️", desc: "Commercial-safe generative AI built into Adobe tools." },
+      { name: "Ideogram AI", url: "https://ideogram.ai/t/explore", category: "images", icon: "🔠", desc: "Excellent text-in-image generation for posters and logos." },
+      { name: "Microsoft Designer", url: "https://designer.microsoft.com/", category: "images", icon: "📦", desc: "Image to text and graphic design tool." },
+
+      // VIDEO & MEDIA
+      { name: "D-ID Video", url: "https://www.d-id.com/", category: "video", icon: "🗣️", desc: "Create talking avatars from a single photo and text." },
+      { name: "Runway Gen", url: "https://runwayml.com/", category: "video", icon: "🎬", desc: "The next generation of video-to-video and text-to-video." },
+      { name: "Pika Art", url: "https://pika.art/", category: "video", icon: "📽️", desc: "Cinematic video generation from simple prompts." },
+      { name: "HeyGen", url: "https://www.heygen.com/", category: "video", icon: "🕴️", desc: "High-quality AI avatar video generator." },
+      { name: "Vidyo AI", url: "https://vidyo.ai/", category: "video", icon: "✂️", desc: "Automatically create social media clips from long videos." },
+      { name: "Mubert", url: "https://mubert.com/", category: "video", icon: "🎵", desc: "AI-generated royalty-free music for your content." },
+      { name: "Suno AI", url: "https://app.suno.ai/", category: "video", icon: "🎧", desc: "The most advanced AI song and vocal creator." },
+      { name: "Unscreen", url: "https://www.unscreen.com/", category: "video", icon: "🌪️", desc: "Remove video background automatically without a green screen." },
+
+      // TEACHER TOOLS
+      { name: "MagicSchool AI", url: "https://www.magicschool.ai/", category: "teachers", icon: "🏫", desc: "Comprehensive AI platform specifically for educators." },
+      { name: "NotebookLM", url: "https://notebooklm.google/", category: "teachers", icon: "📓", desc: "Source-grounded personal AI for research and planning." },
+      { name: "Education Copilot", url: "https://app.educationcopilot.com/", category: "teachers", icon: "👨‍🏫", desc: "AI-powered lesson planner and resource generator." },
+      { name: "Math-GPT", url: "https://math-gpt.org/", category: "teachers", icon: "📐", desc: "Solve complex math problems and create practice tests." },
+      { name: "Thetawise", url: "https://thetawise.ai/chat", category: "teachers", icon: "📉", desc: "Math problem solver and instructional video creator." },
+      { name: "Conker", url: "https://app.conker.ai/create", category: "teachers", icon: "❓", desc: "AI-driven quiz maker and assessment generator." },
+      { name: "Quizgecko", url: "https://quizgecko.com/create", category: "teachers", icon: "🦎", desc: "Turn any text or URL into a quiz instantly." },
+      { name: "Diffit", url: "https://app.diffit.me/", category: "teachers", icon: "📚", desc: "Differentiated resources for every student level." },
+      { name: "TinyWow", url: "https://tinywow.com/", category: "teachers", icon: "🛠️", desc: "All-in-one file tools for teachers and students." },
+
+      // RESEARCH
+      { name: "Perplexity AI", url: "https://www.perplexity.ai/", category: "research", icon: "🔍", desc: "AI-powered answer engine with real-time web references." },
+      { name: "There's an AI for that", url: "https://theresanaiforthat.com/", category: "research", icon: "🗂️", desc: "The largest directory of AI tools for every task." },
+      { name: "Genspark", url: "https://www.genspark.ai/", category: "research", icon: "🌟", desc: "AI native search engine for comprehensive results." },
+      { name: "Typeset (SciSpace)", url: "https://typeset.io/", category: "research", icon: "🔬", desc: "Literature search and research paper assistant." },
+      { name: "BioDigital", url: "https://human.biodigital.com/explore", category: "research", icon: "🫀", desc: "Interactive 3D human anatomy and disease visualization." },
+      { name: "Qwen AI", url: "https://chat.qwen.ai/", category: "research", icon: "🐉", desc: "Powerful multi-modal AI from Alibaba Cloud." },
+
+      // UTILITIES
+      { name: "Microsoft Copilot", url: "https://copilot.microsoft.com/", category: "utilities", icon: "💻", desc: "Your everyday AI companion across Microsoft 365." },
+      { name: "Originality.ai", url: "https://app.originality.ai/", category: "utilities", icon: "🛡️", desc: "AI content detector and plagiarism checker." },
+      { name: "ZeroGPT", url: "https://www.zerogpt.com/", category: "utilities", icon: "⚪", desc: "Advanced ChatGPT and AI text detector tool." },
+      { name: "Temp Mail", url: "https://tempmailo.com/", category: "utilities", icon: "📧", desc: "Disposable temporary email for testing tools." }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderTools() {
+      const grid = document.getElementById('toolsGrid');
+      const emptyState = document.getElementById('emptyState');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+
+      // Clear existing except empty state
+      const cards = grid.querySelectorAll('.link-card');
+      cards.forEach(c => c.remove());
+
+      const filtered = tools.filter(tool => {
+        const matchesFilter = currentFilter === 'all' || tool.category === currentFilter;
+        const matchesSearch = tool.name.toLowerCase().includes(search) || tool.desc.toLowerCase().includes(search);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+        filtered.forEach(tool => {
+          const card = document.createElement('a');
+          card.className = 'link-card';
+          card.href = tool.url;
+          card.target = "_blank";
+          card.innerHTML = `
+            <div class="link-icon">${tool.icon}</div>
+            <div class="link-info">
+              <h3>${tool.name}</h3>
+              <p>${tool.desc}</p>
+              <span class="link-cat">${tool.category}</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    function setFilter(cat) {
+      currentFilter = cat;
+      const btns = document.querySelectorAll('.filter-btn');
+      btns.forEach(b => {
+        b.classList.toggle('active', b.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'all' && b.innerText === 'All Tools'));
+      });
+      renderTools();
+    }
+
+    // Initial load
+    renderTools();
+  </script>
+</body>
+</html>

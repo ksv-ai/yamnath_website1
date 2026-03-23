@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompting Mastery | Yam Nath Poudel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #050810;
+      --gold: #c8a84b;
+      --gold2: #e2c26d;
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --font-main: 'Outfit', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--ink);
+      color: var(--white);
+      font-family: var(--font-main);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ══ NAVIGATION ══ */
+    nav { padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-serif); font-size: 1.6rem; color: var(--gold); text-decoration: none; }
+    .nav-links a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ══ ARTICLE LAYOUT ══ */
+    article { max-width: 800px; margin: 4rem auto; padding: 0 5%; }
+    
+    .hero-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 24px;
+      margin-bottom: 3rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .meta { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    h1 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 2rem; }
+    
+    .intro { font-size: 1.25rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 3rem; font-style: italic; border-left: 3px solid var(--gold); padding-left: 1.5rem; }
+
+    section { margin-bottom: 4rem; }
+    h2 { font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold2); margin-bottom: 1.5rem; }
+    p { margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.8); }
+
+    .feature-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 2rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+    .feature-box h4 { color: var(--gold); margin-bottom: 1rem; }
+
+    .prompt-card {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid #1a233a;
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: var(--gold2);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .prompt-card::after {
+      content: 'PROMPT';
+      position: absolute;
+      top: -10px; right: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    ul { margin-bottom: 2rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.8rem; color: rgba(255, 255, 255, 0.8); }
+
+    footer { padding: 4rem 5%; text-align: center; border-top: 1px solid var(--glass-border); color: rgba(255, 255, 255, 0.3); font-size: 0.8rem; }
+
+    /* ══ ANIMATIONS ══ */
+    .rv { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">YNP</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+    </div>
+  </nav>
+
+  <article>
+    <img src="../prompt_engineering_blog_header_1774234912711.png" alt="Prompt Engineering Blog Header" class="hero-img rv">
+    
+    <div class="meta rv">Tech Mastery • March 20, 2026</div>
+    <h1 class="rv">The Art of Prompting: A <em>Masterclass for Teachers</em></h1>
+    
+    <p class="intro rv">The quality of AI output is directly proportional to the quality of your prompt. Stop talking to AI like it's a search engine; start talking to it like it's a brilliant, highly specialized teaching assistant.</p>
+
+    <section class="rv">
+      <h2>The Framework: R-C-T-F</h2>
+      <p>If you take away nothing else from this article, remember the RCTF framework. It stands for <strong>Role, Context, Task, and Format.</strong></p>
+      
+      <div class="feature-box">
+        <h4>1. Role (Who is the AI?)</h4>
+        <p>Give the AI a persona. Instead of "Write a lesson plan," say "You are an expert Science teacher with 20 years of experience in the secondary level curriculum."</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>2. Context (What is the situation?)</h4>
+        <p>Tell the AI about your students. "My students are in Class 10, they have a basic understanding of Newton's Laws but struggle with the concept of Inertia."</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>3. Task (What exactly do you want?)</h4>
+        <p>Be specific. "Create a 45-minute lesson plan that includes a 5-minute practical demonstration using simple household items."</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>4. Format (How should the output look?)</h4>
+        <p>Do you want a table? A list of bullet points? A formal document? "Present the lesson plan in a table with columns for Time, Activity, and Teacher Action."</p>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2>The Difference: A Real Example</h2>
+      <p>Compare these two prompts for the same goal: creating a quiz on 'Pressure'.</p>
+      
+      <p><strong>The "Bad" Prompt:</strong></p>
+      <div class="prompt-card">
+        Write 5 multiple choice questions about pressure for class 10.
+      </div>
+
+      <p><strong>The "Master" Prompt:</strong></p>
+      <div class="prompt-card">
+        You are a curriculum designer for SEE Science. Create 5 challenging multiple-choice questions on 'Pressure and its Effects' for Class 10. 
+        Focus on numerical problems involving Area and Force. 
+        Include a distractor (wrong answer) based on common student misconceptions. 
+        Format this as a quiz with the answer key at the bottom.
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2>Advanced Strategies</h2>
+      <ul>
+        <li><strong>Chain-of-Thought:</strong> Add "Let's think step-by-step" to your prompt. This forces the AI to reason out loud, which significantly improves accuracy in science and math problems.</li>
+        <li><strong>Zero-Shot vs. Few-Shot:</strong> Instead of just asking for a rubric (Zero-Shot), give it one example of a rubric you like (Few-Shot). It will mirror that style perfectly.</li>
+        <li><strong>Iterative Refining:</strong> Never accept the first first draft. Ask the AI to "Refine this lesson plan to make it more interactive" or "Add a section on environmental impact" to improve the output gradually.</li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2>Conclusion</h2>
+      <p>AI isn't here to replace teachers; it's here to automate the administrative and repetitive tasks so you can focus on what matters: <strong>your students.</strong> Master the prompt, and you master your time.</p>
+    </section>
+  </article>
+
+  <footer>
+    <p>&copy; 2026 Yam Nath Poudel. Sharing knowledge to empower the next generation.</p>
+  </footer>
+
+  <script>
+    // Reveal animation
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('vis');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

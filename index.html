@@ -1484,9 +1484,101 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
+    /* BLOG TEASER */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .blog-t-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-t-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(200, 168, 75, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .blog-t-card .meta {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .blog-t-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .blog-t-card p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 2rem;
+    }
+
+    .read-lnk {
+      margin-top: auto;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* LINKS TEASER */
+    .links-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .l-t-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s;
+    }
+
+    .l-t-card:hover {
+      background: rgba(200, 168, 75, 0.1);
+      border-color: var(--gold);
+    }
+
+    .l-t-ico {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .l-t-card span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+    }
     .res-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1718,10 +1810,9 @@
   <!-- Mobile overlay -->
   <div id="mob">
     <a href="#home" onclick="closeMob()">Home</a>
-
-
     <a href="resources.html">Resources</a>
-
+    <a href="links.html" onclick="closeMob()">Useful Links</a>
+    <a href="blog.html" onclick="closeMob()">Blog</a>
     <a href="#contact" onclick="closeMob()">Contact</a>
   </div>
 
@@ -1733,10 +1824,9 @@
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
-
-
       <li><a href="resources.html">Resources</a></li>
-
+      <li><a href="links.html">Links</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Contact</a>
     <button class="hbtn" id="hbtn" onclick="toggleMob()" aria-label="Menu">
@@ -1964,6 +2054,60 @@
     </div>
   </section>
 
+  <!-- ══ BLOG TEASER ══ -->
+  <section id="latest-blog" class="sec">
+    <div class="rv">
+      <div class="kicker">Professional Insights</div>
+      <h2 class="sh">Latest from the <em>Blog</em></h2>
+    </div>
+    <div class="blog-grid">
+      <a href="blog/notebooklm-for-teachers.html" class="blog-t-card rv">
+        <div class="meta">March 23, 2026</div>
+        <h3>NotebookLM for Teachers</h3>
+        <p>Transform your research and lesson planning with Google's source-grounded AI.</p>
+        <span class="read-lnk">Read More →</span>
+      </a>
+      <a href="blog/ai-prompting-mastery.html" class="blog-t-card rv">
+        <div class="meta">March 20, 2026</div>
+        <h3>AI Prompting Mastery</h3>
+        <p>Master the frameworks to get high-quality results from AI chatbots.</p>
+        <span class="read-lnk">Read More →</span>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="blog.html" class="bg">View All Articles →</a>
+    </div>
+  </section>
+
+  <!-- ══ LINKS TEASER ══ -->
+  <section id="useful-tools" class="sec" style="background:#0a0f1e">
+    <div class="rv">
+      <div class="kicker lt">Curated Resources</div>
+      <h2 class="sh lt">Useful <em>AI Links</em></h2>
+    </div>
+    <div class="links-teaser-grid">
+      <a href="links.html?cat=teachers" class="l-t-card rv">
+        <div class="l-t-ico">🏫</div>
+        <span>Teacher Tools</span>
+      </a>
+      <a href="links.html?cat=images" class="l-t-card rv">
+        <div class="l-t-ico">🎨</div>
+        <span>Image Creation</span>
+      </a>
+      <a href="links.html?cat=video" class="l-t-card rv">
+        <div class="l-t-ico">🎬</div>
+        <span>Video & Media</span>
+      </a>
+      <a href="links.html?cat=research" class="l-t-card rv">
+        <div class="l-t-ico">🔍</div>
+        <span>Research Tools</span>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="links.html" class="bp">Explore 49+ AI Tools →</a>
+    </div>
+  </section>
+
   <!-- ══ TRAINING ══ -->
   <section id="training">
     <div class="rv">
@@ -2066,8 +2210,9 @@
         <p>Explore sections of this website or reach out directly through the contact details.</p>
         <div class="qlg">
           <a href="resources.html" class="ql"> Resources</a>
+          <a href="links.html" class="ql"> Useful Links</a>
+          <a href="blog.html" class="ql"> Blog</a>
           <a href="mailto:contact@yamnathpoudel.com.np" class="ql"> Email Me</a>
-          <a href="tel:+9779848024521" class="ql"> Call Me</a>
         </div>
       </div>
     </div>
@@ -2082,6 +2227,8 @@
     <nav class="fnav">
       <a href="#home">Home</a>
       <a href="resources.html">Resources</a>
+      <a href="links.html">Links</a>
+      <a href="blog.html">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="fcopy">© 2026 Keshav Poudel. All rights reserved.</div>
