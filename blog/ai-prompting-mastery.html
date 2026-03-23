@@ -347,12 +347,220 @@
       }
     }
 
+    /* ══ PROGRESS BAR ══ */
+    .progress-wrap {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.05);
+      z-index: 1001;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, var(--gold), var(--gold2));
+      transition: width 0.1s;
+    }
+
+    /* ══ TOC & SHARES ══ */
+    .blog-container {
+      display: grid;
+      grid-template-columns: 240px 1fr 60px;
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 4rem auto;
+      padding: 0 4%;
+    }
+
+    .toc-aside {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      padding: 1.5rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+    }
+    .toc-aside h5 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(200, 168, 75, 0.2);
+      padding-bottom: 0.5rem;
+    }
+    .toc-aside ul { list-style: none; padding: 0; }
+    .toc-aside li { margin-bottom: 0.8rem; }
+    .toc-aside a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: block;
+    }
+    .toc-aside a.active, .toc-aside a:hover { color: var(--gold2); }
+
+    .share-aside {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+    }
+    .share-btn:hover { background: var(--gold); color: var(--ink); transform: scale(1.1); }
+
+    /* ══ CONTENT BOXES ══ */
+    article { max-width: 820px; margin: 0; padding: 0; }
+    
+    /* ══ ANIMATIONS ══ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .teacher-box {
+      background: linear-gradient(135deg, rgba(200, 168, 75, 0.05), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(200, 168, 75, 0.3);
+      padding: 2rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .teacher-box::before {
+      content: '🎓 For Teachers';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 0.3rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-bottom-left-radius: 12px;
+    }
+    .teacher-box h4 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 2.5rem 0;
+      border: 1px solid var(--glass-border);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .doc-link {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(200, 168, 75, 0.1), transparent);
+      border: 1px dashed var(--gold);
+      border-radius: 12px;
+      text-decoration: none;
+      margin: 2rem 0;
+      transition: transform 0.2s;
+    }
+    .doc-link:hover { transform: translateX(10px); }
+    .doc-icon { font-size: 2rem; color: var(--gold); }
+    .doc-info h6 { color: var(--white); font-size: 1rem; margin-bottom: 2px; }
+    .doc-info span { font-size: 0.75rem; color: var(--gold); opacity: 0.8; }
+
+    /* ══ MOBILE ADAPTS ══ */
+    @media (max-width: 1100px) {
+      .blog-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .toc-aside, .share-aside { display: none; }
+    }
+
+    /* ══ BOTTOM SHARE ══ */
+    .bottom-share {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    /* ══ PREMIUM PDF VIEWER ══ */
+    .doc-viewer-container {
+      background: #0a0f1e;
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+    .doc-viewer-header {
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-viewer-header span { font-weight: 600; font-size: 0.9rem; color: var(--gold2); }
+    .open-full-btn {
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+    .open-full-btn:hover { background: var(--white); }
+
     /* ══ ANIMATIONS ══ */
     .rv { opacity: 0; transform: translateY(30px); transition: 0.8s; }
     .rv.vis { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
+  <!-- Reading Progress Bar -->
+  <div class="progress-wrap">
+    <div id="progress-bar"></div>
+  </div>
+
   <!-- Mobile overlay -->
   <div id="mob">
     <a href="../index.html#home" onclick="closeMob()">Home</a>
@@ -380,73 +588,138 @@
     </button>
   </nav>
 
-  <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
+  <div style="height: 60px;"></div> <!-- Spacer -->
 
-  <article>
-    <img src="../prompt_engineering_blog_header_1774234912711.png" alt="Prompt Engineering Blog Header" class="hero-img rv">
-    
-    <div class="meta rv">Tech Mastery • March 20, 2026</div>
-    <h1 class="rv">The Art of Prompting: A <em>Masterclass for Teachers</em></h1>
-    
-    <p class="intro rv">The quality of AI output is directly proportional to the quality of your prompt. Stop talking to AI like it's a search engine; start talking to it like it's a brilliant, highly specialized teaching assistant.</p>
-
-    <section class="rv">
-      <h2>The Framework: R-C-T-F</h2>
-      <p>If you take away nothing else from this article, remember the RCTF framework. It stands for <strong>Role, Context, Task, and Format.</strong></p>
-      
-      <div class="feature-box">
-        <h4>1. Role (Who is the AI?)</h4>
-        <p>Give the AI a persona. Instead of "Write a lesson plan," say "You are an expert Science teacher with 20 years of experience in the secondary level curriculum."</p>
-      </div>
-
-      <div class="feature-box">
-        <h4>2. Context (What is the situation?)</h4>
-        <p>Tell the AI about your students. "My students are in Class 10, they have a basic understanding of Newton's Laws but struggle with the concept of Inertia."</p>
-      </div>
-
-      <div class="feature-box">
-        <h4>3. Task (What exactly do you want?)</h4>
-        <p>Be specific. "Create a 45-minute lesson plan that includes a 5-minute practical demonstration using simple household items."</p>
-      </div>
-
-      <div class="feature-box">
-        <h4>4. Format (How should the output look?)</h4>
-        <p>Do you want a table? A list of bullet points? A formal document? "Present the lesson plan in a table with columns for Time, Activity, and Teacher Action."</p>
-      </div>
-    </section>
-
-    <section class="rv">
-      <h2>The Difference: A Real Example</h2>
-      <p>Compare these two prompts for the same goal: creating a quiz on 'Pressure'.</p>
-      
-      <p><strong>The "Bad" Prompt:</strong></p>
-      <div class="prompt-card">
-        Write 5 multiple choice questions about pressure for class 10.
-      </div>
-
-      <p><strong>The "Master" Prompt:</strong></p>
-      <div class="prompt-card">
-        You are a curriculum designer for SEE Science. Create 5 challenging multiple-choice questions on 'Pressure and its Effects' for Class 10. 
-        Focus on numerical problems involving Area and Force. 
-        Include a distractor (wrong answer) based on common student misconceptions. 
-        Format this as a quiz with the answer key at the bottom.
-      </div>
-    </section>
-
-    <section class="rv">
-      <h2>Advanced Strategies</h2>
+  <div class="blog-container">
+    <!-- Left: Table of Contents -->
+    <aside class="toc-aside">
+      <h5>On this Page</h5>
       <ul>
-        <li><strong>Chain-of-Thought:</strong> Add "Let's think step-by-step" to your prompt. This forces the AI to reason out loud, which significantly improves accuracy in science and math problems.</li>
-        <li><strong>Zero-Shot vs. Few-Shot:</strong> Instead of just asking for a rubric (Zero-Shot), give it one example of a rubric you like (Few-Shot). It will mirror that style perfectly.</li>
-        <li><strong>Iterative Refining:</strong> Never accept the first first draft. Ask the AI to "Refine this lesson plan to make it more interactive" or "Add a section on environmental impact" to improve the output gradually.</li>
+        <li><a href="#intro" class="toc-link">Talking to Robots</a></li>
+        <li><a href="#rctf" class="toc-link">The RCTF Secret</a></li>
+        <li><a href="#examples" class="toc-link">Good vs Bad Prompts</a></li>
+        <li><a href="#video" class="toc-link">Video Masterclass</a></li>
+        <li><a href="#cheatsheet" class="toc-link">Free Cheatsheet</a></li>
       </ul>
-    </section>
+    </aside>
 
-    <section class="rv">
-      <h2>Conclusion</h2>
-      <p>AI isn't here to replace teachers; it's here to automate the administrative and repetitive tasks so you can focus on what matters: <strong>your students.</strong> Master the prompt, and you master your time.</p>
-    </section>
-  </article>
+    <!-- Center: Content -->
+    <main>
+      <article>
+        <img src="../images/prompting_header.png" alt="Legendry AI Prompting" class="hero-img rv">
+        
+        <div class="meta rv">Prompt Engineering • March 20, 2026</div>
+        <h1 class="rv">Talk to Robots: <em>Legendry AI Prompting</em></h1>
+        
+        <p class="intro rv">Imagine you have a magical genie that can write anything, solve any math problem, or explain how a black hole works. But there's a catch: the genie is a <strong>literal robot</strong>. It only does exactly what you say!</p>
+
+        <section id="the-secret" class="reveal">
+          <div class="edu-badge">THE SECRET RULE</div>
+          <h2>The "RCTF" Framework</h2>
+          <p>This is the secret code used by AI professionals (and the smartest students) to get perfect answers every time. Instead of just asking a question, follow these 4 steps:</p>
+          
+          <table class="edu-table">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Meaning</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>R</strong>ole</td>
+                <td>Who is the AI?</td>
+                <td>"Act as a Science Teacher"</td>
+              </tr>
+              <tr>
+                <td><strong>C</strong>ontext</td>
+                <td>What is the situation?</td>
+                <td>"I am a Class 10 student in Nepal"</td>
+              </tr>
+              <tr>
+                <td><strong>T</strong>ask</td>
+                <td>What must it do?</td>
+                <td>"Explain the heart's function"</td>
+              </tr>
+              <tr>
+                <td><strong>F</strong>ormat</td>
+                <td>How should it look?</td>
+                <td>"Use a bulleted list"</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="for-teachers" class="reveal">
+          <div class="teacher-box">
+            <h4>Case Study for Teachers: Automated Quiz Generation</h4>
+            <p>Teachers, you don't have to spend hours writing quizzes anymore. Use this "Golden Prompt":</p>
+            <p style="background:rgba(0,0,0,0.3); padding:1rem; border-radius:8px; font-family:monospace; border-left:4px solid var(--gold);">
+              "Act as a Science Curriculum Expert. Based on the SEE Class 10 Physics Syllabus for Nepal, generate 5 challenging Multiple Choice Questions regarding 'Heat and Thermodynamics'. Include an answer key and explanations for each."
+            </p>
+          </div>
+        </section>
+
+        <section id="examples" class="rv">
+          <h2>Bad vs Master Prompts</h2>
+          <p>See how the RCTF rule changes everything!</p>
+          
+          <div class="feature-box">
+            <h4 style="color: #ff4d4d;">❌ The "Lazy" Prompt</h4>
+            <div class="prompt-card" style="border-color: #ff4d4d; color: #ff9999;">
+              Write a summary of Physics Chapter 1.
+            </div>
+            <p><small>Result: A boring, long essay that you might not even understand.</small></p>
+          </div>
+
+          <div class="feature-box" style="border-color: var(--gold);">
+            <h4 style="color: var(--gold);">✅ The "Master" Prompt</h4>
+            <div class="prompt-card">
+              You are a Science Coach. Summarize the 'Force and Motion' chapter for a Class 10 student. 
+              Focus on the formulas. Presentation: A simple table with 'Concept' and 'Formula' columns.
+            </div>
+            <p><small>Result: A perfect, clean table that you can use to study for your exam!</small></p>
+          </div>
+        </section>
+
+        <section id="video" class="rv">
+          <h2>Watch and Learn</h2>
+          <div class="video-container">
+            <!-- AI Prompting for Students -->
+            <iframe src="https://www.youtube.com/embed/jC4v5AS4RIM" title="AI Prompting Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </section>
+
+        <section id="cheatsheet" class="rv">
+          <h2>Download Your Cheat Sheet</h2>
+          <div class="doc-viewer-container">
+            <div class="doc-viewer-header">
+              <span>Robot Commands Cheat Sheet (PDF)</span>
+              <a href="../documents/practice/10_math_english_practise.pdf" target="_blank" class="open-full-btn">Open in New Tab ↗</a>
+            </div>
+            <iframe src="../documents/practice/10_math_english_practise.pdf#toolbar=0" width="100%" height="600px" style="border:none;"></iframe>
+          </div>
+        </section>
+
+        <!-- Bottom Share -->
+        <div class="bottom-share rv">
+          <a href="#" class="share-btn share-fb">f</a>
+          <a href="#" class="share-btn share-wa">w</a>
+          <a href="#" class="share-btn share-li">in</a>
+          <a href="#" class="share-btn share-mail">@</a>
+        </div>
+      </article>
+    </main>
+
+    <!-- Right: Sticky Shares -->
+    <aside class="share-aside">
+      <a href="#" class="share-btn share-fb" title="Share on Facebook">f</a>
+      <a href="#" class="share-btn share-li" title="Share on LinkedIn">in</a>
+      <a href="#" class="share-btn share-wa" title="Share on WhatsApp">w</a>
+      <a href="#" class="share-btn share-mail" title="Share via Email">@</a>
+    </aside>
+  </div>
 
   <!-- ══ FOOTER ══ -->
   <footer>
@@ -475,17 +748,45 @@
     }
     function closeMob() { if (mo) toggleMob(); }
 
-    // Navigation scroll effect
+    /* Scroll Effects */
+    const nav = document.getElementById('nav');
+    const prog = document.getElementById('progress-bar');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const sections = document.querySelectorAll('section[id]');
+
     window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      // Nav style
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+
+      // Progress bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      prog.style.width = scrolled + "%";
+
+      // TOC Active State
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 120) current = section.getAttribute("id");
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) link.classList.add("active");
+      });
     });
 
-    /* Clean URLs (Hides .html from address bar on servers) */
+    /* Social Sharing Logic */
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    document.querySelectorAll('.share-fb').forEach(el => el.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`);
+    document.querySelectorAll('.share-li').forEach(el => el.href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`);
+    document.querySelectorAll('.share-wa').forEach(el => el.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`);
+    document.querySelectorAll('.share-mail').forEach(el => el.href = `mailto:?subject=${pageTitle}&body=${pageUrl}`);
+
+    /* Clean URLs */
     if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
         const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
         window.history.replaceState(null, '', cleanUrl + window.location.search);
@@ -497,8 +798,20 @@
         if(entry.isIntersecting) entry.target.classList.add('vis');
       });
     }, { threshold: 0.1 });
+    // Intersection Observer for Reveal Animations
+    const observerOptions = {
+      threshold: 0.1
+    };
 
-    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
