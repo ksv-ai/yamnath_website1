@@ -33,7 +33,10 @@
       padding: 0;
     }
 
-    html { font-size: 110%; scroll-behavior: smooth; }
+    html {
+      font-size: 110%;
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Outfit', sans-serif;
@@ -219,7 +222,9 @@
     }
 
     @media (max-width: 900px) {
-      .nav-links, .nav-cta {
+
+      .nav-links,
+      .nav-cta {
         display: none;
       }
 
@@ -561,7 +566,7 @@
       <h1 class="page-title">Digital Library</h1>
 
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for books, manuals, or slides..."
+        <input type="text" id="searchInput" placeholder="Search for questions, solutions, or slides..."
           onkeyup="filterItems()">
       </div>
 
@@ -569,8 +574,8 @@
         <span class="filter-label">Resource Type</span>
         <div class="filters" id="typeFilters">
           <button class="filter-btn active" onclick="setTypeFilter('all')">All Types</button>
-          <button class="filter-btn" onclick="setTypeFilter('books')">Books</button>
-          <button class="filter-btn" onclick="setTypeFilter('manuals')">Manuals</button>
+          <button class="filter-btn" onclick="setTypeFilter('questions')">Questions</button>
+          <button class="filter-btn" onclick="setTypeFilter('solutions')">Solutions</button>
           <button class="filter-btn" onclick="setTypeFilter('practice')">Practice</button>
           <button class="filter-btn" onclick="setTypeFilter('slides')">Slides</button>
           <button class="filter-btn" onclick="setTypeFilter('videos')">Videos</button>
@@ -635,8 +640,8 @@
 
     /* Clean URLs (Hides .html from address bar on servers) */
     if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
-        const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
-        window.history.replaceState(null, '', cleanUrl + window.location.search);
+      const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
 
     /**
@@ -646,7 +651,7 @@
      * {
      *   title: "Name of File",
      *   description: "Brief description of what it is",
-     *   category: "books", // Choose: books, manuals, practice, slides, videos
+     *   category: "questions", // Choose: questions, solutions, practice, slides, videos
      *   class: "10", // Choose: 10, 9, General
      *   path: "documents/books/filename.pdf", 
      *   icon: "📕", // Choose: 📕(Book), 📂(Manual), 📝(Practice), 📽️(Slide), 🎬(Video)
@@ -654,60 +659,34 @@
      * },
      */
     const resources = [
-      {
-        title: "NCERT Class 10 Science",
-        description: "Official NCERT textbook for Class 10 science students.",
-        category: "books",
-        class: "10",
-        path: "documents/books/NCERT-Class-10-Science.pdf",
-        icon: "📕",
-        size: "15.5 MB"
-      },
-      {
-        title: "10-Pressure Presentation - PPTX",
-        description: "Interactive PowerPoint presentation on the Pressure chapter.",
-        category: "slides",
-        class: "10",
-        path: "documents/slides/10-Pressure.pptx",
-        icon: "📽️",
-        size: "1.4 MB"
-      },
-      {
-        title: "Pressure & Its Effects - Video",
-        description: "Video demonstration and explanation of pressure principles.",
-        category: "videos",
-        class: "General",
-        path: "documents/videos/Pressure.mp4",
-        icon: "🎬",
-        size: "31.7 MB"
-      },
-      {
-        title: "Grade 10 Science & Tech (Part II)",
-        description: "Advanced manual for secondary level science experiment guides.",
-        category: "manuals",
-        class: "10",
-        path: "documents/manuals/grade-10-science-and-technology-part-ii.pdf",
-        icon: "📂",
-        size: "24.7 MB"
-      },
-      {
-        title: "10 Pressure Nepali Manual",
-        description: "Specialized lab manual for Pressure chapter (Nepali Medium).",
-        category: "manuals",
-        class: "10",
-        path: "documents/manuals/10_Pressure_Nepali.pdf",
-        icon: "📂",
-        size: "0.6 MB"
-      },
-      {
-        title: "10 Math & English Practice Sets",
-        description: "Practice set integrated for Class 10 SEE preparation.",
-        category: "practice",
-        class: "10",
-        path: "documents/practice/10_math_english_practise.pdf",
-        icon: "📝",
-        size: "33.6 MB"
-      }
+      // Questions
+      { title: "Bagmati Science 2080", description: "SEE Class 10 Bagmati Province Science questions.", category: "questions", class: "10", path: "documents/questions/Bagmati Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Gandaki Science 2080", description: "SEE Class 10 Gandaki Province Science questions.", category: "questions", class: "10", path: "documents/questions/Gandaki Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Karnali Science 2080", description: "SEE Class 10 Karnali Province Science questions.", category: "questions", class: "10", path: "documents/questions/Karnali Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Koshi Science 2080", description: "SEE Class 10 Koshi Province Science questions.", category: "questions", class: "10", path: "documents/questions/Koshi Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Lumbini Science 2080", description: "SEE Class 10 Lumbini Province Science questions.", category: "questions", class: "10", path: "documents/questions/Lumbini Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Madhesh Science 2080", description: "SEE Class 10 Madhesh Province Science questions.", category: "questions", class: "10", path: "documents/questions/Madhesh Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+      { title: "Sudur Pashchim Science 2080", description: "SEE Class 10 Sudur Pashchim Province Science questions.", category: "questions", class: "10", path: "documents/questions/Sudur Pashchim Science 2080.pdf", icon: "📕", size: "1.2 MB" },
+
+      // Solutions
+      { title: "Koshi Province Nepali Medium", description: "SEE Class 10 Koshi Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/1. Koshi Province pdf Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "Madhesh Province Nepali Medium", description: "SEE Class 10 Madhesh Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/2.Madhesh Province Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "Bagmati Province Nepali Medium", description: "SEE Class 10 Bagmati Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/3. Bagmati Province Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "Gandaki Province Nepali Medium", description: "SEE Class 10 Gandaki Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/4.Gandaki Province Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "Lumbini Province Nepali Medium", description: "SEE Class 10 Lumbini Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/5.Lumbini Province Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "Karnali Province Nepali Medium", description: "SEE Class 10 Karnali Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/6.Karnali Province nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "Sudurpaschim Province Nepali Medium", description: "SEE Class 10 Sudurpaschim Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/7.Sudurpaschim Province Nepali Medium.pdf", icon: "📂", size: "1.5 MB" },
+      { title: "SEE Grade Increment 2080 Solution", description: "Class 10 Grade Increment solution in Nepali Medium.", category: "solutions", class: "10", path: "documents/solutions/SEE Grade Increment 2080 Solution Nepali Medium.pdf", icon: "📂", size: "2.1 MB" },
+      { title: "SEE Model Set 1 Solution 2080", description: "SEE Class 10 Model Set 1 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE Model Set 1 Solution 2080.docx", icon: "📂", size: "0.8 MB" },
+      { title: "SEE Model Set 2 Solution 2080", description: "SEE Class 10 Model Set 2 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE Model Set 2 Solution 2080.docx", icon: "📂", size: "0.8 MB" },
+      { title: "SEE Model Set 3 Solution 2080", description: "SEE Class 10 Model Set 3 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE Model Set 3 Solution 2080.docx", icon: "📂", size: "0.8 MB" },
+      { title: "SEE Solution of All Province", description: "Complete compilation of SEE Class 10 solutions for all provinces.", category: "solutions", class: "10", path: "documents/solutions/SEE Solution of All Province and Grade Increment 2080.pdf", icon: "📂", size: "5.5 MB" },
+
+      // Slides
+      { title: "10-Pressure Presentation", description: "Interactive PowerPoint presentation on the Pressure chapter.", category: "slides", class: "10", path: "documents/slides/10-Pressure.pptx", icon: "📽️", size: "1.4 MB" },
+
+      // Videos
+      { title: "Pressure & Its Effects", description: "Video demonstration and explanation of pressure principles.", category: "videos", class: "10", path: "documents/videos/Pressure.mp4", icon: "🎬", size: "31.7 MB" }
     ];
 
     let currentType = 'all';
