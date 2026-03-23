@@ -164,6 +164,19 @@
       font-weight: 700;
     }
 
+    .filter-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .filter-group {
+      margin-bottom: 2rem;
+    }
+
     /* ══ GRID ══ */
     .resource-grid {
       display: grid;
@@ -228,6 +241,22 @@
       font-size: 1.25rem;
       margin-bottom: 0.4rem;
       color: #fff;
+    }
+
+    .file-class {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(200, 168, 75, 0.15);
+      border: 1px solid rgba(200, 168, 75, 0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      color: var(--gold2);
+      font-weight: 700;
+      z-index: 5;
     }
 
     .file-info p {
@@ -310,13 +339,26 @@
           onkeyup="filterItems()">
       </div>
 
-      <div class="filters" id="filters">
-        <button class="filter-btn active" onclick="setFilter('all')">All Resources</button>
-        <button class="filter-btn" onclick="setFilter('books')">Books</button>
-        <button class="filter-btn" onclick="setFilter('manuals')">Manuals</button>
-        <button class="filter-btn" onclick="setFilter('practice')">Practice</button>
-        <button class="filter-btn" onclick="setFilter('slides')">Slides</button>
-        <button class="filter-btn" onclick="setFilter('videos')">Videos</button>
+      <div class="filter-group">
+        <span class="filter-label">Resource Type</span>
+        <div class="filters" id="typeFilters">
+          <button class="filter-btn active" onclick="setTypeFilter('all')">All Types</button>
+          <button class="filter-btn" onclick="setTypeFilter('books')">Books</button>
+          <button class="filter-btn" onclick="setTypeFilter('manuals')">Manuals</button>
+          <button class="filter-btn" onclick="setTypeFilter('practice')">Practice</button>
+          <button class="filter-btn" onclick="setTypeFilter('slides')">Slides</button>
+          <button class="filter-btn" onclick="setTypeFilter('videos')">Videos</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Class Level</span>
+        <div class="filters" id="classFilters">
+          <button class="filter-btn active" onclick="setClassFilter('all')">All Classes</button>
+          <button class="filter-btn" onclick="setClassFilter('10')">Class 10</button>
+          <button class="filter-btn" onclick="setClassFilter('9')">Class 9</button>
+          <button class="filter-btn" onclick="setClassFilter('General')">General</button>
+        </div>
       </div>
     </section>
 
@@ -341,6 +383,7 @@
      *   title: "Name of File",
      *   description: "Brief description of what it is",
      *   category: "books", // Choose: books, manuals, practice, slides, videos
+     *   class: "10", // Choose: 10, 9, General
      *   path: "documents/books/filename.pdf", 
      *   icon: "📕", // Choose: 📕(Book), 📂(Manual), 📝(Practice), 📽️(Slide), 🎬(Video)
      *   size: "1.2 MB"
@@ -351,15 +394,16 @@
         title: "NCERT Class 10 Science",
         description: "Official NCERT textbook for Class 10 science students.",
         category: "books",
+        class: "10",
         path: "documents/books/NCERT-Class-10-Science.pdf",
         icon: "📕",
         size: "15.5 MB"
       },
-
       {
         title: "10-Pressure Presentation - PPTX",
         description: "Interactive PowerPoint presentation on the Pressure chapter.",
         category: "slides",
+        class: "10",
         path: "documents/slides/10-Pressure.pptx",
         icon: "📽️",
         size: "1.4 MB"
@@ -368,6 +412,7 @@
         title: "Pressure & Its Effects - Video",
         description: "Video demonstration and explanation of pressure principles.",
         category: "videos",
+        class: "General",
         path: "documents/videos/Pressure.mp4",
         icon: "🎬",
         size: "31.7 MB"
@@ -376,6 +421,7 @@
         title: "Grade 10 Science & Tech (Part II)",
         description: "Advanced manual for secondary level science experiment guides.",
         category: "manuals",
+        class: "10",
         path: "documents/manuals/grade-10-science-and-technology-part-ii.pdf",
         icon: "📂",
         size: "24.7 MB"
@@ -384,21 +430,24 @@
         title: "10 Pressure Nepali Manual",
         description: "Specialized lab manual for Pressure chapter (Nepali Medium).",
         category: "manuals",
+        class: "10",
         path: "documents/manuals/10_Pressure_Nepali.pdf",
         icon: "📂",
         size: "0.6 MB"
       },
       {
-        title: "10 Math & English Practice",
+        title: "10 Math & English Practice Sets",
         description: "Practice set integrated for Class 10 SEE preparation.",
         category: "practice",
+        class: "10",
         path: "documents/practice/10_math_english_practise.pdf",
         icon: "📝",
         size: "33.6 MB"
       }
     ];
 
-    let currentFilter = 'all';
+    let currentType = 'all';
+    let currentClass = 'all';
 
     function renderResources() {
       const grid = document.getElementById('resourceGrid');
@@ -410,9 +459,10 @@
       cards.forEach(c => c.remove());
 
       const filtered = resources.filter(res => {
-        const matchesCategory = currentFilter === 'all' || res.category === currentFilter;
+        const matchesType = currentType === 'all' || res.category === currentType;
+        const matchesClass = currentClass === 'all' || res.class === currentClass;
         const matchesSearch = res.title.toLowerCase().includes(search) || res.description.toLowerCase().includes(search);
-        return matchesCategory && matchesSearch;
+        return matchesType && matchesClass && matchesSearch;
       });
 
       if (filtered.length === 0) {
@@ -425,6 +475,7 @@
           card.href = res.path;
           card.target = "_blank";
           card.innerHTML = `
+            <span class="file-class">Class ${res.class}</span>
             <div class="file-icon">${res.icon}</div>
             <div class="file-info">
               <h3>${res.title}</h3>
@@ -440,13 +491,28 @@
       }
     }
 
-    function setFilter(category) {
-      currentFilter = category;
-      const btns = document.querySelectorAll('.filter-btn');
-      btns.forEach(b => {
-        b.classList.toggle('active', b.innerText.toLowerCase().includes(category) || (category === 'all' && b.innerText === 'All Resources'));
-      });
+    function setTypeFilter(category) {
+      currentType = category;
+      updateFilterButtons('typeFilters', category);
       renderResources();
+    }
+
+    function setClassFilter(cls) {
+      currentClass = cls;
+      updateFilterButtons('classFilters', cls);
+      renderResources();
+    }
+
+    function updateFilterButtons(groupId, activeVal) {
+      const container = document.getElementById(groupId);
+      const btns = container.querySelectorAll('.filter-btn');
+      btns.forEach(b => {
+        const isAll = activeVal === 'all' && (b.innerText === 'All Types' || b.innerText === 'All Classes');
+        const matchesVal = b.innerText.toLowerCase().includes(activeVal.toLowerCase()) ||
+          (activeVal === '10' && b.innerText === 'Class 10') ||
+          (activeVal === '9' && b.innerText === 'Class 9');
+        b.classList.toggle('active', isAll || matchesVal);
+      });
     }
 
     function filterItems() {
@@ -456,12 +522,13 @@
     // Initial Render
     window.onload = () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const cat = urlParams.get('cat');
-      if (cat && ['books', 'manuals', 'practice', 'slides', 'videos'].includes(cat)) {
-        setFilter(cat);
-      } else {
-        renderResources();
-      }
+      const type = urlParams.get('type') || urlParams.get('cat');
+      const cls = urlParams.get('class');
+
+      if (type) setTypeFilter(type);
+      if (cls) setClassFilter(cls);
+
+      if (!type && !cls) renderResources();
     };
   </script>
 </body>

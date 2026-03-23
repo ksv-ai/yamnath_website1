@@ -1474,6 +1474,7 @@
       font-size: .66rem;
       color: rgba(255, 255, 255, .17)
     }
+
     /* RESOURCES TEASER (Bento style) */
     .res-grid {
       display: grid;
@@ -1550,8 +1551,42 @@
       gap: 0.5rem;
     }
 
+    .res-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: -0.5rem;
+    }
+
+    .res-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .file-class {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(200, 168, 75, 0.15);
+      border: 1px solid rgba(200, 168, 75, 0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      color: var(--gold2);
+      font-weight: 700;
+      z-index: 5;
+    }
+
     @media (max-width: 900px) {
-      .res-grid { grid-template-columns: 1fr; }
+      .res-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ══ RESPONSIVE ══ */
@@ -1913,24 +1948,28 @@
     </div>
     <div class="res-grid">
       <a href="resources.html?cat=books" class="res-card rv">
+        <div class="res-tags"><span class="res-tag">Class 10</span><span class="res-tag">Class 9</span></div>
         <div class="res-ico">📕</div>
         <h3>Books</h3>
         <p>Official textbooks and comprehensive SEE guide books for science and technology.</p>
         <span class="res-lnk">View Books →</span>
       </a>
       <a href="resources.html?cat=manuals" class="res-card rv">
+        <div class="res-tags"><span class="res-tag">Class 10</span><span class="res-tag">Class 9</span><span class="res-tag">General</span></div>
         <div class="res-ico">📂</div>
         <h3>Manuals</h3>
         <p>Detailed lab guides and experimental manuals for practical science learning.</p>
         <span class="res-lnk">View Manuals →</span>
       </a>
       <a href="resources.html?cat=practice" class="res-card rv">
+        <div class="res-tags"><span class="res-tag">Class 10</span><span class="res-tag">Class 9</span></div>
         <div class="res-ico">📝</div>
         <h3>Practice Sets</h3>
         <p>Interactive practice papers and model questions for Class 10 SEE preparation.</p>
-        <span class="res-lnk">View Practice →</span>
+        <span class="res-lnk">View Practice Sets →</span>
       </a>
       <a href="resources.html?cat=slides" class="res-card rv">
+        <div class="res-tags"><span class="res-tag">Class 10</span><span class="res-tag">General</span></div>
         <div class="res-ico">📽️</div>
         <h3>Slides & Videos</h3>
         <p>Visual presentations and video demonstrations of complex scientific concepts.</p>
