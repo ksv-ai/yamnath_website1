@@ -1474,6 +1474,85 @@
       font-size: .66rem;
       color: rgba(255, 255, 255, .17)
     }
+    /* RESOURCES TEASER (Bento style) */
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .res-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.4s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .res-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(200, 168, 75, 0.1), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .res-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-8px);
+      border-color: rgba(200, 168, 75, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .res-card:hover::after {
+      opacity: 1;
+    }
+
+    .res-ico {
+      width: 50px;
+      height: 50px;
+      background: rgba(200, 168, 75, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .res-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+
+    .res-card p {
+      font-size: 0.9rem;
+      color: var(--mist);
+      line-height: 1.6;
+    }
+
+    .res-lnk {
+      margin-top: auto;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold2);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .res-grid { grid-template-columns: 1fr; }
+    }
 
     /* ══ RESPONSIVE ══ */
     @media(max-width:900px) {
@@ -1826,51 +1905,37 @@
     </div>
   </section>
 
-  <!-- ══ BOOKS ══ -->
-  <section id="books" class="sec">
+  <!-- ══ RESOURCES ══ -->
+  <section id="resources" class="sec">
     <div class="rv">
-      <div class="kicker">Published Works</div>
-      <h2 class="sh">Books & <em>Lab Manuals</em></h2>
+      <div class="kicker">Digital Library</div>
+      <h2 class="sh">Educational <em>Resources</em></h2>
     </div>
-    <div class="books-grid">
-      <div class="bk rv">
-        <div class="bk-cover">
-          <img src="images/book10.jpg" alt="Saral Vigyan Class 10" loading="lazy" />
-        </div>
-        <div class="bk-body">
-          <div class="bk-class">Class 10 · SEE</div>
-          <h3>Saral Vigyan — Manual tatha Abhyas Pustak</h3>
-          <p>Comprehensive SEE guide covering all labs, practicals and model questions. 6th Edition — Trinity Prakashan.
-          </p>
-          <a href="resources.html?cat=manuals" class="bk-lnk">View Manuals →</a>
-        </div>
-      </div>
-      <div class="bk rv">
-        <div class="bk-cover">
-          <img src="images/book9.jpg" alt="Saral Vigyan Class 9" loading="lazy" />
-        </div>
-        <div class="bk-body">
-          <div class="bk-class">Class 9 · Science</div>
-          <h3>Saral Vigyan — Manual tatha Abhyas Pustak</h3>
-          <p>Hands-on practice materials and experiments aligned with the national curriculum across all 7 provinces.
-          </p>
-          <a href="resources.html?cat=practice" class="bk-lnk">View Practice →</a>
-
-        </div>
-      </div>
-      <div class="bk rv">
-        <div class="bk-cover">
-          <img src="images/book101.jpg" alt="Saral Vigyan SEE" loading="lazy" />
-        </div>
-        <div class="bk-body">
-          <div class="bk-class">Class 10 · Science & Technology</div>
-          <h3>Saral Vigyan tatha Prabidhi — SEE Manual</h3>
-          <p>Science &amp; Technology SEE manual with detailed experimental guides and model questions. 10th Edition.
-          </p>
-          <a href="resources.html?cat=books" class="bk-lnk">View Book →</a>
-
-        </div>
-      </div>
+    <div class="res-grid">
+      <a href="resources.html?cat=books" class="res-card rv">
+        <div class="res-ico">📕</div>
+        <h3>Books</h3>
+        <p>Official textbooks and comprehensive SEE guide books for science and technology.</p>
+        <span class="res-lnk">View Books →</span>
+      </a>
+      <a href="resources.html?cat=manuals" class="res-card rv">
+        <div class="res-ico">📂</div>
+        <h3>Manuals</h3>
+        <p>Detailed lab guides and experimental manuals for practical science learning.</p>
+        <span class="res-lnk">View Manuals →</span>
+      </a>
+      <a href="resources.html?cat=practice" class="res-card rv">
+        <div class="res-ico">📝</div>
+        <h3>Practice Sets</h3>
+        <p>Interactive practice papers and model questions for Class 10 SEE preparation.</p>
+        <span class="res-lnk">View Practice →</span>
+      </a>
+      <a href="resources.html?cat=slides" class="res-card rv">
+        <div class="res-ico">📽️</div>
+        <h3>Slides & Videos</h3>
+        <p>Visual presentations and video demonstrations of complex scientific concepts.</p>
+        <span class="res-lnk">View Media →</span>
+      </a>
     </div>
   </section>
 
