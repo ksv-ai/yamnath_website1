@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Digital Resource Library - Yamnath Poudel. Educational materials, manuals, and books for Science and Technology." />
+  <title>Resources — Yamnath Poudel</title>
+  <link rel="icon" type="image/png" href="images/pp1.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0a0f1e;
+      --navy: #0d1b3e;
+      --navy2: #122050;
+      --gold: #c8a84b;
+      --gold2: #e2c46a;
+      --cream: #f7f2ea;
+      --cream2: #efe8d8;
+      --slate: #4a5568;
+      --mist: #8896a5;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--ink);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      font-size: 110%;
+    }
+
+    /* ══ HEADER ══ */
+    header {
+      padding: 2rem clamp(1.2rem, 5vw, 5rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(200, 168, 75, .15);
+      background: rgba(10, 15, 30, 0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold2);
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+    }
+
+    .back-btn {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-btn:hover { color: var(--gold); }
+
+    /* ══ HERO/CONTROLS ══ */
+    .controls-sec {
+      padding: 3rem clamp(1.2rem, 5vw, 5rem) 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff, var(--gold2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .search-bar {
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .search-bar input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(200, 168, 75, 0.2);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 15px rgba(200, 168, 75, 0.15);
+    }
+
+    .filters {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ══ GRID ══ */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 clamp(1.2rem, 5vw, 5rem) 5rem;
+    }
+
+    .file-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .file-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .file-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(200, 168, 75, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .file-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .file-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200, 168, 75, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .file-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+      color: #fff;
+    }
+
+    .file-info p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.5;
+    }
+
+    .file-meta {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .file-type {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold2);
+      font-weight: 700;
+    }
+
+    .file-size {
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ══ EMPTY STATE ══ */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 5rem 0;
+      color: rgba(255, 255, 255, 0.3);
+      display: none;
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      padding: 3rem clamp(1.2rem, 5vw, 5rem);
+      background: #050810;
+      border-top: 1px solid rgba(200, 168, 75, 0.1);
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 600px) {
+      .filters { gap: 0.5rem; }
+      .filter-btn { padding: 0.5rem 1rem; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <img src="images/pp1.png" alt="YNP" />
+      Yamnath Poudel
+    </a>
+    <a href="index.html" class="back-btn">← Back Home</a>
+  </header>
+
+  <main>
+    <section class="controls-sec">
+      <h1 class="page-title">Digital Library</h1>
+      
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for books, manuals, or slides..." onkeyup="filterItems()">
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn active" onclick="setFilter('all')">All Resources</button>
+        <button class="filter-btn" onclick="setFilter('books')">Books</button>
+        <button class="filter-btn" onclick="setFilter('manuals')">Manuals</button>
+        <button class="filter-btn" onclick="setFilter('practice')">Practice</button>
+        <button class="filter-btn" onclick="setFilter('slides')">Slides</button>
+        <button class="filter-btn" onclick="setFilter('videos')">Videos</button>
+      </div>
+    </section>
+
+    <div class="resource-grid" id="resourceGrid">
+      <!-- Items will be injected by JavaScript -->
+      <div class="empty-state" id="emptyState">
+        No resources found matching your search or category.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Yamnath Poudel · Educational Resource Library
+  </footer>
+
+  <script>
+    /**
+     * ADMIN INSTRUCTIONS:
+     * To add a new file:
+     * 1. Copy the file into the correct subfolder in /documents/
+     * 2. Add an entry to the 'resources' array below.
+     * 
+     * Categories: 'books', 'manuals', 'practice', 'slides', 'videos'
+     * Icons: 📕 (Books), 📂 (Manuals), 📝 (Practice), 📽️ (Slides), 🎬 (Videos)
+     */
+    const resources = [
+      {
+        title: "NCERT Class 10 Science",
+        description: "Official NCERT textbook for Class 10 science students.",
+        category: "books",
+        path: "documents/books/NCERT-Class-10-Science.pdf",
+        icon: "📕",
+        size: "15.5 MB"
+      },
+      {
+        title: "Grade 10 Science & Tech (Part I)",
+        description: "Comprehensive slides covering initial chapters of Science.",
+        category: "slides",
+        path: "documents/slides/grade-10-science-and-technology-part-i.pdf",
+        icon: "📽️",
+        size: "28.3 MB"
+      },
+      {
+        title: "Grade 10 Science & Tech (Part II)",
+        description: "Advanced manual for secondary level science experiment guides.",
+        category: "manuals",
+        path: "documents/manuals/grade-10-science-and-technology-part-ii.pdf",
+        icon: "📂",
+        size: "24.7 MB"
+      },
+      {
+        title: "10 Pressure Nepali Manual",
+        description: "Specialized lab manual for Pressure chapter (Nepali Medium).",
+        category: "manuals",
+        path: "documents/manuals/10_Pressure_Nepali.pdf",
+        icon: "📂",
+        size: "0.6 MB"
+      },
+      {
+        title: "10 Math & English Practice",
+        description: "Practice set integrated for Class 10 SEE preparation.",
+        category: "practice",
+        path: "documents/practice/10_math_english_practise.pdf",
+        icon: "📝",
+        size: "33.6 MB"
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderResources() {
+      const grid = document.getElementById('resourceGrid');
+      const emptyState = document.getElementById('emptyState');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      
+      // Clear current grid except empty state
+      const cards = grid.querySelectorAll('.file-card');
+      cards.forEach(c => c.remove());
+
+      const filtered = resources.filter(res => {
+        const matchesCategory = currentFilter === 'all' || res.category === currentFilter;
+        const matchesSearch = res.title.toLowerCase().includes(search) || res.description.toLowerCase().includes(search);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+        filtered.forEach(res => {
+          const card = document.createElement('a');
+          card.className = 'file-card rv vis';
+          card.href = res.path;
+          card.target = "_blank";
+          card.innerHTML = `
+            <div class="file-icon">${res.icon}</div>
+            <div class="file-info">
+              <h3>${res.title}</h3>
+              <p>${res.description}</p>
+            </div>
+            <div class="file-meta">
+              <span class="file-type">${res.category}</span>
+              <span class="file-size">${res.size}</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    function setFilter(category) {
+      currentFilter = category;
+      const btns = document.querySelectorAll('.filter-btn');
+      btns.forEach(b => {
+        b.classList.toggle('active', b.innerText.toLowerCase().includes(category) || (category === 'all' && b.innerText === 'All Resources'));
+      });
+      renderResources();
+    }
+
+    function filterItems() {
+      renderResources();
+    }
+
+    // Initial Render
+    window.onload = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cat = urlParams.get('cat');
+      if (cat && ['books', 'manuals', 'practice', 'slides', 'videos'].includes(cat)) {
+        setFilter(cat);
+      } else {
+        renderResources();
+      }
+    };
+  </script>
+</body>
+</html>
