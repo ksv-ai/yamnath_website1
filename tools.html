@@ -266,85 +266,6 @@
       margin: 0 auto 2rem;
     }
 
-    /* ══ SPECIAL LINKS ══ */
-    .special-links {
-      padding: 0 5% 4rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .sl-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .sl-card {
-      background: rgba(15, 20, 35, 0.4);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .sl-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 4px;
-    }
-
-    .govt-card::before { background: linear-gradient(90deg, #dc143c, #1e90ff); }
-    .sci-card::before { background: linear-gradient(90deg, #32cd32, var(--gold)); }
-
-    .sl-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .sl-card h2 {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: var(--white);
-    }
-
-    .sl-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .sl-list li a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.95rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .sl-list li:last-child a {
-      border-bottom: none;
-    }
-
-    .sl-list li a:hover {
-      color: var(--gold);
-      transform: translateX(5px);
-    }
-
-    .sl-list li a::after {
-      content: '↗';
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 0.8rem;
-      opacity: 0.5;
-    }
-
     /* ══ SEARCH & FILTERS ══ */
     .filter-section {
       padding: 0 5% 3rem;
@@ -502,10 +423,6 @@
       display: none;
     }
 
-    h1 {
-      font-size: 2.2rem;
-    }
-
     /* ══ FOOTER ══ */
     footer {
       background: #050810;
@@ -570,12 +487,7 @@
 
     .fcopy {
       font-size: .66rem;
-      color: rgba(255, 255, 255, .17);
-      width: 100%;
-      text-align: center;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, .17)
     }
 
     @media(max-width:500px) {
@@ -598,7 +510,8 @@
   <div id="mob">
     <a href="index.html#home" onclick="closeMob()">Home</a>
     <a href="resources.html" onclick="closeMob()">Resources</a>
-    <a href="links.html" onclick="closeMob()">Links</a>
+    <a href="links.html" onclick="closeMob()">Useful Links</a>
+    <a href="tools.html" onclick="closeMob()">Useful Tools</a>
     <a href="blog.html" onclick="closeMob()">Blog</a>
     <a href="contact.html" onclick="closeMob()">Contact</a>
   </div>
@@ -612,8 +525,8 @@
     <ul class="nav-links">
       <li><a href="index.html#home">Home</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="links.html">Links</a></li>
-      <li><a href="tools.html" style="color:var(--gold)">Tools</a></li>
+      <li><a href="links.html">Useful Links</a></li>
+      <li><a href="tools.html" style="color:var(--gold)">Useful Tools</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Contact</a>
@@ -648,15 +561,15 @@
 
   <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="fbrand">
+    <a href="index.html#home" class="fbrand">
       <img src="images/logo.svg" alt="YNP Logo" />
       <div>Yamnath Poudel<small>Science Educator · Author · Nepal</small></div>
-    </div>
+    </a>
     <nav class="fnav">
       <a href="index.html#home">Home</a>
       <a href="resources.html">Resources</a>
-      <a href="links.html">Links</a>
-      <a href="tools.html" style="color:var(--gold)">Tools</a>
+      <a href="links.html">Useful Links</a>
+      <a href="tools.html" style="color:var(--gold)">Useful Tools</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -677,7 +590,7 @@
     // Navigation scroll effect
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('nav');
-      if (window.scrollY > 20) {
+      if (window.scrollY > 50) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
@@ -698,35 +611,47 @@
       { name: "PhET Simulations", url: "https://phet.colorado.edu", category: "education", domain: "colorado.edu", desc: "Interactive math and science simulations." },
       { name: "NotebookLM", url: "https://notebooklm.google/", category: "education", domain: "notebooklm.google", desc: "Source-grounded personal AI for research and planning." },
       { name: "MagicSchool AI", url: "https://www.magicschool.ai/", category: "education", domain: "magicschool.ai", desc: "AI-powered platform for lesson planning and more." },
+      { name: "Padlet", url: "https://padlet.com/", category: "education", domain: "padlet.com", desc: "Visual canvas to create, collaborate, and share ideas." },
+      { name: "Quizizz", url: "https://quizizz.com/", category: "education", domain: "quizizz.com", desc: "Engaging student-paced gamified quizzes and lessons." },
+      { name: "Nearpod", url: "https://nearpod.com/", category: "education", domain: "nearpod.com", desc: "Interactive lessons, videos, and assessments for all students." },
 
       // PRODUCTIVITY
       { name: "Google Workspace", url: "https://workspace.google.com", category: "productivity", domain: "google.com", desc: "Collaboration and productivity tools for business and education." },
       { name: "Notion", url: "https://www.notion.so", category: "productivity", domain: "notion.so", desc: "All-in-one workspace for notes, tasks, and wikis." },
+      { name: "Notion Calendar", url: "https://www.notion.so/product/calendar", category: "productivity", domain: "notion.so", desc: "Unified calendar for your life and your work." },
       { name: "Trello", url: "https://trello.com", category: "productivity", domain: "trello.com", desc: "Visual way for teams to manage projects and tasks." },
       { name: "Slack", url: "https://slack.com", category: "productivity", domain: "slack.com", desc: "Channel-based messaging platform for collaboration." },
-      { name: "Evernote", url: "https://evernote.com", category: "productivity", domain: "evernote.com", desc: "Note-taking and organization across all your devices." },
+      { name: "Obsidian", url: "https://obsidian.md/", category: "productivity", domain: "obsidian.md", desc: "Powerful knowledge base that works on local Markdown files." },
+      { name: "Todoist", url: "https://todoist.com/", category: "productivity", domain: "todoist.com", desc: "To-do list and task manager for individuals and teams." },
+      { name: "Miro", url: "https://miro.com/", category: "productivity", domain: "miro.com", desc: "Online collaborative whiteboard platform for teamwork." },
+      { name: "Excalidraw", url: "https://excalidraw.com/", category: "productivity", domain: "excalidraw.com", desc: "Virtual whiteboard for sketching hand-drawn like diagrams." },
 
       // CREATIVE
       { name: "Canva", url: "https://www.canva.com", category: "creative", domain: "canva.com", desc: "Graphic design platform for creating visual content." },
       { name: "CapCut", url: "https://www.capcut.com", category: "creative", domain: "capcut.com", desc: "User-friendly video editing for all creators." },
       { name: "Adobe Firefly", url: "https://firefly.adobe.com", category: "creative", domain: "adobe.com", desc: "Safe generative AI built into Adobe's creative suite." },
       { name: "Suno AI", url: "https://app.suno.ai/", category: "creative", domain: "suno.com", desc: "High-quality AI song and vocal generator." },
-      { name: "Decohere", url: "https://app.decohere.ai/", category: "creative", domain: "decohere.ai", desc: "Fast text-to-video and image creator." },
+      { name: "Loom", url: "https://www.loom.com/", category: "creative", domain: "loom.com", desc: "Quickly record and share video messages to save time." },
+      { name: "Scribe", url: "https://scribehow.com/", category: "creative", domain: "scribehow.com", desc: "Automatically create step-by-step guides for any process." },
 
       // RESEARCH
       { name: "ChatGPT", url: "https://chat.openai.com", category: "research", domain: "openai.com", desc: "Conversational AI for answering questions and generating text." },
       { name: "Perplexity", url: "https://www.perplexity.ai/", category: "research", domain: "perplexity.ai", desc: "AI answer engine with real-time web references." },
       { name: "Claude", url: "https://claude.ai", category: "research", domain: "anthropic.com", desc: "Helpful, honest, and harmless AI assistant." },
+      { name: "Semantic Scholar", url: "https://www.semanticscholar.org/", category: "research", domain: "semanticscholar.org", desc: "AI-powered research tool for scientific literature." },
+      { name: "Connected Papers", url: "https://www.connectedpapers.com/", category: "research", domain: "connectedpapers.com", desc: "Visual tool to explore relevant scientific papers." },
+      { name: "Elicit", url: "https://elicit.org/", category: "research", domain: "elicit.org", desc: "AI research assistant that automates literature review tasks." },
+      { name: "Research Rabbit", url: "https://www.researchrabbit.ai/", category: "research", domain: "researchrabbitapp.com", desc: "The 'Spotify for Research' to discover and organize papers." },
       { name: "Wolfram Alpha", url: "https://www.wolframalpha.com", category: "research", domain: "wolframalpha.com", desc: "Computational intelligence and knowledge engine." },
-      { name: "Google Scholar", url: "https://scholar.google.com", category: "research", domain: "scholar.google.com", desc: "Search scholarly literature across many disciplines." },
-      { name: "Wikipedia", url: "https://www.wikipedia.org", category: "research", domain: "wikipedia.org", desc: "The free encyclopedia that anyone can edit." },
+      { name: "Zotero", url: "https://www.zotero.org/", category: "research", domain: "zotero.org", desc: "Free, easy-to-use tool to collect and cite research." },
 
       // UTILITIES
       { name: "Remove.bg", url: "https://www.remove.bg", category: "utilities", domain: "remove.bg", desc: "Remove background from images automatically in seconds." },
       { name: "IlovePDF", url: "https://www.ilovepdf.com", category: "utilities", domain: "ilovepdf.com", desc: "Every tool you need to work with PDFs in one place." },
       { name: "TinyWow", url: "https://tinywow.com/", category: "utilities", domain: "tinywow.com", desc: "Free tools for PDF, video, image, and more." },
+      { name: "Quillbot", url: "https://quillbot.com/", category: "utilities", domain: "quillbot.com", desc: "AI-powered paraphrasing tool to improve your writing." },
+      { name: "Grammarly", url: "https://www.grammarly.com/", category: "utilities", domain: "grammarly.com", desc: "AI writing assistant for clear and effective communication." },
       { name: "Speedtest", url: "https://www.speedtest.net", category: "utilities", domain: "speedtest.net", desc: "Test your internet connection speed and performance." },
-      { name: "Originality.ai", url: "https://app.originality.ai/", category: "utilities", domain: "originality.ai", desc: "AI content detector and plagiarism checker." },
       { name: "Temp Mail", url: "https://tempmailo.com/", category: "utilities", domain: "tempmailo.com", desc: "Disposable temporary email for testing tools." }
     ];
 
