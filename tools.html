@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Useful Tools | Yam Nath Poudel</title>
+  <meta name="description"
+    content="A curated directory of the most powerful and useful digital tools for teachers, students, and professionals.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #050810;
+      --gold: #c8a84b;
+      --gold2: #e2c26d;
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --font-main: 'Outfit', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 110%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--white);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ══ BACKGROUND ══ */
+    .bg-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% -20%, #1a233a 0%, transparent 60%);
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    /* ══ NAV (Unified) ══ */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 clamp(1rem, 3vw, 3rem);
+      transition: background .3s, border-color .3s;
+    }
+
+    #nav.scrolled {
+      background: rgba(10, 15, 30, .97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(200, 168, 75, .18);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold2);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      border-radius: 3.5px;
+      object-fit: contain;
+      border: 1.2px solid rgba(200, 168, 75, .3);
+    }
+
+    .nav-logo em {
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: clamp(.5rem, 1.3vw, 1.4rem);
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, .58);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      position: relative;
+      transition: color .2s;
+      text-decoration: none;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .25s var(--ease);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      flex-shrink: 0;
+      display: inline-block;
+      background: transparent;
+      border: 1px solid rgba(200, 168, 75, .45);
+      color: var(--gold);
+      padding: 6px 16px;
+      border-radius: 3px;
+      font-size: .73rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: all .2s;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    /* hamburger */
+    .hbtn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+      background: none;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .hbtn span {
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, .8);
+      display: block;
+      transition: all .28s;
+    }
+
+    .hbtn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px);
+    }
+
+    .hbtn.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hbtn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
+    }
+
+    /* mobile menu */
+    #mob {
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8rem;
+      transform: translateX(100%);
+      transition: transform .42s var(--ease);
+    }
+
+    #mob.open {
+      transform: translateX(0);
+    }
+
+    #mob a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .7);
+      transition: color .2s;
+      text-decoration: none;
+    }
+
+    #mob a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .hbtn {
+        display: flex;
+        margin-left: auto;
+      }
+    }
+
+    /* ══ HERO ══ */
+    header {
+      padding: 4rem 5% 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, var(--gold2), #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead {
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ══ SPECIAL LINKS ══ */
+    .special-links {
+      padding: 0 5% 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .sl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .sl-card {
+      background: rgba(15, 20, 35, 0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .sl-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+    }
+
+    .govt-card::before { background: linear-gradient(90deg, #dc143c, #1e90ff); }
+    .sci-card::before { background: linear-gradient(90deg, #32cd32, var(--gold)); }
+
+    .sl-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .sl-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .sl-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .sl-list li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .sl-list li:last-child a {
+      border-bottom: none;
+    }
+
+    .sl-list li a:hover {
+      color: var(--gold);
+      transform: translateX(5px);
+    }
+
+    .sl-list li a::after {
+      content: '↗';
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ══ SEARCH & FILTERS ══ */
+    .filter-section {
+      padding: 0 5% 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .search-box {
+      width: 100%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-main);
+      transition: all 0.3s;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .filters {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: white;
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ══ GRID ══ */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 0 5% 5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .link-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(200, 168, 75, 0.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .link-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(200, 168, 75, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .link-card:hover::before {
+      opacity: 1;
+    }
+
+    .link-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .link-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .link-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: var(--gold2);
+    }
+
+    .link-info p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .link-cat {
+      margin-top: auto;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem;
+      color: rgba(255, 255, 255, 0.3);
+      display: none;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      background: #050810;
+      padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.2rem, 5vw, 5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      border-top: 1px solid rgba(200, 168, 75, .1);
+      margin-top: 4rem;
+    }
+
+    .fbrand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--gold2);
+      text-decoration: none;
+    }
+
+    .fbrand img {
+      height: 28px;
+      width: auto;
+      border-radius: 3.5px;
+      object-fit: contain;
+      border: 1px solid rgba(200, 168, 75, .25);
+    }
+
+    .fbrand small {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: .62rem;
+      color: rgba(255, 255, 255, .24);
+      font-weight: 400;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: .1rem;
+    }
+
+    .fnav {
+      display: flex;
+      gap: 1.3rem;
+      flex-wrap: wrap;
+    }
+
+    .fnav a {
+      font-size: .7rem;
+      color: rgba(255, 255, 255, .24);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .18s;
+      text-decoration: none;
+    }
+
+    .fnav a:hover {
+      color: var(--gold);
+    }
+
+    .fcopy {
+      font-size: .66rem;
+      color: rgba(255, 255, 255, .17);
+      width: 100%;
+      text-align: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    @media(max-width:500px) {
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .fnav {
+        gap: .8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <!-- Mobile overlay -->
+  <div id="mob">
+    <a href="index.html#home" onclick="closeMob()">Home</a>
+    <a href="resources.html" onclick="closeMob()">Resources</a>
+    <a href="links.html" onclick="closeMob()">Links</a>
+    <a href="blog.html" onclick="closeMob()">Blog</a>
+    <a href="contact.html" onclick="closeMob()">Contact</a>
+  </div>
+
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <a class="nav-logo" href="index.html#home">
+      <img src="images/logo.svg" alt="YNP Logo" loading="lazy" />
+      Yamnath Poudel<em></em>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="links.html">Links</a></li>
+      <li><a href="tools.html" style="color:var(--gold)">Tools</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Contact</a>
+    <button class="hbtn" id="hbtn" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
+
+  <header>
+    <h1><em>Useful tools</em> & Utilities</h1>
+    <p class="lead">A handpicked collection of software, platforms, and AI-powered utilities to supercharge your digital workflow.</p>
+  </header>
+
+  <section class="filter-section">
+    <input type="text" id="searchInput" class="search-box" placeholder="Search tools (e.g. video, images, teachers)..."
+      onkeyup="renderTools()">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" onclick="setFilter('all')">All Tools</button>
+      <button class="filter-btn" onclick="setFilter('education')">Education</button>
+      <button class="filter-btn" onclick="setFilter('productivity')">Productivity</button>
+      <button class="filter-btn" onclick="setFilter('creative')">Creative & Media</button>
+      <button class="filter-btn" onclick="setFilter('research')">Research</button>
+      <button class="filter-btn" onclick="setFilter('utilities')">Utilities</button>
+    </div>
+  </section>
+
+  <main class="links-grid" id="toolsGrid">
+    <div class="empty-state" id="emptyState">No tools found matching your search.</div>
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="fbrand">
+      <img src="images/logo.svg" alt="YNP Logo" />
+      <div>Yamnath Poudel<small>Science Educator · Author · Nepal</small></div>
+    </div>
+    <nav class="fnav">
+      <a href="index.html#home">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="links.html">Links</a>
+      <a href="tools.html" style="color:var(--gold)">Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="fcopy">© 2026 Keshav Poudel. All rights reserved.</div>
+  </footer>
+
+  <script>
+    /* mobile menu */
+    let mo = false;
+    function toggleMob() {
+      mo = !mo;
+      document.getElementById('mob').classList.toggle('open', mo);
+      document.getElementById('hbtn').classList.toggle('open', mo);
+      document.body.style.overflow = mo ? 'hidden' : '';
+    }
+    function closeMob() { if (mo) toggleMob(); }
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    /* Clean URLs (Hides .html from address bar on servers) */
+    if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('.html')) {
+      const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+      window.history.replaceState(null, '', cleanUrl + window.location.search);
+    }
+
+    const tools = [
+      // EDUCATION
+      { name: "Google Classroom", url: "https://classroom.google.com", category: "education", domain: "classroom.google.com", desc: "Manage teaching and learning with an easy-to-use platform." },
+      { name: "GeoGebra", url: "https://www.geogebra.org", category: "education", domain: "geogebra.org", desc: "Dynamic mathematics software for all levels of education." },
+      { name: "Khan Academy", url: "https://www.khanacademy.org", category: "education", domain: "khanacademy.org", desc: "Free online courses, lessons and practice." },
+      { name: "PhET Simulations", url: "https://phet.colorado.edu", category: "education", domain: "colorado.edu", desc: "Interactive math and science simulations." },
+      { name: "NotebookLM", url: "https://notebooklm.google/", category: "education", domain: "notebooklm.google", desc: "Source-grounded personal AI for research and planning." },
+      { name: "MagicSchool AI", url: "https://www.magicschool.ai/", category: "education", domain: "magicschool.ai", desc: "AI-powered platform for lesson planning and more." },
+
+      // PRODUCTIVITY
+      { name: "Google Workspace", url: "https://workspace.google.com", category: "productivity", domain: "google.com", desc: "Collaboration and productivity tools for business and education." },
+      { name: "Notion", url: "https://www.notion.so", category: "productivity", domain: "notion.so", desc: "All-in-one workspace for notes, tasks, and wikis." },
+      { name: "Trello", url: "https://trello.com", category: "productivity", domain: "trello.com", desc: "Visual way for teams to manage projects and tasks." },
+      { name: "Slack", url: "https://slack.com", category: "productivity", domain: "slack.com", desc: "Channel-based messaging platform for collaboration." },
+      { name: "Evernote", url: "https://evernote.com", category: "productivity", domain: "evernote.com", desc: "Note-taking and organization across all your devices." },
+
+      // CREATIVE
+      { name: "Canva", url: "https://www.canva.com", category: "creative", domain: "canva.com", desc: "Graphic design platform for creating visual content." },
+      { name: "CapCut", url: "https://www.capcut.com", category: "creative", domain: "capcut.com", desc: "User-friendly video editing for all creators." },
+      { name: "Adobe Firefly", url: "https://firefly.adobe.com", category: "creative", domain: "adobe.com", desc: "Safe generative AI built into Adobe's creative suite." },
+      { name: "Suno AI", url: "https://app.suno.ai/", category: "creative", domain: "suno.com", desc: "High-quality AI song and vocal generator." },
+      { name: "Decohere", url: "https://app.decohere.ai/", category: "creative", domain: "decohere.ai", desc: "Fast text-to-video and image creator." },
+
+      // RESEARCH
+      { name: "ChatGPT", url: "https://chat.openai.com", category: "research", domain: "openai.com", desc: "Conversational AI for answering questions and generating text." },
+      { name: "Perplexity", url: "https://www.perplexity.ai/", category: "research", domain: "perplexity.ai", desc: "AI answer engine with real-time web references." },
+      { name: "Claude", url: "https://claude.ai", category: "research", domain: "anthropic.com", desc: "Helpful, honest, and harmless AI assistant." },
+      { name: "Wolfram Alpha", url: "https://www.wolframalpha.com", category: "research", domain: "wolframalpha.com", desc: "Computational intelligence and knowledge engine." },
+      { name: "Google Scholar", url: "https://scholar.google.com", category: "research", domain: "scholar.google.com", desc: "Search scholarly literature across many disciplines." },
+      { name: "Wikipedia", url: "https://www.wikipedia.org", category: "research", domain: "wikipedia.org", desc: "The free encyclopedia that anyone can edit." },
+
+      // UTILITIES
+      { name: "Remove.bg", url: "https://www.remove.bg", category: "utilities", domain: "remove.bg", desc: "Remove background from images automatically in seconds." },
+      { name: "IlovePDF", url: "https://www.ilovepdf.com", category: "utilities", domain: "ilovepdf.com", desc: "Every tool you need to work with PDFs in one place." },
+      { name: "TinyWow", url: "https://tinywow.com/", category: "utilities", domain: "tinywow.com", desc: "Free tools for PDF, video, image, and more." },
+      { name: "Speedtest", url: "https://www.speedtest.net", category: "utilities", domain: "speedtest.net", desc: "Test your internet connection speed and performance." },
+      { name: "Originality.ai", url: "https://app.originality.ai/", category: "utilities", domain: "originality.ai", desc: "AI content detector and plagiarism checker." },
+      { name: "Temp Mail", url: "https://tempmailo.com/", category: "utilities", domain: "tempmailo.com", desc: "Disposable temporary email for testing tools." }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderTools() {
+      const grid = document.getElementById('toolsGrid');
+      const emptyState = document.getElementById('emptyState');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+
+      // Clear existing except empty state
+      const cards = grid.querySelectorAll('.link-card');
+      cards.forEach(c => c.remove());
+
+      const filtered = tools.filter(tool => {
+        const matchesFilter = currentFilter === 'all' || tool.category === currentFilter;
+        const matchesSearch = tool.name.toLowerCase().includes(search) || tool.desc.toLowerCase().includes(search);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+        filtered.forEach(tool => {
+          const card = document.createElement('a');
+          card.className = 'link-card';
+          card.href = tool.url;
+          card.target = "_blank";
+          const logoUrl = `https://www.google.com/s2/favicons?domain=${tool.domain}&sz=64`;
+          card.innerHTML = `
+            <div class="link-icon"><img src="${logoUrl}" alt="${tool.name} logo" loading="lazy"></div>
+            <div class="link-info">
+              <h3>${tool.name}</h3>
+              <p>${tool.desc}</p>
+              <span class="link-cat">${tool.category}</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    function setFilter(cat) {
+      currentFilter = cat;
+      const btns = document.querySelectorAll('.filter-btn');
+      btns.forEach(b => {
+        b.classList.toggle('active', b.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'all' && b.innerText === 'All Tools'));
+      });
+      renderTools();
+    }
+
+    // Initial load
+    renderTools();
+  </script>
+</body>
+
+</html>

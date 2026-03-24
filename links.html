@@ -296,7 +296,11 @@
     }
 
     .govt-card::before { background: linear-gradient(90deg, #dc143c, #1e90ff); }
+    .uni-card::before { background: linear-gradient(90deg, #6a11cb, #2575fc); }
+    .council-card::before { background: linear-gradient(90deg, #ff9a9e, #fad0c4); }
     .sci-card::before { background: linear-gradient(90deg, #32cd32, var(--gold)); }
+    .lib-card::before { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .research-card::before { background: linear-gradient(90deg, #ff0844, #ffb199); }
 
     .sl-icon {
       font-size: 2.8rem;
@@ -492,7 +496,6 @@
     h1 {
       font-size: 2.2rem;
     }
-    }
 
     /* ══ FOOTER ══ */
     footer {
@@ -504,6 +507,7 @@
       flex-wrap: wrap;
       gap: 1.1rem;
       border-top: 1px solid rgba(200, 168, 75, .1);
+      margin-top: 4rem;
     }
 
     .fbrand {
@@ -533,89 +537,13 @@
       font-weight: 400;
       letter-spacing: .08em;
       text-transform: uppercase;
-      margin-top: .1rem
+      margin-top: .1rem;
     }
 
     .fnav {
       display: flex;
       gap: 1.3rem;
-      flex-wrap: wrap
-    }
-
-    .fnav a {
-      font-size: .7rem;
-      color: rgba(255, 255, 255, .24);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      transition: color .18s;
-      text-decoration: none;
-    }
-
-    .fnav a:hover {
-      color: var(--gold)
-    }
-
-    .fcopy {
-      font-size: .66rem;
-      color: rgba(255, 255, 255, .17)
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    /* ══ FOOTER ══ */
-    footer {
-      background: #050810;
-      padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.2rem, 5vw, 5rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1.1rem;
-      border-top: 1px solid rgba(200, 168, 75, .1);
-    }
-
-    .fbrand {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: var(--gold2);
-      text-decoration: none;
-    }
-
-    .fbrand img {
-      height: 28px;
-      width: auto;
-      border-radius: 3.5px;
-      object-fit: contain;
-      border: 1px solid rgba(200, 168, 75, .25)
-    }
-
-    .fbrand small {
-      display: block;
-      font-family: 'Outfit', sans-serif;
-      font-size: .62rem;
-      color: rgba(255, 255, 255, .24);
-      font-weight: 400;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-top: .1rem
-    }
-
-    .fnav {
-      display: flex;
-      gap: 1.3rem;
-      flex-wrap: wrap
     }
 
     .fnav a {
@@ -628,99 +556,27 @@
     }
 
     .fnav a:hover {
-      color: var(--gold)
+      color: var(--gold);
     }
 
     .fcopy {
       font-size: .66rem;
-      color: rgba(255, 255, 255, .17)
+      color: rgba(255, 255, 255, .17);
+      width: 100%;
+      text-align: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     @media(max-width:500px) {
       footer {
         flex-direction: column;
-        align-items: flex-start
+        align-items: flex-start;
       }
 
       .fnav {
-        gap: .8rem
-      }
-    }
-
-    /* ══ FOOTER ══ */
-    footer {
-      background: #050810;
-      padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.2rem, 5vw, 5rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.1rem;
-      border-top: 1px solid rgba(200, 168, 75, .1);
-    }
-
-    .fbrand {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: var(--gold2);
-      text-decoration: none;
-    }
-
-    .fbrand img {
-      height: 28px;
-      width: auto;
-      border-radius: 3.5px;
-      object-fit: contain;
-      border: 1px solid rgba(200, 168, 75, .25);
-    }
-
-    .fbrand small {
-      display: block;
-      font-family: 'Outfit', sans-serif;
-      font-size: .62rem;
-      color: rgba(255, 255, 255, .24);
-      font-weight: 400;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-top: .1rem
-    }
-
-    .fnav {
-      display: flex;
-      gap: 1.3rem;
-      flex-wrap: wrap
-    }
-
-    .fnav a {
-      font-size: .7rem;
-      color: rgba(255, 255, 255, .24);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      transition: color .18s;
-      text-decoration: none;
-    }
-
-    .fnav a:hover {
-      color: var(--gold)
-    }
-
-    .fcopy {
-      font-size: .66rem;
-      color: rgba(255, 255, 255, .17)
-    }
-
-    @media(max-width:500px) {
-      footer {
-        flex-direction: column;
-        align-items: flex-start
-      }
-
-      .fnav {
-        gap: .8rem
+        gap: .8rem;
       }
     }
   </style>
@@ -748,6 +604,7 @@
       <li><a href="index.html#home">Home</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="links.html" style="color:var(--gold)">Links</a></li>
+      <li><a href="tools.html">Tools</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Contact</a>
@@ -759,67 +616,133 @@
   <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
 
   <header>
-    <h1><em>Useful Links</em> & Tools</h1>
-    <p class="lead">A handpicked collection of the most powerful external resources and curated AI tools to supercharge your teaching and research.</p>
+    <h1><em>Useful Links</em> & Resources</h1>
+    <p class="lead">A curated repository of official Nepal government portals, university entrance links, STEM resources, and digital libraries for students and educators.</p>
   </header>
 
   <section class="special-links">
     <div class="sl-grid">
-      <!-- Govt Links -->
+      <!-- Nepal Government Portals -->
       <div class="sl-card govt-card">
         <div class="sl-icon">🇳🇵</div>
-        <h2>Nepal Govt. Portals</h2>
+        <h2>Govt. Portals</h2>
         <ul class="sl-list">
-          <li><a href="https://moecdc.gov.np/" target="_blank">Curriculum Development Center (CDC)</a></li>
+          <li><a href="https://moest.gov.np/" target="_blank">Ministry of Education (MOEST)</a></li>
+          <li><a href="https://moecdc.gov.np/" target="_blank">Curriculum Development Center</a></li>
           <li><a href="http://www.neb.gov.np/" target="_blank">National Examination Board (NEB)</a></li>
           <li><a href="https://cehrd.gov.np/" target="_blank">Education & HR Development Center</a></li>
-          <li><a href="http://moest.gov.np/" target="_blank">Ministry of Education, Science & Tech</a></li>
-          <li><a href="https://doe.gov.np/" target="_blank">Department of Education</a></li>
+          <li><a href="https://see.gov.np/" target="_blank">SEE Exam Controller Office</a></li>
+          <li><a href="https://tsc.gov.np/" target="_blank">Teachers Service Commission</a></li>
+          <li><a href="https://ugcnepal.edu.np/" target="_blank">University Grants Commission</a></li>
+          <li><a href="https://ctevt.org.np/" target="_blank">CTEVT (Technical Education)</a></li>
+          <li><a href="https://psc.gov.np/" target="_blank">Public Service Commission (PSC)</a></li>
+          <li><a href="https://lawcommission.gov.np/" target="_blank">Nepal Law Commission</a></li>
         </ul>
       </div>
 
-      <!-- Science Links -->
+      <!-- Universities & Higher Ed -->
+      <div class="sl-card uni-card">
+        <div class="sl-icon">🎓</div>
+        <h2>Universities</h2>
+        <ul class="sl-list">
+          <li><a href="https://tu.edu.np/" target="_blank">Tribhuvan University (TU)</a></li>
+          <li><a href="https://ku.edu.np/" target="_blank">Kathmandu University (KU)</a></li>
+          <li><a href="https://pu.edu.np/" target="_blank">Pokhara University (PoU)</a></li>
+          <li><a href="http://puexam.edu.np/" target="_blank">Purbanchal University (PU)</a></li>
+          <li><a href="https://nou.edu.np/" target="_blank">Nepal Open University (NOU)</a></li>
+          <li><a href="https://mwu.edu.np/" target="_blank">Mid-Western University</a></li>
+          <li><a href="https://fwu.edu.np/" target="_blank">Far-Western University</a></li>
+          <li><a href="https://afu.edu.np/" target="_blank">Agriculture & Forestry University</a></li>
+          <li><a href="https://lbu.edu.np/" target="_blank">Lumbini Buddhist University</a></li>
+          <li><a href="https://rju.edu.np/" target="_blank">Rajarshi Janak University</a></li>
+        </ul>
+      </div>
+
+      <!-- Professional Councils -->
+      <div class="sl-card council-card">
+        <div class="sl-icon">📜</div>
+        <h2>Prof. Councils</h2>
+        <ul class="sl-list">
+          <li><a href="https://nmc.org.np/" target="_blank">Nepal Medical Council</a></li>
+          <li><a href="https://nec.gov.np/" target="_blank">Nepal Engineering Council</a></li>
+          <li><a href="https://nnc.org.np/" target="_blank">Nepal Nursing Council</a></li>
+          <li><a href="https://nhpc.gov.np/" target="_blank">Health Professional Council</a></li>
+          <li><a href="https://nepalpharmacycouncil.org.np/" target="_blank">Nepal Pharmacy Council</a></li>
+          <li><a href="https://nln.gov.np/" target="_blank">National Library of Nepal</a></li>
+          <li><a href="https://mofa.gov.np/" target="_blank">Ministry of Foreign Affairs</a></li>
+          <li><a href="https://npsc.gov.np/" target="_blank">National Planning Commission</a></li>
+        </ul>
+      </div>
+
+      <!-- Interactive Science Labs -->
       <div class="sl-card sci-card">
         <div class="sl-icon">🔬</div>
-        <h2>Interactive Science Labs</h2>
+        <h2>STEM & Science</h2>
         <ul class="sl-list">
-          <li><a href="https://phet.colorado.edu/" target="_blank">PhET Math & Science Simulations</a></li>
+          <li><a href="https://phet.colorado.edu/" target="_blank">PhET Simulations</a></li>
           <li><a href="https://www.olabs.edu.in/" target="_blank">Online Labs (OLabs)</a></li>
           <li><a href="https://www.circuitlab.com/" target="_blank">Circuit Lab Simulator</a></li>
           <li><a href="https://makemegenius.com/" target="_blank">Make Me Genius (Animations)</a></li>
-          <li><a href="https://www.arvindguptatoys.com/toys.html" target="_blank">Arvind Gupta Toys (From Trash)</a></li>
+          <li><a href="https://www.arvindguptatoys.com/toys.html" target="_blank">Arvind Gupta Toys</a></li>
+          <li><a href="https://www.khanacademy.org/science" target="_blank">Khan Academy Science</a></li>
+          <li><a href="https://www.nasa.gov/learning-resources" target="_blank">NASA Education Resources</a></li>
+          <li><a href="https://education.nationalgeographic.org" target="_blank">Nat Geo Education</a></li>
+          <li><a href="https://home.cern/education" target="_blank">CERN Education Portal</a></li>
+          <li><a href="https://www.exploratorium.edu/explore" target="_blank">Exploratorium Activities</a></li>
+        </ul>
+      </div>
+
+      <!-- Digital Libraries & OCW -->
+      <div class="sl-card lib-card">
+        <div class="sl-icon">📚</div>
+        <h2>Libraries & OCW</h2>
+        <ul class="sl-list">
+          <li><a href="https://ocw.mit.edu/" target="_blank">MIT OpenCourseWare</a></li>
+          <li><a href="https://www.coursera.org/" target="_blank">Coursera Free Learning</a></li>
+          <li><a href="https://www.edx.org/" target="_blank">edX Online Courses</a></li>
+          <li><a href="https://olenepal.org/" target="_blank">OLE Nepal (E-Paath)</a></li>
+          <li><a href="https://pustakalaya.org/" target="_blank">E-Pustakalaya Digital Lib</a></li>
+          <li><a href="https://www.gutenberg.org/" target="_blank">Project Gutenberg</a></li>
+          <li><a href="https://archive.org/" target="_blank">Internet Archive</a></li>
+          <li><a href="https://openlibrary.org/" target="_blank">Open Library</a></li>
+          <li><a href="https://learnenglish.britishcouncil.org/" target="_blank">BC Learn English</a></li>
+          <li><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></li>
+        </ul>
+      </div>
+
+      <!-- Journals & Research -->
+      <div class="sl-card research-card">
+        <div class="sl-icon">📰</div>
+        <h2>Research & News</h2>
+        <ul class="sl-list">
+          <li><a href="https://www.nature.com/" target="_blank">Nature Journal</a></li>
+          <li><a href="https://www.sciencenews.org" target="_blank">Science News</a></li>
+          <li><a href="https://www.sciencedaily.com/" target="_blank">Science Daily</a></li>
+          <li><a href="https://www.scientificamerican.com/" target="_blank">Scientific American</a></li>
+          <li><a href="https://www.newscientist.com/" target="_blank">New Scientist</a></li>
+          <li><a href="https://phys.org/" target="_blank">Phys.org Research News</a></li>
+          <li><a href="https://www.popsci.com/" target="_blank">Popular Science</a></li>
+          <li><a href="https://www.smithsonianmag.com/" target="_blank">Smithsonian Magazine</a></li>
+          <li><a href="https://www.nsf.gov/" target="_blank">National Science Foundation</a></li>
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed Central</a></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="filter-section">
-    <input type="text" id="searchInput" class="search-box" placeholder="Search tools (e.g. video, images, teachers)..."
-      onkeyup="renderTools()">
-    <div class="filters" id="filters">
-      <button class="filter-btn active" onclick="setFilter('all')">All Tools</button>
-      <button class="filter-btn" onclick="setFilter('teachers')">For Teachers</button>
-      <button class="filter-btn" onclick="setFilter('images')">Image Creation</button>
-      <button class="filter-btn" onclick="setFilter('video')">Video & Media</button>
-      <button class="filter-btn" onclick="setFilter('research')">Research & Search</button>
-      <button class="filter-btn" onclick="setFilter('utilities')">Utilities</button>
-    </div>
-  </section>
-
-  <main class="links-grid" id="toolsGrid">
-    <div class="empty-state" id="emptyState">No tools found matching your search.</div>
-  </main>
+  <!-- Removal of tools grid as it moved to tools.html -->
 
   <!-- ══ FOOTER ══ -->
   <footer>
-    <a href="index.html#home" class="fbrand">
+    <div class="fbrand">
       <img src="images/logo.svg" alt="YNP Logo" />
       <div>Yamnath Poudel<small>Science Educator · Author · Nepal</small></div>
-    </a>
+    </div>
     <nav class="fnav">
       <a href="index.html#home">Home</a>
       <a href="resources.html">Resources</a>
       <a href="links.html" style="color:var(--gold)">Links</a>
+      <a href="tools.html">Tools</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -852,103 +775,6 @@
       const cleanUrl = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
-
-    const tools = [
-      // IMAGES
-      { name: "Decohere AI", url: "https://app.decohere.ai/", category: "images", icon: "🎨", desc: "Fast text to image creator for stunning visuals." },
-      { name: "Google Image FX", url: "https://labs.google/fx", category: "images", icon: "✨", desc: "Google's advanced image generation experiment." },
-      { name: "Bing Image Creator", url: "https://www.bing.com/images/create?", category: "images", icon: "🖼️", desc: "DALL-E 3 powered image creation from Microsoft." },
-      { name: "Leonardo AI", url: "https://app.leonardo.ai/ai-generations", category: "images", icon: "🦁", desc: "Professional quality image assets with fine-tuned models." },
-      { name: "Adobe Firefly", url: "https://firefly.adobe.com/generate/images", category: "images", icon: "🖌️", desc: "Commercial-safe generative AI built into Adobe tools." },
-      { name: "Ideogram AI", url: "https://ideogram.ai/t/explore", category: "images", icon: "🔠", desc: "Excellent text-in-image generation for posters and logos." },
-      { name: "Microsoft Designer", url: "https://designer.microsoft.com/", category: "images", icon: "📦", desc: "Image to text and graphic design tool." },
-
-      // VIDEO & MEDIA
-      { name: "D-ID Video", url: "https://www.d-id.com/", category: "video", icon: "🗣️", desc: "Create talking avatars from a single photo and text." },
-      { name: "Runway Gen", url: "https://runwayml.com/", category: "video", icon: "🎬", desc: "The next generation of video-to-video and text-to-video." },
-      { name: "Pika Art", url: "https://pika.art/", category: "video", icon: "📽️", desc: "Cinematic video generation from simple prompts." },
-      { name: "HeyGen", url: "https://www.heygen.com/", category: "video", icon: "🕴️", desc: "High-quality AI avatar video generator." },
-      { name: "Vidyo AI", url: "https://vidyo.ai/", category: "video", icon: "✂️", desc: "Automatically create social media clips from long videos." },
-      { name: "Mubert", url: "https://mubert.com/", category: "video", icon: "🎵", desc: "AI-generated royalty-free music for your content." },
-      { name: "Suno AI", url: "https://app.suno.ai/", category: "video", icon: "🎧", desc: "The most advanced AI song and vocal creator." },
-      { name: "Unscreen", url: "https://www.unscreen.com/", category: "video", icon: "🌪️", desc: "Remove video background automatically without a green screen." },
-
-      // TEACHER TOOLS
-      { name: "MagicSchool AI", url: "https://www.magicschool.ai/", category: "teachers", icon: "🏫", desc: "Comprehensive AI platform specifically for educators." },
-      { name: "NotebookLM", url: "https://notebooklm.google/", category: "teachers", icon: "📓", desc: "Source-grounded personal AI for research and planning." },
-      { name: "Education Copilot", url: "https://app.educationcopilot.com/", category: "teachers", icon: "👨‍🏫", desc: "AI-powered lesson planner and resource generator." },
-      { name: "Math-GPT", url: "https://math-gpt.org/", category: "teachers", icon: "📐", desc: "Solve complex math problems and create practice tests." },
-      { name: "Thetawise", url: "https://thetawise.ai/chat", category: "teachers", icon: "📉", desc: "Math problem solver and instructional video creator." },
-      { name: "Conker", url: "https://app.conker.ai/create", category: "teachers", icon: "❓", desc: "AI-driven quiz maker and assessment generator." },
-      { name: "Quizgecko", url: "https://quizgecko.com/create", category: "teachers", icon: "🦎", desc: "Turn any text or URL into a quiz instantly." },
-      { name: "Diffit", url: "https://app.diffit.me/", category: "teachers", icon: "📚", desc: "Differentiated resources for every student level." },
-      { name: "TinyWow", url: "https://tinywow.com/", category: "teachers", icon: "🛠️", desc: "All-in-one file tools for teachers and students." },
-
-      // RESEARCH
-      { name: "Perplexity AI", url: "https://www.perplexity.ai/", category: "research", icon: "🔍", desc: "AI-powered answer engine with real-time web references." },
-      { name: "There's an AI for that", url: "https://theresanaiforthat.com/", category: "research", icon: "🗂️", desc: "The largest directory of AI tools for every task." },
-      { name: "Genspark", url: "https://www.genspark.ai/", category: "research", icon: "🌟", desc: "AI native search engine for comprehensive results." },
-      { name: "Typeset (SciSpace)", url: "https://typeset.io/", category: "research", icon: "🔬", desc: "Literature search and research paper assistant." },
-      { name: "BioDigital", url: "https://human.biodigital.com/explore", category: "research", icon: "🫀", desc: "Interactive 3D human anatomy and disease visualization." },
-      { name: "Qwen AI", url: "https://chat.qwen.ai/", category: "research", icon: "🐉", desc: "Powerful multi-modal AI from Alibaba Cloud." },
-
-      // UTILITIES
-      { name: "Microsoft Copilot", url: "https://copilot.microsoft.com/", category: "utilities", icon: "💻", desc: "Your everyday AI companion across Microsoft 365." },
-      { name: "Originality.ai", url: "https://app.originality.ai/", category: "utilities", icon: "🛡️", desc: "AI content detector and plagiarism checker." },
-      { name: "ZeroGPT", url: "https://www.zerogpt.com/", category: "utilities", icon: "⚪", desc: "Advanced ChatGPT and AI text detector tool." },
-      { name: "Temp Mail", url: "https://tempmailo.com/", category: "utilities", icon: "📧", desc: "Disposable temporary email for testing tools." }
-    ];
-
-    let currentFilter = 'all';
-
-    function renderTools() {
-      const grid = document.getElementById('toolsGrid');
-      const emptyState = document.getElementById('emptyState');
-      const search = document.getElementById('searchInput').value.toLowerCase();
-
-      // Clear existing except empty state
-      const cards = grid.querySelectorAll('.link-card');
-      cards.forEach(c => c.remove());
-
-      const filtered = tools.filter(tool => {
-        const matchesFilter = currentFilter === 'all' || tool.category === currentFilter;
-        const matchesSearch = tool.name.toLowerCase().includes(search) || tool.desc.toLowerCase().includes(search);
-        return matchesFilter && matchesSearch;
-      });
-
-      if (filtered.length === 0) {
-        emptyState.style.display = 'block';
-      } else {
-        emptyState.style.display = 'none';
-        filtered.forEach(tool => {
-          const card = document.createElement('a');
-          card.className = 'link-card';
-          card.href = tool.url;
-          card.target = "_blank";
-          card.innerHTML = `
-            <div class="link-icon">${tool.icon}</div>
-            <div class="link-info">
-              <h3>${tool.name}</h3>
-              <p>${tool.desc}</p>
-              <span class="link-cat">${tool.category}</span>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
-      }
-    }
-
-    function setFilter(cat) {
-      currentFilter = cat;
-      const btns = document.querySelectorAll('.filter-btn');
-      btns.forEach(b => {
-        b.classList.toggle('active', b.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'all' && b.innerText === 'All Tools'));
-      });
-      renderTools();
-    }
-
-    // Initial load
-    renderTools();
   </script>
 </body>
 
