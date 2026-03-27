@@ -236,7 +236,7 @@
 
     /* ══ HERO/CONTROLS ══ */
     .controls-sec {
-      padding: 3rem clamp(1.2rem, 5vw, 5rem) 2rem;
+      padding: 2rem clamp(1.2rem, 5vw, 5rem) 1rem;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -244,7 +244,7 @@
     .page-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.2rem, 5vw, 3.5rem);
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
       background: linear-gradient(135deg, #fff, var(--gold2));
       -webkit-background-clip: text;
       background-clip: text;
@@ -255,7 +255,7 @@
       width: 100%;
       max-width: 600px;
       position: relative;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .search-bar input {
@@ -280,7 +280,7 @@
       display: flex;
       gap: 0.8rem;
       flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .filter-btn {
@@ -317,7 +317,7 @@
     }
 
     .filter-group {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     /* ══ GRID ══ */
@@ -587,13 +587,14 @@
         <span class="filter-label">Resource Type</span>
         <div class="filters" id="typeFilters">
           <button class="filter-btn active" data-type="all" onclick="setTypeFilter('all')">All Types</button>
-          <button class="filter-btn" data-type="practise_questions_sets" onclick="setTypeFilter('practise_questions_sets')">Practice / Question Sets</button>
-          <button class="filter-btn" data-type="solutions" onclick="setTypeFilter('solutions')">Solutions</button>      
+          <button class="filter-btn" data-type="practise_questions_sets"
+            onclick="setTypeFilter('practise_questions_sets')">Practice / Question Sets</button>
+          <button class="filter-btn" data-type="solutions" onclick="setTypeFilter('solutions')">Solutions</button>
           <button class="filter-btn" data-type="slides" onclick="setTypeFilter('slides')">Slides</button>
           <button class="filter-btn" data-type="videos" onclick="setTypeFilter('videos')">Videos</button>
           <button class="filter-btn" data-type="curriculum" onclick="setTypeFilter('curriculum')">Curriculum</button>
           <button class="filter-btn" data-type="textbook" onclick="setTypeFilter('textbook')">Textbooks</button>
-          <button class="filter-btn" data-type="grid" onclick="setTypeFilter('grid')">Specifications Grid</button>
+          <button class="filter-btn" data-type="grid" onclick="setTypeFilter('grid')">Grid</button>
           <button class="filter-btn" data-type="notice" onclick="setTypeFilter('notice')">Notices</button>
         </div>
       </div>
@@ -678,7 +679,7 @@
       { title: "Lumbini Science 2081", description: "SEE Class 10 Lumbini Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Lumbini_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
       { title: "Karnali Science 2081", description: "SEE Class 10 Karnali Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Karnali_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
       { title: "Sudur Pashchim Science 2081", description: "SEE Class 10 Sudur Pashchim Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Sudur_Pashchim_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
-      
+
       { title: "Bagmati Science 2080", description: "SEE Class 10 Bagmati Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Bagmati_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
       { title: "Gandaki Science 2080", description: "SEE Class 10 Gandaki Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Gandaki_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
       { title: "Karnali Science 2080", description: "SEE Class 10 Karnali Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Karnali_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
@@ -723,13 +724,13 @@
 
       // Videos
       { title: "NCED Class 10 Science Nepali Medium", description: "NCED Youtube video PlayList Class 10 Science Nepali Medium", category: "videos", class: "10", path: "https://youtube.com/playlist?list=PLVOHiHZt8InLYjO3zlgtE6pUkrFy2iTQ4&si=YLQz12wOAGBdMq9p", icon: "🎬", size: "YouTube" },
-      
+
       { title: "NCED Class 10 Science English Medium", description: "NCED Youtube video PlayList Class 10 Science English Medium", category: "videos", class: "10", path: "https://youtube.com/playlist?list=PLVOHiHZt8InKqRxy3MY7s2z_Hh817b6vV&si=S7-o8VxarM1Mjusa", icon: "🎬", size: "YouTube" },
-      { title: "NCED Class 9 Science Nepali Medium", description: "NCED Youtube video PlayList Class 9 Science Nepali Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InIiJNHgdETp_BCaANPqFfHc&si=pHg4L0PbACUz6veB", icon: "🎬", size: "YouTube"  },
-      { title: "NCED Class 9 Science English Medium", description: "NCED Youtube video PlayList Class 9 Science English Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InJc14x-X--d6nSVzCpubSGm&si=kj4DOVn8CHWAHqjP", icon: "🎬", size: "YouTube"  },
-      { title: "NCED Class 8 Science Nepali Medium", description: "NCED Youtube video PlayList Class 9 Science Nepali Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InKFkAp5__pLoy4CLrRau2sZ&si=BgBvhNXKfARefi3H", icon: "🎬", size: "YouTube"  },
-      { title: "NCED Class 8 Science English Medium", description: "NCED Youtube video PlayList Class 8 Science Nepali Medium", category: "videos", class: "8", path: "https://youtube.com/playlist?list=PLVOHiHZt8InK0nQCMSniGSwiB0_5rUDIi&si=6wdDdPWevCxPGt5B", icon: "🎬", size: "YouTube"  },
-      
+      { title: "NCED Class 9 Science Nepali Medium", description: "NCED Youtube video PlayList Class 9 Science Nepali Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InIiJNHgdETp_BCaANPqFfHc&si=pHg4L0PbACUz6veB", icon: "🎬", size: "YouTube" },
+      { title: "NCED Class 9 Science English Medium", description: "NCED Youtube video PlayList Class 9 Science English Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InJc14x-X--d6nSVzCpubSGm&si=kj4DOVn8CHWAHqjP", icon: "🎬", size: "YouTube" },
+      { title: "NCED Class 8 Science Nepali Medium", description: "NCED Youtube video PlayList Class 9 Science Nepali Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InKFkAp5__pLoy4CLrRau2sZ&si=BgBvhNXKfARefi3H", icon: "🎬", size: "YouTube" },
+      { title: "NCED Class 8 Science English Medium", description: "NCED Youtube video PlayList Class 8 Science Nepali Medium", category: "videos", class: "8", path: "https://youtube.com/playlist?list=PLVOHiHZt8InK0nQCMSniGSwiB0_5rUDIi&si=6wdDdPWevCxPGt5B", icon: "🎬", size: "YouTube" },
+
       { title: "Pressure & Its Effects", description: "Video demonstration and explanation of pressure principles.", category: "videos", class: "10", path: "https://www.youtube.com/watch?v=GX-OrO8y8L0", icon: "🎬", size: "YouTube" }
     ];
 
