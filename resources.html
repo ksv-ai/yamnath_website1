@@ -573,24 +573,28 @@
       </div>
 
       <div class="filter-group">
-        <span class="filter-label">Resource Type</span>
-        <div class="filters" id="typeFilters">
-          <button class="filter-btn active" onclick="setTypeFilter('all')">All Types</button>
-          <button class="filter-btn" onclick="setTypeFilter('practise_questions_sets')">Practice / Question
-            Sets</button>
-          <button class="filter-btn" onclick="setTypeFilter('solutions')">Solutions</button>      
-          <button class="filter-btn" onclick="setTypeFilter('slides')">Slides</button>
-          <button class="filter-btn" onclick="setTypeFilter('videos')">Videos</button>
+        <span class="filter-label">Class Level</span>
+        <div class="filters" id="classFilters">
+          <button class="filter-btn active" data-class="all" onclick="setClassFilter('all')">All Classes</button>
+          <button class="filter-btn" data-class="10" onclick="setClassFilter('10')">Class 10</button>
+          <button class="filter-btn" data-class="9" onclick="setClassFilter('9')">Class 9</button>
+          <button class="filter-btn" data-class="8" onclick="setClassFilter('8')">Class 8</button>
+          <button class="filter-btn" data-class="General" onclick="setClassFilter('General')">General</button>
         </div>
       </div>
 
       <div class="filter-group">
-        <span class="filter-label">Class Level</span>
-        <div class="filters" id="classFilters">
-          <button class="filter-btn active" onclick="setClassFilter('all')">All Classes</button>
-          <button class="filter-btn" onclick="setClassFilter('10')">Class 10</button>
-          <button class="filter-btn" onclick="setClassFilter('9')">Class 9</button>
-          <button class="filter-btn" onclick="setClassFilter('General')">General</button>
+        <span class="filter-label">Resource Type</span>
+        <div class="filters" id="typeFilters">
+          <button class="filter-btn active" data-type="all" onclick="setTypeFilter('all')">All Types</button>
+          <button class="filter-btn" data-type="practise_questions_sets" onclick="setTypeFilter('practise_questions_sets')">Practice / Question Sets</button>
+          <button class="filter-btn" data-type="solutions" onclick="setTypeFilter('solutions')">Solutions</button>      
+          <button class="filter-btn" data-type="slides" onclick="setTypeFilter('slides')">Slides</button>
+          <button class="filter-btn" data-type="videos" onclick="setTypeFilter('videos')">Videos</button>
+          <button class="filter-btn" data-type="curriculum" onclick="setTypeFilter('curriculum')">Curriculum</button>
+          <button class="filter-btn" data-type="textbook" onclick="setTypeFilter('textbook')">Textbooks</button>
+          <button class="filter-btn" data-type="grid" onclick="setTypeFilter('grid')">Specifications Grid</button>
+          <button class="filter-btn" data-type="notice" onclick="setTypeFilter('notice')">Notices</button>
         </div>
       </div>
     </section>
@@ -654,10 +658,10 @@
      * {
      *   title: "Name of File",
      *   description: "Brief description of what it is",
-     *   category: "practise_questions_sets", // Choose: questions, solutions, practice, slides, videos
-     *   class: "10", // Choose: 10, 9, General
-     *   path: "documents/books/filename.pdf", 
-     *   icon: "📝", // Choose: 📕(Book), 📂(Manual), 📝(Practice), 📽️(Slide), 🎬(Video)
+     *   category: "curriculum", // Choose: practise_questions_sets, solutions, slides, videos, curriculum, textbook, grid, notice
+     *   class: "10", // Choose: 10, 9, 8, General
+     *   path: "documents/curriculum/filename.pdf", 
+     *   icon: "📜", // Choose: 📜(Curriculum), 📕(Book), 📂(Solution), 📽️(Slide), 🎬(Video), 📊(Grid), 🔔(Notice)
      *   size: "1.2 MB"
      * },
      */
@@ -790,11 +794,8 @@
       const container = document.getElementById(groupId);
       const btns = container.querySelectorAll('.filter-btn');
       btns.forEach(b => {
-        const isAll = activeVal === 'all' && (b.innerText === 'All Types' || b.innerText === 'All Classes');
-        const matchesVal = b.innerText.toLowerCase().includes(activeVal.toLowerCase()) ||
-          (activeVal === '10' && b.innerText === 'Class 10') ||
-          (activeVal === '9' && b.innerText === 'Class 9');
-        b.classList.toggle('active', isAll || matchesVal);
+        const val = groupId === 'typeFilters' ? b.dataset.type : b.dataset.class;
+        b.classList.toggle('active', val === activeVal);
       });
     }
 
