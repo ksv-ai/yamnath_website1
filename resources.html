@@ -578,7 +578,7 @@
           <button class="filter-btn active" onclick="setTypeFilter('all')">All Types</button>
           <button class="filter-btn" onclick="setTypeFilter('practise_questions_sets')">Practice / Question
             Sets</button>
-          <button class="filter-btn" onclick="setTypeFilter('solutions')">Solutions</button>
+          <button class="filter-btn" onclick="setTypeFilter('solutions')">Solutions</button>      
           <button class="filter-btn" onclick="setTypeFilter('slides')">Slides</button>
           <button class="filter-btn" onclick="setTypeFilter('videos')">Videos</button>
         </div>
@@ -663,6 +663,18 @@
      */
     const resources = [
       // Questions
+      { title: "Pre-SEE 2082 PABSON Set A Science and Technology", description: "PABSON Set A Pre-SEE Exam 2082 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Pre-SEE_2082_SET_A-Science_and_Technology_PABSON-Questions.pdf", icon: "📝", size: "0.6 MB" },
+      { title: "Pre-SEE 2082 PABSON Set A Science and Technology Answer key", description: "PABSON Set A Pre-SEE Exam 2082 Answer key.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/SET_A_Science_and_Technology_Pre-SEE_2082_PABSON_Answer_Key.pdf", icon: "📝", size: "0.6 MB" },
+      { title: "Pre-SEE 2082 PABSON Set B Science and Technology", description: "PABSON Set B Pre-SEE Exam 2082 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Pre-SEE_2082_SET_B-Science_and_Technology_PABSON_Questions.pdf", icon: "📝", size: "2 MB" },
+      { title: "Pre-SEE 2082 PABSON Set B Science and Technology Answer key", description: "PABSON Set B Pre-SEE Exam 2082 Answer Key.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/SET_B_Science_and_Technology_Pre-SEE_2082_PABSON_Answer_Key.pdf", icon: "📝", size: "0.6 MB" },
+      { title: "Koshi Science 2081", description: "SEE Class 10 Koshi Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Koshi_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      { title: "Madhesh Science 2081", description: "SEE Class 10 Madhesh Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Madhesh_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      { title: "Bagmati Science 2081", description: "SEE Class 10 Bagmati Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Bagmati_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      { title: "Gandaki Science 2081", description: "SEE Class 10 Gandaki Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Gandaki_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      { title: "Lumbini Science 2081", description: "SEE Class 10 Lumbini Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Lumbini_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      { title: "Karnali Science 2081", description: "SEE Class 10 Karnali Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Karnali_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      { title: "Sudur Pashchim Science 2081", description: "SEE Class 10 Sudur Pashchim Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/NEB/SEE_2081_Sudur_Pashchim_Province_Science_and_Technology.pdf", icon: "📝", size: "0.5 MB" },
+      
       { title: "Bagmati Science 2080", description: "SEE Class 10 Bagmati Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Bagmati_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
       { title: "Gandaki Science 2080", description: "SEE Class 10 Gandaki Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Gandaki_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
       { title: "Karnali Science 2080", description: "SEE Class 10 Karnali Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Karnali_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
@@ -670,8 +682,25 @@
       { title: "Lumbini Science 2080", description: "SEE Class 10 Lumbini Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Lumbini_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
       { title: "Madhesh Science 2080", description: "SEE Class 10 Madhesh Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Madhesh_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
       { title: "Sudur Pashchim Science 2080", description: "SEE Class 10 Sudur Pashchim Province Science practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/Sudur_Pashchim_Science_2080.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2080 PABSON Set A Science and Technology", description: "PABSON Set A Pre-SEE Exam 2080 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_A_Science_and_Technology_Pre-SEE_2080_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2080 PABSON Set C Science and Technology", description: "PABSON Set C Pre-SEE Exam 2080 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_C_Science_and_Technology_Pre-SEE_2080_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2080 PABSON Set D Science and Technology", description: "PABSON Set D Pre-SEE Exam 2080 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_D_Science_and_Technology_Pre-SEE_2080_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2080 PABSON Set B Science and Technology", description: "PABSON Set B Pre-SEE Exam 2080 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_B_Science_and_Technology_Pre-SEE_2080_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2081 PABSON Set A Science and Technology", description: "PABSON Set A Pre-SEE Exam 2081 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_A_Science_and_Technology_Pre-SEE_2081_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2081 PABSON Set B Science and Technology", description: "PABSON Set B Pre-SEE Exam 2081 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_B_Science_and_Technology_Pre-SEE_2081_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2081 PABSON Set D Science and Technology", description: "PABSON Set D Pre-SEE Exam 2081 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_D_Science_and_Technology_Pre-SEE_2081_PABSON.pdf", icon: "📝", size: "1.2 MB" },
+      { title: "Pre-SEE 2081 PABSON Set E Science and Technology", description: "PABSON Set E Pre-SEE Exam 2081 practice question sets.", category: "practise_questions_sets", class: "10", path: "documents/practice/PABSON/Set_E_Science_and_Technology_Pre-SEE_2081_PABSON.pdf", icon: "📝", size: "1.2 MB" },
 
       // Solutions
+      { title: "Marking Scheme of SEE Koshi Province ", description: "SEE Class 10 Marking Scheme of SEE Koshi Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Koshi_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+      { title: "Marking Scheme of SEE Madhesh Province ", description: "SEE Class 10 Marking Scheme of SEE Madhesh Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Madhesh_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+      { title: "Marking Scheme of SEE Bagmati Province ", description: "SEE Class 10 Marking Scheme of SEE Bagmati Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Bagmati_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+      { title: "Marking Scheme of SEE Gandaki Province ", description: "SEE Class 10 Marking Scheme of SEE Gandaki Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Gandaki_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+      { title: "Marking Scheme of SEE Lumbini Province ", description: "SEE Class 10 Marking Scheme of SEE Lumbini Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Lumbini_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+      { title: "Marking Scheme of SEE Karnali Province ", description: "SEE Class 10 Marking Scheme of SEE Karnali Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Karnali_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+      { title: "Marking Scheme of SEE Sudur Pashchim Province ", description: "SEE Class 10 Marking Scheme of SEE Sudur Pashchim Province.", category: "solutions", class: "10", path: "documents/solutions/markingscheme/2081_SEE_Sudur_Pashchim_Province_Science-and_Technology_Marking_Scheme.pdf", icon: "📂", size: "0.5 MB" },
+
+
       { title: "Koshi Province Nepali Medium", description: "SEE Class 10 Koshi Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/1._Koshi_Province_pdf_Nepali_Medium.pdf", icon: "📂", size: "1.5 MB" },
       { title: "Madhesh Province Nepali Medium", description: "SEE Class 10 Madhesh Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/2.Madhesh_Province_Nepali_Medium.pdf", icon: "📂", size: "1.5 MB" },
       { title: "Bagmati Province Nepali Medium", description: "SEE Class 10 Bagmati Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/3._Bagmati_Province_Nepali_Medium.pdf", icon: "📂", size: "1.5 MB" },
@@ -680,15 +709,23 @@
       { title: "Karnali Province Nepali Medium", description: "SEE Class 10 Karnali Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/6.Karnali_Province_nepali_Medium.pdf", icon: "📂", size: "1.5 MB" },
       { title: "Sudurpaschim Province Nepali Medium", description: "SEE Class 10 Sudurpaschim Province Science solution.", category: "solutions", class: "10", path: "documents/solutions/7.Sudurpaschim_Province_Nepali_Medium.pdf", icon: "📂", size: "1.5 MB" },
       { title: "SEE Grade Increment 2080 Solution", description: "Class 10 Grade Increment solution in Nepali Medium.", category: "solutions", class: "10", path: "documents/solutions/SEE_Grade_Increment_2080_Solution_Nepali_Medium.pdf", icon: "📂", size: "2.1 MB" },
-      { title: "SEE Model Set 1 Solution 2080", description: "SEE Class 10 Model Set 1 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE_Model_Set_1_Solution_2080.docx", icon: "📂", size: "0.8 MB" },
-      { title: "SEE Model Set 2 Solution 2080", description: "SEE Class 10 Model Set 2 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE_Model_Set_2_Solution_2080.docx", icon: "📂", size: "0.8 MB" },
-      { title: "SEE Model Set 3 Solution 2080", description: "SEE Class 10 Model Set 3 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE_Model_Set_3_Solution_2080.docx", icon: "📂", size: "0.8 MB" },
+      { title: "SEE Model Set 1 Solution 2080", description: "SEE Class 10 Model Set 1 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE_Model_Set_1_Solution_2080.pdf", icon: "📂", size: "0.8 MB" },
+      { title: "SEE Model Set 2 Solution 2080", description: "SEE Class 10 Model Set 2 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE_Model_Set_2_Solution_2080.pdf", icon: "📂", size: "0.8 MB" },
+      { title: "SEE Model Set 3 Solution 2080", description: "SEE Class 10 Model Set 3 Solution.", category: "solutions", class: "10", path: "documents/solutions/SEE_Model_Set_3_Solution_2080.pdf", icon: "📂", size: "0.8 MB" },
       { title: "SEE Solution of All Province", description: "Complete compilation of SEE Class 10 solutions for all provinces.", category: "solutions", class: "10", path: "documents/solutions/SEE_Solution_of_All_Province_and_Grade_Increment_2080.pdf", icon: "📂", size: "5.5 MB" },
 
       // Slides
       { title: "10-Pressure Presentation", description: "Interactive PowerPoint presentation on the Pressure chapter.", category: "slides", class: "10", path: "documents/slides/10-Pressure.pptx", icon: "📽️", size: "1.4 MB" },
 
       // Videos
+      { title: "NCED Class 10 Science Nepali Medium", description: "NCED Youtube video PlayList Class 10 Science Nepali Medium", category: "videos", class: "10", path: "https://youtube.com/playlist?list=PLVOHiHZt8InLYjO3zlgtE6pUkrFy2iTQ4&si=YLQz12wOAGBdMq9p", icon: "🎬", size: "YouTube" },
+      
+      { title: "NCED Class 10 Science English Medium", description: "NCED Youtube video PlayList Class 10 Science English Medium", category: "videos", class: "10", path: "https://youtube.com/playlist?list=PLVOHiHZt8InKqRxy3MY7s2z_Hh817b6vV&si=S7-o8VxarM1Mjusa", icon: "🎬", size: "YouTube" },
+      { title: "NCED Class 9 Science Nepali Medium", description: "NCED Youtube video PlayList Class 9 Science Nepali Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InIiJNHgdETp_BCaANPqFfHc&si=pHg4L0PbACUz6veB", icon: "🎬", size: "YouTube"  },
+      { title: "NCED Class 9 Science English Medium", description: "NCED Youtube video PlayList Class 9 Science English Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InJc14x-X--d6nSVzCpubSGm&si=kj4DOVn8CHWAHqjP", icon: "🎬", size: "YouTube"  },
+      { title: "NCED Class 8 Science Nepali Medium", description: "NCED Youtube video PlayList Class 9 Science Nepali Medium", category: "videos", class: "9", path: "https://youtube.com/playlist?list=PLVOHiHZt8InKFkAp5__pLoy4CLrRau2sZ&si=BgBvhNXKfARefi3H", icon: "🎬", size: "YouTube"  },
+      { title: "NCED Class 8 Science English Medium", description: "NCED Youtube video PlayList Class 8 Science Nepali Medium", category: "videos", class: "8", path: "https://youtube.com/playlist?list=PLVOHiHZt8InK0nQCMSniGSwiB0_5rUDIi&si=6wdDdPWevCxPGt5B", icon: "🎬", size: "YouTube"  },
+      
       { title: "Pressure & Its Effects", description: "Video demonstration and explanation of pressure principles.", category: "videos", class: "10", path: "https://www.youtube.com/watch?v=GX-OrO8y8L0", icon: "🎬", size: "YouTube" }
     ];
 
